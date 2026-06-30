@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Special Offers & Packages — Curated experiences designed to make your stay on Mfangano Island unforgettable.">
+  <title>Offers & Packages | Kadongo Resort - Mfangano Island</title>
+  
+  <!-- 🌐 FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- 🛠️ LIBRARIES -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- 🎨 CRITICAL CSS -->
+  <style>
+    :root {
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Lato', sans-serif;
+      --color-bg: #F9F8F6;
+      --color-text: #2C2C2C;
+      --color-text-light: #5A5A5A;
+      --color-accent: #B88B4A;
+      --color-overlay: rgba(20, 20, 20, 0.5);
+      --spacing-section: 140px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #0F1115;
+      --color-text: #E8E8E8;
+      --color-text-light: #B0B0B0;
+      --color-overlay: rgba(0, 0, 0, 0.7);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto; }
+    .lenis.lenis-stopped { overflow: hidden; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-text);
+    }
+
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    img, video { max-width: 100%; display: block; object-fit: cover; }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--color-accent); }
+
+    /* ===== BUTTONS ===== */
+    .btn-luxury {
+      display: inline-block;
+      padding: 20px 50px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+    .btn-luxury::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 0%; height: 100%;
+      background: var(--color-accent);
+      transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: -1;
+    }
+    .btn-luxury:hover { 
+      color: #fff; 
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(184, 139, 74, 0.4);
+    }
+    .btn-luxury:hover::before { width: 100%; }
+    
+    .btn-luxury.dark {
+      border-color: var(--color-text);
+      color: var(--color-text);
+      background: rgba(0,0,0,0.05);
+    }
+    .btn-luxury.dark:hover { 
+      color: #fff;
+      border-color: var(--color-accent);
+    }
+    .btn-luxury.dark::before { background: var(--color-accent); }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: #fff;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 25px;
+      opacity: 0;
+      transform: translateY(40px);
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: var(--spacing-section) 0;
+      position: relative;
+    }
+
+    /* ===== INTRO SECTION ===== */
+    .intro {
+      background: var(--color-bg);
+      text-align: center;
+      padding: 100px 0;
+    }
+    .intro h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 25px;
+    }
+    .intro p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--color-text-light);
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    /* ===== OFFERS GRID ===== */
+    .offers {
+      background: #fff;
+      padding: 100px 0;
+    }
+    [data-theme="dark"] .offers {
+      background: #1a1a1a;
+    }
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .offer-card {
+      background: var(--color-bg);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .offer-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .offer-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    }
+    .offer-image {
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+    .offer-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .offer-card:hover .offer-img {
+      transform: scale(1.12);
+    }
+    .offer-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+    .offer-content {
+      padding: 35px;
+    }
+    .offer-validity {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    .offer-validity span {
+      font-size: 1.1rem;
+    }
+    .offer-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--color-text);
+    }
+    .offer-features {
+      list-style: none;
+      margin: 25px 0;
+    }
+    .offer-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      [data-theme="dark"] & {
+        border-bottom-color: rgba(255,255,255,0.1);
+      }
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .offer-features li::before {
+      content: '✓';
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .offer-features li:last-child {
+      border-bottom: none;
+    }
+    .offer-price {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--color-accent);
+      margin: 25px 0;
+      font-style: italic;
+    }
+    .offer-price small {
+      font-size: 1rem;
+      font-style: normal;
+      color: var(--color-text-light);
+    }
+
+    /* ===== GROUP EVENTS SECTION ===== */
+    .group-events {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2C2C2C 100%);
+      color: #fff;
+      padding: 150px 0;
+      text-align: center;
+    }
+    .group-events h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 25px;
+      color: var(--color-accent);
+    }
+    .group-events p {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.15rem;
+      opacity: 0.85;
+      line-height: 1.8;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      height: 80vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1520257328597-2c6d0e7f6f8e?auto=format&fit=crop&w=1920&q=80') center/cover;
+      z-index: 1;
+    }
+    .final-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2;
+    }
+    .final-cta-content {
+      position: relative;
+      z-index: 3;
+    }
+    .final-cta h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 25px;
+      font-style: italic;
+      color: #fff;
+    }
+    .final-cta p {
+      font-size: 1.25rem;
+      margin-bottom: 50px;
+      opacity: 0.9;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .offers-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 25px; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 3rem; }
+      .hero-subtitle { font-size: 1.1rem; }
+      .intro { padding: 80px 0; }
+      .offers { padding: 80px 0; }
+    }
+    @media (max-width: 480px) {
+      .offer-content { padding: 25px; }
+      .btn-luxury { width: 100%; padding: 18px 35px; }
+    }
+  </style>
+
+  <!-- 🛡️ PROTECT HEADER CLICKS -->
+  <style>
+    #particle-canvas { pointer-events: none !important; z-index: -1 !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+    #header-placeholder { position: relative; z-index: 10000; }
+    #header-placeholder, #footer-placeholder { min-height: 80px; }
+  </style>
+</head>
+<body>
+
+  <!-- 🌟 PARTICLE BACKGROUND -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    
+    <!-- 🎬 HERO SECTION -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1920&q=80">
+        <source src="https://videos.pexels.com/video-files/5829129/5829129-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Special Offers</h1>
+        <p class="hero-subtitle">Curated experiences designed to make your stay on Mfangano Island unforgettable.</p>
+      </div>
+    </section>
+
+    <!-- 📖 INTRO SECTION -->
+    <section class="intro">
+      <div class="container">
+        <span class="uppercase">Exclusive Packages</span>
+        <h2>Escape to Paradise for Less</h2>
+        <p>
+          Whether you're planning a romantic getaway, a family adventure, or a wellness retreat, 
+          our exclusive packages offer exceptional value including accommodation, meals, and 
+          unique island experiences.
+        </p>
+      </div>
+    </section>
+
+    <!-- 🎁 OFFERS GRID -->
+    <section class="offers">
+      <div class="container">
+        <div class="offers-grid">
+          
+          <!-- Offer 1: Honeymoon -->
+          <article class="offer-card">
+            <div class="offer-image">
+              <span class="offer-badge">Most Popular</span>
+              <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Romantic Honeymoon" class="offer-img" loading="lazy">
+            </div>
+            <div class="offer-content">
+              <div class="offer-validity">
+                <span>📅</span>
+                <span>Valid: Year Round</span>
+              </div>
+              <h3>Romantic Honeymoon Bundle</h3>
+              <ul class="offer-features">
+                <li>3 Nights in Lake View Suite</li>
+                <li>Daily breakfast & 1 candlelit dinner</li>
+                <li>Couples massage (60 mins)</li>
+                <li>Sunset dhow cruise</li>
+                <li>Complimentary room upgrade (subject to availability)</li>
+              </ul>
+              <div class="offer-price">$550 <small>/ couple</small></div>
+              <a href="booking.html?package=honeymoon" class="btn-luxury" style="width: 100%; text-align: center;">Book This Offer</a>
+            </div>
+          </article>
+          
+          <!-- Offer 2: Family -->
+          <article class="offer-card">
+            <div class="offer-image">
+              <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?auto=format&fit=crop&w=800&q=80" alt="Family Adventure" class="offer-img" loading="lazy">
+            </div>
+            <div class="offer-content">
+              <div class="offer-validity">
+                <span>📅</span>
+                <span>Valid: School Holidays</span>
+              </div>
+              <h3>Family Adventure Pack</h3>
+              <ul class="offer-features">
+                <li>4 Nights in Garden Villa</li>
+                <li>Full board (Breakfast, Lunch, Dinner)</li>
+                <li>Kids eat free (under 12)</li>
+                <li>Guided nature walk for kids</li>
+                <li>Family boat trip to nearby islands</li>
+              </ul>
+              <div class="offer-price">$890 <small>/ family (up to 4)</small></div>
+              <a href="booking.html?package=family" class="btn-luxury" style="width: 100%; text-align: center;">Book This Offer</a>
+            </div>
+          </article>
+          
+          <!-- Offer 3: Wellness -->
+          <article class="offer-card">
+            <div class="offer-image">
+              <span class="offer-badge">Best Value</span>
+              <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Wellness Retreat" class="offer-img" loading="lazy">
+            </div>
+            <div class="offer-content">
+              <div class="offer-validity">
+                <span>📅</span>
+                <span>Valid: Mon-Thu Only</span>
+              </div>
+              <h3>Wellness & Detox Retreat</h3>
+              <ul class="offer-features">
+                <li>5 Nights in Traditional Banda</li>
+                <li>Healthy organic meal plan</li>
+                <li>Daily yoga sessions at sunrise</li>
+                <li>2 x Spa treatments of choice</li>
+                <li>Meditation guide included</li>
+              </ul>
+              <div class="offer-price">$720 <small>/ person</small></div>
+              <a href="booking.html?package=wellness" class="btn-luxury" style="width: 100%; text-align: center;">Book This Offer</a>
+            </div>
+          </article>
+          
+          <!-- Offer 4: Angler -->
+          <article class="offer-card">
+            <div class="offer-image">
+              <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80" alt="Fishing Package" class="offer-img" loading="lazy">
+            </div>
+            <div class="offer-content">
+              <div class="offer-validity">
+                <span>📅</span>
+                <span>Valid: June - September</span>
+              </div>
+              <h3>Angler's Dream Package</h3>
+              <ul class="offer-features">
+                <li>4 Nights in Lake View Suite</li>
+                <li>Full board dining</li>
+                <li>2 Days guided Nile Perch fishing</li>
+                <li>All fishing gear and licenses included</li>
+                <li>Catch cleaning and packing service</li>
+              </ul>
+              <div class="offer-price">$950 <small>/ person (sharing)</small></div>
+              <a href="booking.html?package=angler" class="btn-luxury" style="width: 100%; text-align: center;">Book This Offer</a>
+            </div>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 💼 GROUP EVENTS SECTION -->
+    <section class="group-events">
+      <div class="container">
+        <span class="uppercase" style="color: var(--color-accent);">Bespoke Events</span>
+        <h2>Planning a Group Event or Wedding?</h2>
+        <p>
+          We create bespoke packages for weddings, corporate retreats, and large groups. 
+          Contact us today to design your perfect itinerary with customized experiences 
+          and exclusive rates.
+        </p>
+        <a href="contact.html" class="btn-luxury">Contact Us for Custom Quote</a>
+      </div>
+    </section>
+
+    <!-- 🎯 FINAL CTA -->
+    <section class="final-cta">
+      <div class="final-cta-bg"></div>
+      <div class="final-cta-overlay"></div>
+      <div class="final-cta-content">
+        <h2>Ready to Claim Your Offer?</h2>
+        <p>All packages include complimentary transfers from Mfangano Airstrip or jetty.</p>
+        <a href="booking.html" class="btn-luxury">Browse All Packages</a>
+        <p style="margin-top: 30px; font-size: 1rem; opacity: 0.85;">
+          📞 Questions? Call us: <strong style="color: #fff;">+254 7XX XXX XXX</strong>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 🧠 LOGIC SCRIPT -->
+  <script src="script.js"></script>
+
+  <!-- 🎬 PAGE ANIMATIONS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Initialize Smooth Scroll (Lenis)
+      const lenis = new Lenis({
+        duration: 1.4,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Initialize GSAP ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Animations
+      const tl = gsap.timeline();
+      tl.to('.hero-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.5 })
+        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, '-=0.9');
+
+      // Offer Card Animations
+      gsap.utils.toArray('.offer-card').forEach((item, index) => {
+        gsap.to(item, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+          },
+          delay: index * 0.1
+        });
+      });
+
+      // 3. Particle Animation
+      (function initParticles() {
+        const canvas = document.getElementById('particle-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let particles = [];
+        const particleCount = 40;
+        
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2;
+            this.speedX = (Math.random() - 0.5) * 0.2;
+            this.speedY = (Math.random() - 0.5) * 0.2;
+            this.opacity = Math.random() * 0.5;
+          }
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+          }
+          draw() {
+            ctx.fillStyle = `rgba(184, 139, 74, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        
+        function init() {
+          for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+        
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => { p.update(); p.draw(); });
+          requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+      })();
+    });
+  </script>
+</body>
+</html>

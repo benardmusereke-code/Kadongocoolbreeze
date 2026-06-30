@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Photo Gallery — A visual journey through Kadongo Resort's rooms, dining, and the breathtaking beauty of Mfangano Island.">
+  <title>Gallery | Kadongo Resort - Mfangano Island</title>
+  
+  <!-- 🌐 FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- 🛠️ LIBRARIES -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- 🎨 CRITICAL CSS -->
+  <style>
+    :root {
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Lato', sans-serif;
+      --color-bg: #F9F8F6;
+      --color-text: #2C2C2C;
+      --color-text-light: #5A5A5A;
+      --color-accent: #B88B4A;
+      --color-overlay: rgba(20, 20, 20, 0.5);
+      --spacing-section: 140px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #0F1115;
+      --color-text: #E8E8E8;
+      --color-text-light: #B0B0B0;
+      --color-overlay: rgba(0, 0, 0, 0.7);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto; }
+    .lenis.lenis-stopped { overflow: hidden; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-text);
+    }
+
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    img, video { max-width: 100%; display: block; object-fit: cover; }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--color-accent); }
+
+    /* ===== BUTTONS ===== */
+    .btn-luxury {
+      display: inline-block;
+      padding: 20px 50px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+    .btn-luxury::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 0%; height: 100%;
+      background: var(--color-accent);
+      transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: -1;
+    }
+    .btn-luxury:hover { 
+      color: #fff; 
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(184, 139, 74, 0.4);
+    }
+    .btn-luxury:hover::before { width: 100%; }
+    
+    .btn-luxury.dark {
+      border-color: var(--color-text);
+      color: var(--color-text);
+      background: rgba(0,0,0,0.05);
+    }
+    .btn-luxury.dark:hover { 
+      color: #fff;
+      border-color: var(--color-accent);
+    }
+    .btn-luxury.dark::before { background: var(--color-accent); }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: #fff;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 25px;
+      opacity: 0;
+      transform: translateY(40px);
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* ===== FILTERS ===== */
+    .gallery-filters {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    .filter-btn {
+      padding: 14px 35px;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: transparent;
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      margin: 0 5px 10px;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--color-accent);
+      background: var(--color-accent);
+      color: #fff;
+    }
+    [data-theme="dark"] .filter-btn {
+      border-color: rgba(255,255,255,0.2);
+      color: var(--color-text);
+    }
+
+    /* ===== GALLERY GRID ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3px;
+      padding: 40px 0 100px;
+    }
+    .gallery-item {
+      position: relative;
+      height: 450px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .gallery-item.hidden {
+      display: none;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.12);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      color: #fff;
+      z-index: 2;
+      transform: translateY(20px);
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    .gallery-caption h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .gallery-caption p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox-image {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .lightbox-close:hover {
+      transform: rotate(90deg);
+    }
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      padding: 20px 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .lightbox-prev { left: 30px; }
+    .lightbox-next { right: 30px; }
+    .lightbox-caption {
+      color: #fff;
+      margin-top: 25px;
+      font-size: 1.1rem;
+      text-align: center;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      height: 80vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1520257328597-2c6d0e7f6f8e?auto=format&fit=crop&w=1920&q=80') center/cover;
+      z-index: 1;
+    }
+    .final-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2;
+    }
+    .final-cta-content {
+      position: relative;
+      z-index: 3;
+    }
+    .final-cta h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 25px;
+      font-style: italic;
+      color: #fff;
+    }
+    .final-cta p {
+      font-size: 1.25rem;
+      margin-bottom: 50px;
+      opacity: 0.9;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .container { padding: 0 25px; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 3rem; }
+      .hero-subtitle { font-size: 1.1rem; }
+      .gallery-item { height: 350px; }
+      .filter-btn { padding: 12px 25px; font-size: 0.7rem; }
+      .lightbox-prev, .lightbox-next { padding: 15px 20px; font-size: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-caption h3 { font-size: 1.4rem; }
+    }
+  </style>
+
+  <!-- 🛡️ PROTECT HEADER CLICKS -->
+  <style>
+    #particle-canvas { pointer-events: none !important; z-index: -1 !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+    #header-placeholder { position: relative; z-index: 10000; }
+    #header-placeholder, #footer-placeholder { min-height: 80px; }
+  </style>
+</head>
+<body>
+
+  <!-- 🌟 PARTICLE BACKGROUND -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    
+    <!-- 🎬 HERO SECTION -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80">
+        <source src="https://videos.pexels.com/video-files/5829129/5829129-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Photo Gallery</h1>
+        <p class="hero-subtitle">A visual journey through paradise. Explore our rooms, dining, and the breathtaking beauty of Mfangano Island.</p>
+      </div>
+    </section>
+
+    <!-- 🖼️ GALLERY FILTERS -->
+    <section class="gallery-filters">
+      <div class="container">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="rooms">Rooms & Suites</button>
+        <button class="filter-btn" data-filter="dining">Dining</button>
+        <button class="filter-btn" data-filter="nature">Nature & Lake</button>
+        <button class="filter-btn" data-filter="culture">Culture</button>
+      </div>
+    </section>
+
+    <!-- 🖼️ GALLERY GRID -->
+    <section class="container">
+      <div class="gallery-grid">
+        
+        <div class="gallery-item" data-category="rooms">
+          <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" alt="Lake View Suite" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Lake View Suite</h3>
+            <p>Wake up to the sunrise over Lake Victoria.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="dining">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Lakeside Dining" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Lakeside Dining</h3>
+            <p>Fresh catch of the day served under the stars.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="nature">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Private Beach" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Private Beach</h3>
+            <p>Pristine sands exclusive to our guests.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="rooms">
+          <img src="https://images.unsplash.com/photo-1590490360182-c31938a86497?auto=format&fit=crop&w=800&q=80" alt="Garden Villa" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Garden Villa</h3>
+            <p>Surrounded by tropical lushness.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="culture">
+          <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=800&q=80" alt="Cultural Experience" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Cultural Experience</h3>
+            <p>Traditional Luo dance performances.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="amenities">
+          <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Infinity Pool" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Infinity Pool</h3>
+            <p>Blending seamlessly with the lake horizon.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="dining">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Local Cuisine" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Local Cuisine</h3>
+            <p>Organic ingredients from our own garden.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="rooms">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Traditional Banda" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay"></div>
+          <div class="gallery-caption">
+            <h3>Traditional Banda</h3>
+            <p>Authentic architecture with modern luxury.</p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- 🎯 FINAL CTA -->
+    <section class="final-cta">
+      <div class="final-cta-bg"></div>
+      <div class="final-cta-overlay"></div>
+      <div class="final-cta-content">
+        <h2>Ready to Experience Paradise?</h2>
+        <p>These images only capture a glimpse of what awaits you at Kadongo Resort.</p>
+        <a href="booking.html" class="btn-luxury">Book Your Stay Now</a>
+      </div>
+    </section>
+
+    <!-- 🖼️ LIGHTBOX MODAL -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous image">❮</button>
+      <img src="" alt="" class="lightbox-image">
+      <button class="lightbox-next" aria-label="Next image">❯</button>
+      <div class="lightbox-caption"></div>
+    </div>
+
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 🧠 LOGIC SCRIPT -->
+  <script src="script.js"></script>
+
+  <!-- 🎬 PAGE ANIMATIONS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Initialize Smooth Scroll (Lenis)
+      const lenis = new Lenis({
+        duration: 1.4,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Initialize GSAP ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Animations
+      const tl = gsap.timeline();
+      tl.to('.hero-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.5 })
+        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, '-=0.9');
+
+      // Gallery Item Animations
+      gsap.utils.toArray('.gallery-item').forEach((item, index) => {
+        gsap.to(item, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+          },
+          delay: index * 0.05
+        });
+      });
+
+      // 3. Gallery Filter Functionality
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          const filter = this.dataset.filter;
+          
+          galleryItems.forEach((item, index) => {
+            if (filter === 'all' || item.dataset.category.includes(filter)) {
+              item.classList.remove('hidden');
+              setTimeout(() => {
+                item.classList.add('visible');
+              }, 50);
+            } else {
+              item.classList.remove('visible');
+              setTimeout(() => {
+                item.classList.add('hidden');
+              }, 300);
+            }
+          });
+        });
+      });
+
+      // 4. Lightbox Functionality
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('.lightbox-image');
+      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+      const closeBtn = lightbox.querySelector('.lightbox-close');
+      const prevBtn = lightbox.querySelector('.lightbox-prev');
+      const nextBtn = lightbox.querySelector('.lightbox-next');
+      
+      let currentIndex = 0;
+      let visibleItems = [];
+      
+      function updateVisibleItems() {
+        visibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+      }
+      
+      function openLightbox(index) {
+        updateVisibleItems();
+        currentIndex = index;
+        const item = visibleItems[currentIndex];
+        const img = item.querySelector('img');
+        const caption = item.querySelector('.gallery-caption h3').textContent;
+        
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      function showNext() {
+        updateVisibleItems();
+        currentIndex = (currentIndex + 1) % visibleItems.length;
+        const item = visibleItems[currentIndex];
+        const img = item.querySelector('img');
+        const caption = item.querySelector('.gallery-caption h3').textContent;
+        
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = caption;
+      }
+      
+      function showPrev() {
+        updateVisibleItems();
+        currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+        const item = visibleItems[currentIndex];
+        const img = item.querySelector('img');
+        const caption = item.querySelector('.gallery-caption h3').textContent;
+        
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = caption;
+      }
+      
+      galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          updateVisibleItems();
+          const visibleIndex = visibleItems.indexOf(item);
+          if (visibleIndex !== -1) openLightbox(visibleIndex);
+        });
+      });
+      
+      closeBtn.addEventListener('click', closeLightbox);
+      nextBtn.addEventListener('click', showNext);
+      prevBtn.addEventListener('click', showPrev);
+      
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+
+      // 5. Particle Animation
+      (function initParticles() {
+        const canvas = document.getElementById('particle-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let particles = [];
+        const particleCount = 40;
+        
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2;
+            this.speedX = (Math.random() - 0.5) * 0.2;
+            this.speedY = (Math.random() - 0.5) * 0.2;
+            this.opacity = Math.random() * 0.5;
+          }
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+          }
+          draw() {
+            ctx.fillStyle = `rgba(184, 139, 74, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        
+        function init() {
+          for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+        
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => { p.update(); p.draw(); });
+          requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+      })();
+    });
+  </script>
+</body>
+</html>

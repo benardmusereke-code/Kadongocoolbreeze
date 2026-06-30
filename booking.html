@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay | Kadongo Cool Breez Hotel Resort - Mfangano Island</title>
+    <meta name="description" content="Reserve your peaceful lakeside escape at Kadongo Cool Breez Hotel Resort. Book directly with our management team for personalized service and the best rates on Mfangano Island.">
+    <meta name="keywords" content="Book Kadongo Cool Breez Hotel, Mfangano Island reservations, Sena Ferry accommodation booking, Homa Bay hotel phone booking, Lake Victoria resort">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Book Your Stay | Kadongo Cool Breez Hotel Resort">
+    <meta property="og:description" content="Experience personalized hospitality. Reserve your room directly with our management team.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kadongocoolbreez.com/booking.html">
+    
+    <link rel="canonical" href="https://kadongocoolbreez.com/booking.html">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <style>
+        :root {
+            /* Brand Colors */
+            --brand-red: #8B1518;
+            --brand-navy: #1B2845;
+            --brand-gold: #C9A961;
+            --brand-turquoise: #4ECDC4;
+            --brand-cream: #F5F1EA;
+            --brand-dark: #1A1A1A;
+            
+            /* Semantic Colors */
+            --bg-primary: var(--brand-cream);
+            --bg-secondary: #EBE4D6;
+            --bg-dark: var(--brand-navy);
+            --text-primary: var(--brand-navy);
+            --text-secondary: #6B6458;
+            --text-muted: #9C9485;
+            --accent: var(--brand-gold);
+            --accent-red: var(--brand-red);
+            
+            /* Typography */
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+            
+            /* Motion */
+            --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-red) 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            transition: opacity 0.8s var(--ease-luxury), visibility 0.8s;
+        }
+        .loader.done { opacity: 0; visibility: hidden; }
+        .loader-logo { text-align: center; opacity: 0; animation: fadeInScale 1s 0.3s var(--ease-luxury) forwards; }
+        .loader-logo-main {
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .loader-logo-sub {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--brand-gold);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+        .loader-location {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-style: italic;
+            color: rgba(245, 241, 234, 0.8);
+            margin-top: 12px;
+            opacity: 0;
+            animation: fadeIn 1s 0.6s var(--ease-luxury) forwards;
+        }
+        .loader-bar-container {
+            width: 280px;
+            height: 2px;
+            background: rgba(245, 241, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        .loader-bar {
+            position: absolute;
+            inset: 0;
+            background: var(--brand-gold);
+            transform: translateX(-100%);
+            animation: loadBar 2s 0.5s var(--ease-luxury) forwards;
+        }
+        .loader-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(245, 241, 234, 0.6);
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s 0.8s var(--ease-luxury) forwards;
+        }
+        @keyframes fadeInScale { to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes loadBar { to { transform: translateX(0); } }
+
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.5s var(--ease-luxury);
+            padding: 24px 60px;
+        }
+        #main-header.scrolled {
+            background: rgba(245, 241, 234, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 60px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.1);
+        }
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 4px;
+            transition: color 0.4s;
+        }
+        .logo-sub {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--brand-navy);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -4px;
+        }
+        #main-header.scrolled .logo-text,
+        #main-header.scrolled .logo-sub { color: var(--brand-navy); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-cream);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.4s;
+        }
+        #main-header.scrolled .nav-link { color: var(--brand-navy); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--brand-gold);
+            transition: width 0.5s var(--ease-luxury);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .btn-book-nav {
+            padding: 12px 28px;
+            background: var(--brand-gold);
+            color: var(--brand-navy) !important;
+            font-weight: 600;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .btn-book-nav::after { display: none; }
+        .btn-book-nav:hover {
+            background: var(--brand-red);
+            color: var(--brand-cream) !important;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .bar {
+            width: 28px;
+            height: 2px;
+            background: var(--brand-cream);
+            transition: all 0.4s var(--ease-luxury);
+        }
+        #main-header.scrolled .bar { background: var(--brand-navy); }
+
+        @media (max-width: 1024px) {
+            #main-header { padding: 20px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--brand-navy);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.6s var(--ease-luxury);
+                z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .nav-link { font-size: 18px; color: var(--brand-cream) !important; }
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            transition: transform 8s ease-out;
+        }
+        .page-hero.loaded .page-hero-bg { transform: scale(1); }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(27, 40, 69, 0.4) 0%, rgba(27, 40, 69, 0.7) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+            color: var(--brand-cream);
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .hero-badge::before, .hero-badge::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(42px, 7vw, 86px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+        .hero-title .line { display: block; overflow: hidden; }
+        .hero-title .line-inner { display: block; transform: translateY(100%); }
+        .hero-title em { font-style: italic; color: var(--brand-gold); font-weight: 300; }
+        .hero-subtitle {
+            font-size: clamp(15px, 1.4vw, 18px);
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.9);
+        }
+
+        /* ===== SECTIONS BASE ===== */
+        section { position: relative; }
+        .section-pad { padding: 120px 60px; }
+        @media (max-width: 900px) { .section-pad { padding: 80px 24px; } }
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .section-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--brand-navy);
+            margin-bottom: 28px;
+        }
+        .section-title em { font-style: italic; color: var(--brand-red); font-weight: 300; }
+        .section-lead {
+            font-size: clamp(16px, 1.3vw, 18px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* ===== RESERVATION SPLIT ===== */
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .reservation-info h2 {
+            font-family: var(--serif);
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--brand-navy);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        .reservation-info h2 em { font-style: italic; color: var(--brand-red); }
+        .reservation-info > p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            transition: all 0.4s var(--ease-luxury);
+            text-decoration: none;
+            color: inherit;
+        }
+        .contact-method:hover {
+            background: var(--brand-navy);
+            transform: translateX(10px);
+        }
+        .contact-method:hover .contact-method-icon,
+        .contact-method:hover .contact-method-label,
+        .contact-method:hover .contact-method-value { color: var(--brand-cream); }
+        .contact-method:hover .contact-method-icon { color: var(--brand-gold); }
+        
+        .contact-method-icon {
+            font-size: 32px;
+            color: var(--brand-red);
+            transition: color 0.4s;
+        }
+        .contact-method-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 4px;
+            transition: color 0.4s;
+        }
+        .contact-method-value {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--brand-navy);
+            font-weight: 500;
+            transition: color 0.4s;
+        }
+
+        .booking-hours {
+            padding: 24px;
+            border-left: 3px solid var(--brand-gold);
+            background: rgba(201, 169, 97, 0.05);
+        }
+        .booking-hours h4 {
+            font-family: var(--serif);
+            font-size: 18px;
+            color: var(--brand-navy);
+            margin-bottom: 8px;
+        }
+        .booking-hours p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Enquiry Form */
+        .enquiry-form-wrapper {
+            background: var(--bg-secondary);
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(27, 40, 69, 0.05);
+        }
+        .enquiry-form-wrapper h3 {
+            font-family: var(--serif);
+            font-size: 28px;
+            color: var(--brand-navy);
+            margin-bottom: 8px;
+        }
+        .enquiry-form-wrapper > p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        .form-group { margin-bottom: 24px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(27, 40, 69, 0.15);
+            background: var(--bg-primary);
+            font-family: var(--sans);
+            font-size: 15px;
+            color: var(--brand-navy);
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+        }
+        .form-textarea { resize: vertical; min-height: 100px; }
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .form-submit:hover {
+            background: var(--brand-gold);
+            color: var(--brand-navy);
+        }
+        .form-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 16px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        @media (max-width: 900px) {
+            .reservation-grid { grid-template-columns: 1fr; gap: 50px; }
+            .enquiry-form-wrapper { padding: 32px 24px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        /* ===== ROOM CATEGORIES ===== */
+        .rooms-section { background: var(--bg-secondary); }
+        .rooms-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+        .rooms-header .section-eyebrow { justify-content: center; }
+        .rooms-header .section-lead { margin: 0 auto; }
+        
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .room-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(27, 40, 69, 0.05);
+            transition: all 0.5s var(--ease-luxury);
+            display: flex;
+            flex-direction: column;
+        }
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(27, 40, 69, 0.1);
+        }
+        .room-card-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        .room-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.4s var(--ease-luxury);
+        }
+        .room-card:hover .room-card-img img { transform: scale(1.08); }
+        
+        .room-card-content {
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .room-card-content h3 {
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+        }
+        .room-card-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+        .room-price-tag {
+            padding-top: 20px;
+            border-top: 1px solid rgba(27, 40, 69, 0.1);
+        }
+        .room-price-tag .from {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .room-price-tag .amount {
+            font-family: var(--serif);
+            font-size: 28px;
+            color: var(--brand-red);
+            font-weight: 600;
+        }
+        .room-price-tag .per {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) { .rooms-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .rooms-grid { grid-template-columns: 1fr; } }
+
+        /* ===== BOOKING GUIDELINES ===== */
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+        .guideline-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .guideline-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(27, 40, 69, 0.08);
+        }
+        .guideline-item .material-icons {
+            font-size: 40px;
+            color: var(--brand-gold);
+            margin-bottom: 20px;
+        }
+        .guideline-item h4 {
+            font-family: var(--serif);
+            font-size: 20px;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+        }
+        .guideline-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        @media (max-width: 900px) { .guidelines-grid { grid-template-columns: 1fr; } }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--brand-dark);
+            color: var(--brand-cream);
+            padding: 80px 60px 40px;
+        }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-brand h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.6);
+            margin-bottom: 24px;
+        }
+        .footer-heading {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: rgba(245, 241, 234, 0.7);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--brand-gold); }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: rgba(245, 241, 234, 0.7);
+        }
+        .contact-icon { font-size: 18px; flex-shrink: 0; }
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(245, 241, 234, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(245, 241, 234, 0.4);
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            footer { padding: 60px 24px 30px; }
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+        }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
+        }
+        .reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 3px; }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">
+            <div class="loader-logo-main">Kadongo</div>
+            <div class="loader-logo-sub">Cool Breez Hotel</div>
+            <div class="loader-location">Mfangano Island, Kenya</div>
+        </div>
+        <div class="loader-bar-container">
+            <div class="loader-bar"></div>
+        </div>
+        <div class="loader-text">Welcome</div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">KADONGO</span>
+                    <span class="logo-sub">Cool Breez Hotel</span>
+                </a>
+            </div>
+            <nav class="navbar" id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="rooms.html" class="nav-link">Rooms</a></li>
+                    <li><a href="dining.html" class="nav-link">Dining</a></li>
+                    <li><a href="amenities.html" class="nav-link">Amenities</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="location.html" class="nav-link">Location</a></li>
+                    <li><a href="booking.html" class="nav-link btn-book-nav active">Book Now</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Personalised Reservations • Mfangano Island</div>
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">Book Your</span></span>
+                <span class="line"><span class="line-inner"><em>Lakeside Escape</em></span></span>
+            </h1>
+            <p class="hero-subtitle">
+                To ensure every guest receives our signature warm hospitality and personalised attention, 
+                all reservations are handled directly by our management team.
+            </p>
+        </div>
+    </section>
+
+    <!-- Reservation Info & Enquiry Form -->
+    <section class="section-pad">
+        <div class="reservation-grid">
+            <div class="reservation-info reveal">
+                <div class="section-eyebrow">Direct Booking</div>
+                <h2>Speak Directly with <em>Our Team</em></h2>
+                <p>
+                    We believe in building a connection before you even arrive. Call us or send a message, 
+                    and our friendly team will personally assist you with availability, room recommendations, 
+                    and any special requests to make your stay perfect.
+                </p>
+
+                <div class="contact-methods">
+                    <a href="tel:+254756585016" class="contact-method">
+                        <span class="material-icons contact-method-icon">call</span>
+                        <div>
+                            <div class="contact-method-label">Primary Line</div>
+                            <div class="contact-method-value">+254 756 585 016</div>
+                        </div>
+                    </a>
+                    <a href="tel:+254715249204" class="contact-method">
+                        <span class="material-icons contact-method-icon">call</span>
+                        <div>
+                            <div class="contact-method-label">Alternative Line</div>
+                            <div class="contact-method-value">+254 715 249 204</div>
+                        </div>
+                    </a>
+                    <a href="mailto:paulnyumbwe@gmail.com" class="contact-method">
+                        <span class="material-icons contact-method-icon">mail</span>
+                        <div>
+                            <div class="contact-method-label">Email Us</div>
+                            <div class="contact-method-value" style="font-size: 18px;">paulnyumbwe@gmail.com</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="booking-hours">
+                    <h4>Reservation Hours</h4>
+                    <p>Our team is available to take your call daily from 8:00 AM to 8:00 PM (EAT). 
+                    For enquiries outside these hours, please leave a message or send an email, and we will respond promptly.</p>
+                </div>
+            </div>
+
+            <div class="enquiry-form-wrapper reveal">
+                <h3>Send an Enquiry</h3>
+                <p>Prefer to write first? Fill out the form below and we will call you back to confirm your booking.</p>
+                
+                <form id="bookingEnquiryForm" onsubmit="handleEnquirySubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="checkIn">Check-in Date *</label>
+                            <input type="date" id="checkIn" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="checkOut">Check-out Date *</label>
+                            <input type="date" id="checkOut" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="guests">Number of Guests *</label>
+                            <select id="guests" class="form-select" required>
+                                <option value="">Select...</option>
+                                <option value="1">1 Adult</option>
+                                <option value="2">2 Adults</option>
+                                <option value="3">2 Adults, 1 Child</option>
+                                <option value="4">2 Adults, 2 Children</option>
+                                <option value="5+">Family (3+ Adults)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="roomType">Preferred Room</label>
+                            <select id="roomType" class="form-select">
+                                <option value="Any">No Preference</option>
+                                <option value="Single">Single Room</option>
+                                <option value="Standard">Standard Double</option>
+                                <option value="Deluxe">Deluxe Room</option>
+                                <option value="Family">Family Suite</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">Special Requests</label>
+                        <textarea id="message" class="form-textarea" placeholder="Dietary requirements, accessibility needs, or special occasions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Send Enquiry</button>
+                    <p class="form-note">This is an enquiry form. Our team will contact you to confirm availability and finalize your booking.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Categories & Pricing -->
+    <section class="rooms-section section-pad">
+        <div class="rooms-header">
+            <div class="section-eyebrow reveal">Accommodation & Rates</div>
+            <h2 class="section-title reveal">Choose Your <em>Perfect Room</em></h2>
+            <p class="section-lead reveal">
+                All rates are in Kenyan Shillings (KES) and are subject to seasonal adjustments. 
+                Call us for the most up-to-date pricing and availability.
+            </p>
+        </div>
+
+        <div class="rooms-grid reveal-stagger">
+            <div class="room-card">
+                <div class="room-card-img">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="Single Room at Kadongo Cool Breez Hotel">
+                </div>
+                <div class="room-card-content">
+                    <h3>Single Room</h3>
+                    <p>Comfortable and private, perfect for solo travellers and business guests. Includes en-suite bathroom and quality bedding.</p>
+                    <div class="room-price-tag">
+                        <span class="from">From</span>
+                        <span class="amount">KES 2,000</span>
+                        <span class="per">/ night</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <div class="room-card-img">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" alt="Standard Double Room at Kadongo">
+                </div>
+                <div class="room-card-content">
+                    <h3>Standard Double</h3>
+                    <p>Ideal for couples. Features a comfortable double bed, private bathroom, and modern amenities for a restful stay.</p>
+                    <div class="room-price-tag">
+                        <span class="from">From</span>
+                        <span class="amount">KES 3,500</span>
+                        <span class="per">/ night</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <div class="room-card-img">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c31938a86497?auto=format&fit=crop&w=800&q=80" alt="Deluxe Room at Kadongo">
+                </div>
+                <div class="room-card-content">
+                    <h3>Deluxe Room</h3>
+                    <p>Spacious and enhanced with premium comforts. Beautiful views and extra space for extended stays or special occasions.</p>
+                    <div class="room-price-tag">
+                        <span class="from">From</span>
+                        <span class="amount">KES 5,000</span>
+                        <span class="per">/ night</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <div class="room-card-img">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Family Suite at Kadongo">
+                </div>
+                <div class="room-card-content">
+                    <h3>Family Suite</h3>
+                    <p>Large suite designed for families. Multiple beds, ample privacy, and comfort for creating lasting memories together.</p>
+                    <div class="room-price-tag">
+                        <span class="from">From</span>
+                        <span class="amount">KES 7,500</span>
+                        <span class="per">/ night</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Guidelines -->
+    <section class="section-pad">
+        <div class="rooms-header">
+            <div class="section-eyebrow reveal">Booking Guidelines</div>
+            <h2 class="section-title reveal">What to <em>Have Ready</em></h2>
+            <p class="section-lead reveal">
+                To help us assist you quickly and efficiently when you call, please have the following information ready.
+            </p>
+        </div>
+
+        <div class="guidelines-grid reveal-stagger">
+            <div class="guideline-item">
+                <span class="material-icons">calendar_today</span>
+                <h4>Your Dates</h4>
+                <p>Know your preferred check-in and check-out dates, as well as the number of nights you plan to stay.</p>
+            </div>
+            <div class="guideline-item">
+                <span class="material-icons">people</span>
+                <h4>Guest Details</h4>
+                <p>The total number of adults and children, and your preferred room category from our available options.</p>
+            </div>
+            <div class="guideline-item">
+                <span class="material-icons">request_page</span>
+                <h4>Special Requests</h4>
+                <p>Any dietary requirements, accessibility needs, or special occasions you would like us to prepare for.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>KADONGO</h3>
+                    <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="offers.html">Special Offers</a></li>
+                        <li><a href="cancellation.html">Cancellation</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>P.O. Box 22–40319<br>Mfangano Island<br>Homa Bay County, Kenya</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+254 756 585 016<br>+254 715 249 204</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>paulnyumbwe@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
+                <div>Crafted with ❤️ on Mfangano Island</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Page Loader & Hero Init
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('done');
+                document.querySelector('.page-hero').classList.add('loaded');
+                initHeroAnimations();
+            }, 2500);
+        });
+
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }, { passive: true });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Hero Animations
+        function initHeroAnimations() {
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+            tl.to('.hero-title .line-inner', {
+                y: 0,
+                duration: 1.4,
+                stagger: 0.15,
+            })
+            .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
+            .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
+        }
+
+        // Reveal on Scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+        // Parallax Effects
+        gsap.to('.page-hero-bg', {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.page-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            }
+        });
+
+        // Form Handling
+        function handleEnquirySubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.form-submit');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Sending...';
+            btn.style.background = 'var(--brand-gold)';
+            btn.style.color = 'var(--brand-navy)';
+            
+            setTimeout(() => {
+                btn.textContent = 'Enquiry Sent Successfully!';
+                btn.style.background = '#27ae60';
+                btn.style.color = '#fff';
+                e.target.reset();
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 4000);
+            }, 1500);
+        }
+
+        // Update Footer Year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Refresh ScrollTrigger on resize
+        window.addEventListener('resize', () => ScrollTrigger.refresh());
+    </script>
+</body>
+</html>
