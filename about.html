@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About Kadongo Resort — Rooted in Mfangano Island's rich culture, crafted for your unforgettable escape.">
+  <title>About Us | Kadongo Resort - Mfangano Island</title>
+  
+  <!-- 🌐 FONTS: Luxury Serif + Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- 🛠️ LIBRARIES: GSAP (Animations) + Lenis (Smooth Scroll) -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- 🎨 CRITICAL CSS -->
+  <style>
+    :root {
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Lato', sans-serif;
+      --color-bg: #F9F8F6;
+      --color-text: #2C2C2C;
+      --color-text-light: #5A5A5A;
+      --color-accent: #B88B4A;
+      --color-overlay: rgba(20, 20, 20, 0.5);
+      --spacing-section: 140px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #0F1115;
+      --color-text: #E8E8E8;
+      --color-text-light: #B0B0B0;
+      --color-overlay: rgba(0, 0, 0, 0.7);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto; }
+    .lenis.lenis-stopped { overflow: hidden; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-text);
+    }
+
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    img { max-width: 100%; display: block; object-fit: cover; }
+    video { max-width: 100%; display: block; object-fit: cover; }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .text-center { text-align: center; }
+    .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--color-accent); }
+    .gold { color: var(--color-accent); }
+
+    /* ===== BUTTONS ===== */
+    .btn-luxury {
+      display: inline-block;
+      padding: 20px 50px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+    .btn-luxury::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 0%; height: 100%;
+      background: var(--color-accent);
+      transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: -1;
+    }
+    .btn-luxury:hover { 
+      color: #fff; 
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(184, 139, 74, 0.4);
+    }
+    .btn-luxury:hover::before { width: 100%; }
+    
+    .btn-luxury.dark {
+      border-color: var(--color-text);
+      color: var(--color-text);
+      background: rgba(0,0,0,0.05);
+    }
+    .btn-luxury.dark:hover { 
+      color: #fff;
+      border-color: var(--color-accent);
+    }
+    .btn-luxury.dark::before { background: var(--color-accent); }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-image {
+      position:absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit:fill;
+      z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: #fff;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 25px;
+      opacity: 0;
+      transform: translateY(40px);
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(40px);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .hero-cta {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: var(--spacing-section) 0;
+      position: relative;
+    }
+
+    /* ===== STORY SECTION (Split Layout) ===== */
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 90vh;
+      align-items: center;
+      background: #fff;
+    }
+    .story-text {
+      padding: 0 100px 0 60px;
+    }
+    .story-img-wrapper {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .story-img {
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      transform: translateY(-10%);
+    }
+    .section-label {
+      margin-bottom: 25px;
+      display: block;
+    }
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 35px;
+      color: var(--color-text);
+    }
+    .section-desc {
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+      margin-bottom: 30px;
+      max-width: 550px;
+      line-height: 1.9;
+    }
+
+    /* ===== VALUES SECTION (Dark Background) ===== */
+    .values {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 150px 0;
+    }
+    .values-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .values-header h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 20px;
+      color: var(--color-accent);
+    }
+    .values-header p {
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .value-card {
+      background: rgba(255,255,255,0.05);
+      padding: 50px 40px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.4s ease;
+    }
+    .value-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--color-accent);
+      transform: translateY(-5px);
+    }
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: var(--color-accent);
+    }
+    .value-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .value-desc {
+      font-size: 0.95rem;
+      opacity: 0.75;
+      line-height: 1.7;
+    }
+
+    /* ===== TEAM SECTION ===== */
+    .team {
+      background: var(--color-bg);
+      padding: 150px 0;
+    }
+    .team-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .team-header h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 20px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .team-member {
+      text-align: center;
+    }
+    .team-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 25px;
+      border: 3px solid var(--color-accent);
+    }
+    .team-name {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+    .team-role {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+    .team-bio {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+    }
+
+    /* ===== COMMITMENT SECTION (Video Background) ===== */
+    .commitment {
+      position: relative;
+      padding: 150px 0;
+      color: #fff;
+      overflow: hidden;
+    }
+    .commitment-video {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    .commitment-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2;
+    }
+    .commitment-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .commitment h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 35px;
+      color: var(--color-accent);
+    }
+    .commitment-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+      text-align: left;
+    }
+    .commitment-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .commitment-list span {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      height: 80vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1520257328597-2c6d0e7f6f8e?auto=format&fit=crop&w=1920&q=80') center/cover;
+      z-index: 1;
+    }
+    .final-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2;
+    }
+    .final-cta-content {
+      position: relative;
+      z-index: 3;
+    }
+    .final-cta h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    .final-cta p {
+      font-size: 1.25rem;
+      margin-bottom: 50px;
+      opacity: 0.9;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .story { grid-template-columns: 1fr; }
+      .story-text { padding: 80px 40px; order: 2; }
+      .story-img-wrapper { height: 60vh; order: 1; }
+      .container { padding: 0 25px; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 3rem; }
+      .hero-subtitle { font-size: 1.1rem; }
+      .values-grid, .team-grid { grid-template-columns: 1fr; }
+      .commitment-list { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- 🛡️ PROTECT HEADER CLICKS -->
+  <style>
+    #particle-canvas { pointer-events: none !important; z-index: -1 !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+    #header-placeholder { position: relative; z-index: 10000; }
+    #header-placeholder, #footer-placeholder { min-height: 80px; }
+  </style>
+</head>
+<body>
+
+  <!-- 🌟 PARTICLE BACKGROUND -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    
+    <!-- 🎬 HERO SECTION -->
+    <section class="hero">
+      <video class="hero-image" autoplay muted loop playsinline poster="images/steetview.png">
+        <source src="images/longview-outside-view-of-buliding.png" type="image/png">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Our Story</h1>
+        <p class="hero-subtitle">Rooted in Mfangano Island's rich culture, crafted for your unforgettable escape.</p>
+        <div class="hero-cta">
+          <a href="#story" class="btn-luxury">Discover More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📖 STORY SECTION -->
+    <section class="story" id="story">
+      <div class="story-text">
+        <span class="section-label uppercase">From Vision to Paradise</span>
+        <h2 class="section-title">A Dream Realized</h2>
+        <p class="section-desc">
+          Kadongo Resort was born from a dream: to create a sanctuary where luxury hospitality 
+          harmonizes with the pristine beauty of Lake Victoria and the authentic warmth of Luo culture.
+        </p>
+        <p class="section-desc">
+          Founded in 2018 by local conservationists and hospitality experts, we've carefully developed 
+          our resort to minimize environmental impact while maximizing guest comfort and cultural immersion.
+        </p>
+        <p class="section-desc">
+          Today, Kadongo Resort stands as Mfangano Island's premier eco-luxury destination — a place 
+          where every detail honors the land, the lake, and the community that calls this paradise home.
+        </p>
+        <a href="booking.html" class="btn-luxury dark">Book Your Stay</a>
+      </div>
+      <div class="story-img-wrapper">
+        <img src="images/gazebo1.png" alt="Resort Grounds" class="story-img" data-speed="0.8">
+      </div>
+    </section>
+
+    <!-- 💎 VALUES SECTION -->
+    <section class="values">
+      <div class="container">
+        <div class="values-header">
+          <span class="section-label uppercase" style="color: var(--color-accent);">Our Philosophy</span>
+          <h2>Core Values</h2>
+          <p>The principles that guide everything we do at Kadongo Resort.</p>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🌿</div>
+            <h3 class="value-title">Sustainability</h3>
+            <p class="value-desc">Solar-powered, water-conserving, waste-reducing operations that protect Mfangano's ecosystem for future generations.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3 class="value-title">Community First</h3>
+            <p class="value-desc">90% of our staff are local. We partner with village artisans, fishermen, and cultural guides to create authentic experiences.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">✨</div>
+            <h3 class="value-title">Authentic Luxury</h3>
+            <p class="value-desc">Comfort that respects tradition. Modern amenities woven with Luo design and craftsmanship for a truly unique stay.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">💙</div>
+            <h3 class="value-title">Guest Wellbeing</h3>
+            <p class="value-desc">From spa treatments using local botanicals to mindful dining, we nurture body and soul in every interaction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 👥 TEAM SECTION -->
+    <section class="team">
+      <div class="container">
+        <div class="team-header">
+          <span class="section-label uppercase">Leadership</span>
+          <h2 class="section-title">Meet Our Team</h2>
+          <p class="section-desc" style="margin: 0 auto;">
+            The passionate individuals behind your unforgettable experience.
+          </p>
+        </div>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="https://i.pravatar.cc/150?img=32" alt="Paul Nyumbwe" class="team-photo">
+            <h3 class="team-name">Paul Omondi Nyumbwe</h3>
+            <p class="team-role">Founder & General Manager</p>
+            <p class="team-bio">Luo Heritage Advocate</p>
+          </div>
+         
+         </div>
+      </div>
+    </section>
+
+    <!-- 🌍 COMMITMENT SECTION -->
+    <section class="commitment">
+      <video class="commitment-video" autoplay muted loop playsinline>
+        <source src="https://videos.pexels.com/video-files/3209829/3209829-uhd_2560_1440_24fps.mp4" type="video/mp4">
+      </video>
+      <div class="commitment-overlay"></div>
+      <div class="commitment-content">
+        <span class="section-label uppercase" style="color: var(--color-accent);">Our Promise</span>
+        <h2>🌍 Commitment to Mfangano</h2>
+        <p style="font-size: 1.15rem; opacity: 0.9; line-height: 1.8; max-width: 700px; margin: 0 auto 40px;">
+          We believe luxury travel should leave places better than we found them. Here's how we protect our island home:
+        </p>
+        <ul class="commitment-list">
+          <li><span>☀️</span> 100% solar-powered resort with battery backup</li>
+          <li><span>💧</span> Rainwater harvesting + greywater recycling system</li>
+          <li><span>🌱</span> Organic garden supplies 60% of our restaurant produce</li>
+          <li><span>🐠</span> Partnering with Lake Victoria conservation NGOs</li>
+          <li><span>🎨</span> Supporting local artisans through our craft marketplace</li>
+          <li><span>📚</span> Funding scholarships for Mfangano Island students</li>
+        </ul>
+        <a href="contact.html" class="btn-luxury">Learn More About Our Initiatives</a>
+      </div>
+    </section>
+
+    <!-- 🎯 FINAL CTA -->
+    <section class="final-cta">
+      <div class="final-cta-bg"></div>
+      <div class="final-cta-overlay"></div>
+      <div class="final-cta-content">
+        <h2>Experience the Kadongo Difference</h2>
+        <p>Join us in creating tourism that uplifts communities and preserves paradise.</p>
+        <a href="booking.html" class="btn-luxury">Book Your Meaningful Stay</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 🧠 LOGIC SCRIPT -->
+  <script src="script.js"></script>
+
+  <!-- 🎬 PAGE ANIMATIONS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Initialize Smooth Scroll (Lenis)
+      const lenis = new Lenis({
+        duration: 1.4,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Initialize GSAP ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Animations
+      const tl = gsap.timeline();
+      tl.to('.hero-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.5 })
+        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, '-=0.9')
+        .to('.hero-cta', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, '-=0.9');
+
+      // Parallax Effects
+      gsap.utils.toArray('[data-speed]').forEach(layer => {
+        const speed = layer.getAttribute('data-speed');
+        gsap.to(layer, {
+          y: (i, target) => ScrollTrigger.maxScroll(window) * speed * 0.1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0
+          }
+        });
+      });
+
+      // Fade In Elements
+      gsap.utils.toArray('.section-label, .section-title, .section-desc, .btn-luxury, .value-card, .team-member, .commitment-list li').forEach(elem => {
+        gsap.from(elem, {
+          opacity: 0,
+          y: 40,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: elem,
+            start: 'top 85%',
+          }
+        });
+      });
+
+      // 3. Particle Animation
+      (function initParticles() {
+        const canvas = document.getElementById('particle-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let particles = [];
+        const particleCount = 40;
+        
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2;
+            this.speedX = (Math.random() - 0.5) * 0.2;
+            this.speedY = (Math.random() - 0.5) * 0.2;
+            this.opacity = Math.random() * 0.5;
+          }
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+          }
+          draw() {
+            ctx.fillStyle = `rgba(184, 139, 74, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        
+        function init() {
+          for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+        
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => { p.update(); p.draw(); });
+          requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+      })();
+    });
+  </script>
+</body>
+</html>
