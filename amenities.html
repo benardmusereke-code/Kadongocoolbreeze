@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amenities | Kadongo Cool Breez Hotel Resort - Mfangano Island</title>
+    <meta name="description" content="Discover the amenities at Kadongo Cool Breez Hotel Resort. Enjoy free Wi-Fi, 24-hour electricity, shaded gardens, gazebos, lakeside dining, and authentic Kenyan hospitality on Mfangano Island.">
+    <meta name="keywords" content="Kadongo Cool Breez amenities, Mfangano Island hotel facilities, Lake Victoria resort Wi-Fi, Sena Ferry accommodation, Homa Bay hotel gazebos">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Amenities | Kadongo Cool Breez Hotel Resort">
+    <meta property="og:description" content="Thoughtful amenities designed for your comfort, privacy, and relaxation on Mfangano Island.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kadongocoolbreez.com/amenities.html">
+    
+    <link rel="canonical" href="https://kadongocoolbreez.com/amenities.html">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <style>
+        :root {
+            /* Brand Colors */
+            --brand-red: #8B1518;
+            --brand-navy: #1B2845;
+            --brand-gold: #C9A961;
+            --brand-turquoise: #4ECDC4;
+            --brand-cream: #F5F1EA;
+            --brand-dark: #1A1A1A;
+            
+            /* Semantic Colors */
+            --bg-primary: var(--brand-cream);
+            --bg-secondary: #EBE4D6;
+            --bg-dark: var(--brand-navy);
+            --text-primary: var(--brand-navy);
+            --text-secondary: #6B6458;
+            --text-muted: #9C9485;
+            --accent: var(--brand-gold);
+            --accent-red: var(--brand-red);
+            
+            /* Typography */
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+            
+            /* Motion */
+            --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-red) 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            transition: opacity 0.8s var(--ease-luxury), visibility 0.8s;
+        }
+        .loader.done { opacity: 0; visibility: hidden; }
+        .loader-logo { text-align: center; opacity: 0; animation: fadeInScale 1s 0.3s var(--ease-luxury) forwards; }
+        .loader-logo-main {
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .loader-logo-sub {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--brand-gold);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+        .loader-location {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-style: italic;
+            color: rgba(245, 241, 234, 0.8);
+            margin-top: 12px;
+            opacity: 0;
+            animation: fadeIn 1s 0.6s var(--ease-luxury) forwards;
+        }
+        .loader-bar-container {
+            width: 280px;
+            height: 2px;
+            background: rgba(245, 241, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        .loader-bar {
+            position: absolute;
+            inset: 0;
+            background: var(--brand-gold);
+            transform: translateX(-100%);
+            animation: loadBar 2s 0.5s var(--ease-luxury) forwards;
+        }
+        .loader-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(245, 241, 234, 0.6);
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s 0.8s var(--ease-luxury) forwards;
+        }
+        @keyframes fadeInScale { to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes loadBar { to { transform: translateX(0); } }
+
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.5s var(--ease-luxury);
+            padding: 24px 60px;
+        }
+        #main-header.scrolled {
+            background: rgba(245, 241, 234, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 60px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.1);
+        }
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 4px;
+            transition: color 0.4s;
+        }
+        .logo-sub {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--brand-navy);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -4px;
+        }
+        #main-header.scrolled .logo-text,
+        #main-header.scrolled .logo-sub { color: var(--brand-navy); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-cream);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.4s;
+        }
+        #main-header.scrolled .nav-link { color: var(--brand-navy); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--brand-gold);
+            transition: width 0.5s var(--ease-luxury);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .btn-book-nav {
+            padding: 12px 28px;
+            background: var(--brand-gold);
+            color: var(--brand-navy) !important;
+            font-weight: 600;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .btn-book-nav::after { display: none; }
+        .btn-book-nav:hover {
+            background: var(--brand-red);
+            color: var(--brand-cream) !important;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .bar {
+            width: 28px;
+            height: 2px;
+            background: var(--brand-cream);
+            transition: all 0.4s var(--ease-luxury);
+        }
+        #main-header.scrolled .bar { background: var(--brand-navy); }
+
+        @media (max-width: 1024px) {
+            #main-header { padding: 20px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--brand-navy);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.6s var(--ease-luxury);
+                z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .nav-link { font-size: 18px; color: var(--brand-cream) !important; }
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            transition: transform 8s ease-out;
+        }
+        .page-hero.loaded .page-hero-bg { transform: scale(1); }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(27, 40, 69, 0.4) 0%, rgba(27, 40, 69, 0.7) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+            color: var(--brand-cream);
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .hero-badge::before, .hero-badge::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(42px, 7vw, 86px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+        .hero-title .line { display: block; overflow: hidden; }
+        .hero-title .line-inner { display: block; transform: translateY(100%); }
+        .hero-title em { font-style: italic; color: var(--brand-gold); font-weight: 300; }
+        .hero-subtitle {
+            font-size: clamp(15px, 1.4vw, 18px);
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.9);
+        }
+
+        /* ===== SECTIONS BASE ===== */
+        section { position: relative; }
+        .section-pad { padding: 120px 60px; }
+        @media (max-width: 900px) { .section-pad { padding: 80px 24px; } }
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .section-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--brand-navy);
+            margin-bottom: 28px;
+        }
+        .section-title em { font-style: italic; color: var(--brand-red); font-weight: 300; }
+        .section-lead {
+            font-size: clamp(16px, 1.3vw, 18px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* ===== SCROLLYTELLING BLOCKS ===== */
+        .story-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .story-block.reverse { direction: rtl; }
+        .story-block.reverse > * { direction: ltr; }
+        
+        .story-visual {
+            position: relative;
+            height: 550px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(27, 40, 69, 0.15);
+        }
+        .story-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.4s var(--ease-luxury);
+        }
+        .story-visual:hover img { transform: scale(1.05); }
+        
+        .story-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .story-block, .story-block.reverse { 
+                grid-template-columns: 1fr; 
+                gap: 50px; 
+                direction: ltr; 
+            }
+            .story-visual { height: 400px; }
+        }
+
+        /* ===== COMFORT GRID ===== */
+        .comfort-section { background: var(--bg-secondary); }
+        .comfort-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+        .comfort-header .section-eyebrow { justify-content: center; }
+        .comfort-header .section-lead { margin: 0 auto; }
+        
+        .comfort-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .comfort-card {
+            background: var(--bg-primary);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.5s var(--ease-luxury);
+            border: 1px solid transparent;
+            box-shadow: 0 10px 30px rgba(27, 40, 69, 0.03);
+        }
+        .comfort-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(27, 40, 69, 0.08);
+            border-color: var(--brand-gold);
+        }
+        .comfort-icon {
+            font-size: 40px;
+            color: var(--brand-red);
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: rgba(139, 21, 24, 0.05);
+            border-radius: 50%;
+            transition: all 0.5s var(--ease-luxury);
+        }
+        .comfort-card:hover .comfort-icon {
+            background: var(--brand-gold);
+            color: var(--brand-navy);
+            transform: scale(1.1);
+        }
+        .comfort-card h3 {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+        }
+        .comfort-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) { .comfort-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .comfort-grid { grid-template-columns: 1fr; } }
+
+        /* ===== DINING SPLIT ===== */
+        .dining-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1300px;
+            margin: 60px auto 0;
+        }
+        .dining-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(27, 40, 69, 0.08);
+            transition: transform 0.5s var(--ease-luxury);
+        }
+        .dining-card:hover { transform: translateY(-8px); }
+        .dining-card-img {
+            height: 280px;
+            overflow: hidden;
+        }
+        .dining-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.4s var(--ease-luxury);
+        }
+        .dining-card:hover .dining-card-img img { transform: scale(1.08); }
+        .dining-card-content {
+            padding: 40px;
+        }
+        .dining-card-content h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 16px;
+        }
+        .dining-card-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        .dining-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .dining-list li {
+            font-size: 14px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dining-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--brand-gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 900px) {
+            .dining-split { grid-template-columns: 1fr; }
+            .dining-list { grid-template-columns: 1fr; }
+        }
+
+        /* ===== EXPERIENCE LIST ===== */
+        .experience-section { background: var(--bg-secondary); }
+        .experience-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+        .experience-header .section-eyebrow { justify-content: center; }
+        .experience-header .section-lead { margin: 0 auto; }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .experience-item {
+            background: var(--bg-primary);
+            padding: 48px 36px;
+            border-radius: 12px;
+            border-left: 4px solid var(--brand-gold);
+            transition: all 0.5s var(--ease-luxury);
+        }
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(27, 40, 69, 0.08);
+        }
+        .experience-item .material-icons {
+            font-size: 36px;
+            color: var(--brand-red);
+            margin-bottom: 24px;
+        }
+        .experience-item h3 {
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+        }
+        .experience-item p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 900px) { .experience-grid { grid-template-columns: 1fr; } }
+
+        /* ===== CTA ===== */
+        .cta-amenities {
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            padding: 120px 60px;
+            text-align: center;
+        }
+        .cta-amenities .section-title { color: var(--brand-cream); }
+        .cta-amenities .section-title em { color: var(--brand-gold); }
+        .cta-amenities .section-eyebrow { justify-content: center; }
+        .cta-amenities .section-lead { margin: 0 auto 40px; color: rgba(245, 241, 234, 0.8); }
+        .cta-phones {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 36px;
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid var(--brand-gold);
+            transition: all 0.4s var(--ease-luxury);
+            text-decoration: none;
+            color: var(--brand-cream);
+            border-radius: 8px;
+        }
+        .cta-phone:hover { background: var(--brand-gold); }
+        .cta-phone:hover .cta-phone-num { color: var(--brand-navy); }
+        .cta-phone .material-icons { font-size: 28px; color: var(--brand-gold); }
+        .cta-phone:hover .material-icons { color: var(--brand-navy); }
+        .cta-phone-info { text-align: left; }
+        .cta-phone-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .cta-phone:hover .cta-phone-label { color: var(--brand-navy); }
+        .cta-phone-num {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--brand-cream);
+            transition: color 0.4s;
+        }
+        @media (max-width: 900px) { .cta-amenities { padding: 80px 24px; } }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--brand-dark);
+            color: var(--brand-cream);
+            padding: 80px 60px 40px;
+        }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-brand h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.6);
+            margin-bottom: 24px;
+        }
+        .footer-heading {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: rgba(245, 241, 234, 0.7);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--brand-gold); }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: rgba(245, 241, 234, 0.7);
+        }
+        .contact-icon { font-size: 18px; flex-shrink: 0; }
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(245, 241, 234, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(245, 241, 234, 0.4);
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            footer { padding: 60px 24px 30px; }
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+        }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
+        }
+        .reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 3px; }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">
+            <div class="loader-logo-main">Kadongo</div>
+            <div class="loader-logo-sub">Cool Breez Hotel</div>
+            <div class="loader-location">Mfangano Island, Kenya</div>
+        </div>
+        <div class="loader-bar-container">
+            <div class="loader-bar"></div>
+        </div>
+        <div class="loader-text">Welcome</div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">KADONGO</span>
+                    <span class="logo-sub">Cool Breez Hotel</span>
+                </a>
+            </div>
+            <nav class="navbar" id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="rooms.html" class="nav-link">Rooms</a></li>
+                    <li><a href="dining.html" class="nav-link">Dining</a></li>
+                    <li><a href="amenities.html" class="nav-link active">Amenities</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="location.html" class="nav-link">Location</a></li>
+                    <li><a href="booking.html" class="nav-link btn-book-nav">Book Now</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Resort Amenities • Mfangano Island</div>
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">Thoughtful Amenities,</span></span>
+                <span class="line"><span class="line-inner"><em>Naturally</em> Provided</span></span>
+            </h1>
+            <p class="hero-subtitle">
+                Everything you need for a peaceful, comfortable, and memorable stay. 
+                We focus on the essentials that matter: cool breezes, reliable comfort, 
+                and authentic island hospitality.
+            </p>
+        </div>
+    </section>
+
+    <!-- Nature & Environment -->
+    <section class="section-pad">
+        <div class="story-block">
+            <div class="story-visual reveal">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80" alt="Shaded gardens and mature trees at Kadongo Cool Breez Hotel">
+            </div>
+            <div class="story-text">
+                <div class="section-eyebrow reveal">The Environment</div>
+                <h2 class="section-title reveal">The <em>Cool Breez</em> Experience</h2>
+                <p class="section-lead reveal">
+                    One of the most unique features of our resort is its natural setting. 
+                    Surrounded by mature indigenous trees, our property offers a naturally 
+                    cool atmosphere, fresh natural air, and large shaded gardens.
+                </p>
+                <p class="reveal">
+                    Whether you are taking a morning walk along the lake shore, reading in 
+                    the shade of our gardens, or simply breathing in the fresh lake breeze, 
+                    our environment is designed to help you disconnect from the busy world 
+                    and reconnect with nature.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Comforts -->
+    <section class="comfort-section section-pad">
+        <div class="comfort-header">
+            <div class="section-eyebrow reveal">Comfort & Connectivity</div>
+            <h2 class="section-title reveal">Modern <em>Essentials</em></h2>
+            <p class="section-lead reveal">
+                We believe in providing reliable, modern comforts so you can focus 
+                on relaxation and enjoying your time on the island.
+            </p>
+        </div>
+        <div class="comfort-grid reveal-stagger">
+            <div class="comfort-card">
+                <span class="material-icons comfort-icon">power</span>
+                <h3>24-Hour Electricity</h3>
+                <p>Uninterrupted power supply throughout the resort, ensuring your comfort at all times.</p>
+            </div>
+            <div class="comfort-card">
+                <span class="material-icons comfort-icon">wifi</span>
+                <h3>Complimentary Wi-Fi</h3>
+                <p>Stay connected with high-speed internet available for all guests across the property.</p>
+            </div>
+            <div class="comfort-card">
+                <span class="material-icons comfort-icon">room_service</span>
+                <h3>24/7 Room Service</h3>
+                <p>Enjoy delicious meals and refreshments delivered to the comfort of your private room.</p>
+            </div>
+            <div class="comfort-card">
+                <span class="material-icons comfort-icon">security</span>
+                <h3>Round-the-Clock Security</h3>
+                <p>Professional private security personnel and a nearby police station ensure your safety.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lakeside Living -->
+    <section class="section-pad">
+        <div class="story-block reverse">
+            <div class="story-visual reveal">
+                <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1000&q=80" alt="Gazebos and lake views at Kadongo Cool Breez Hotel">
+            </div>
+            <div class="story-text">
+                <div class="section-eyebrow reveal">Outdoor Spaces</div>
+                <h2 class="section-title reveal">Lakeside <em>Relaxation</em></h2>
+                <p class="section-lead reveal">
+                    Our beautifully designed gazebos and outdoor spaces provide the perfect 
+                    place to relax, work, or socialise. Enjoy the fresh lake breeze, scenic 
+                    sunsets, and the calm waters of Lake Victoria just steps away.
+                </p>
+                <p class="reveal">
+                    Whether you are reading a book in the shade, enjoying a quiet drink as 
+                    the sun sets, or working remotely with a view of the water, our outdoor 
+                    areas offer a tranquil escape surrounded by nature.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dining & Refreshments -->
+    <section class="comfort-section section-pad">
+        <div class="comfort-header">
+            <div class="section-eyebrow reveal">Dining & Refreshments</div>
+            <h2 class="section-title reveal">Authentic <em>Kenyan Cuisine</em></h2>
+            <p class="section-lead reveal">
+                Savor delicious home-style meals prepared with fresh, local ingredients. 
+                From traditional favorites to refreshing drinks, our dining experience 
+                captures the true taste of Kenyan hospitality.
+            </p>
+        </div>
+        <div class="dining-split reveal-stagger">
+            <div class="dining-card">
+                <div class="dining-card-img">
+                    <img src="https://images.unsplash.com/photo-1520257328597-2c6d0e7f6f8e?auto=format&fit=crop&w=800&q=80" alt="Restaurant dining at Kadongo">
+                </div>
+                <div class="dining-card-content">
+                    <h3>The Restaurant</h3>
+                    <p>Enjoy authentic Kenyan home-style cuisine, including fresh fish from Lake Victoria, traditional ugali, and delicious local vegetables. Outdoor lakeside dining available.</p>
+                    <ul class="dining-list">
+                        <li>White & Brown Ugali</li>
+                        <li>Fresh Lake Fish</li>
+                        <li>Chapati & Rice</li>
+                        <li>Mboga Kienyeji</li>
+                        <li>Chicken & Beef</li>
+                        <li>Fresh Fruits</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dining-card">
+                <div class="dining-card-img">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Bar and refreshments at Kadongo">
+                </div>
+                <div class="dining-card-content">
+                    <h3>The Bar</h3>
+                    <p>Relax with a selection of refreshing beverages. We serve a variety of local drinks, soft drinks, and other refreshments throughout the day in a welcoming atmosphere.</p>
+                    <ul class="dining-list">
+                        <li>Local Drinks</li>
+                        <li>Soft Drinks</li>
+                        <li>Refreshments</li>
+                        <li>Hot Beverages</li>
+                        <li>Cold Beverages</li>
+                        <li>Snacks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Island Experiences & Guidance -->
+    <section class="experience-section section-pad">
+        <div class="experience-header">
+            <div class="section-eyebrow reveal">Island Guidance</div>
+            <h2 class="section-title reveal">Explore <em>Mfangano</em></h2>
+            <p class="section-lead reveal">
+                We are proud to help you explore the rich history and natural beauty 
+                of Mfangano Island. Our team provides guidance for unforgettable local experiences.
+            </p>
+        </div>
+        <div class="experience-grid reveal-stagger">
+            <div class="experience-item">
+                <span class="material-icons">directions_boat</span>
+                <h3>Boat Tour Guidance</h3>
+                <p>Explore the calm waters of Lake Victoria. We can guide you in organizing boat excursions, fishing trips, and scenic tours around the island.</p>
+            </div>
+            <div class="experience-item">
+                <span class="material-icons">museum</span>
+                <h3>Historical Tourism</h3>
+                <p>Discover the rich heritage of the Abasuba community. We provide guidance for visits to the Abasuba Peace Museum and the ancient Mawanga Rock Art sites.</p>
+            </div>
+            <div class="experience-item">
+                <span class="material-icons">groups</span>
+                <h3>Meeting Spaces</h3>
+                <p>Our quiet lakeside environment provides a productive and relaxing atmosphere for private meetings, small conferences, team retreats, and family gatherings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Friendly -->
+    <section class="section-pad">
+        <div class="story-block">
+            <div class="story-visual reveal">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80" alt="Family friendly accommodation at Kadongo">
+            </div>
+            <div class="story-text">
+                <div class="section-eyebrow reveal">For Everyone</div>
+                <h2 class="section-title reveal">Family <em>Friendly</em></h2>
+                <p class="section-lead reveal">
+                    Families are warmly welcome at Kadongo Cool Breez Hotel Resort. 
+                    We offer spacious family accommodation designed to provide comfort 
+                    and privacy for guests of all ages.
+                </p>
+                <p class="reveal">
+                    Children are accommodated under clearly observed house rules and 
+                    safety guidelines to ensure a comfortable, peaceful, and enjoyable 
+                    stay for all our guests.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-amenities">
+        <div class="cta-content">
+            <div class="section-eyebrow reveal">Ready to Experience the Cool Breez?</div>
+            <h2 class="section-title reveal">Plan Your <em>Peaceful Escape</em></h2>
+            <p class="section-lead reveal">
+                Reservations are handled personally by our management team to ensure 
+                every guest receives attentive service and the perfect room for their stay.
+            </p>
+            <div class="cta-phones reveal">
+                <a href="tel:+254756585016" class="cta-phone">
+                    <span class="material-icons">call</span>
+                    <div class="cta-phone-info">
+                        <span class="cta-phone-label">Call Us Directly</span>
+                        <span class="cta-phone-num">+254 756 585 016</span>
+                    </div>
+                </a>
+                <a href="tel:+254715249204" class="cta-phone">
+                    <span class="material-icons">call</span>
+                    <div class="cta-phone-info">
+                        <span class="cta-phone-label">Alternative Line</span>
+                        <span class="cta-phone-num">+254 715 249 204</span>
+                    </div>
+                </a>
+            </div>
+            <p class="reveal" style="margin-top: 30px; font-size: 14px; color: rgba(245, 241, 234, 0.7);">
+                📧 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-gold); text-decoration: underline;">paulnyumbwe@gmail.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>KADONGO</h3>
+                    <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="offers.html">Special Offers</a></li>
+                        <li><a href="cancellation.html">Cancellation</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>P.O. Box 22–40319<br>Mfangano Island<br>Homa Bay County, Kenya</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+254 756 585 016<br>+254 715 249 204</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>paulnyumbwe@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
+                <div>Crafted with ❤️ on Mfangano Island</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Page Loader & Hero Init
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('done');
+                document.querySelector('.page-hero').classList.add('loaded');
+                initHeroAnimations();
+            }, 2500);
+        });
+
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }, { passive: true });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Hero Animations
+        function initHeroAnimations() {
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+            tl.to('.hero-title .line-inner', {
+                y: 0,
+                duration: 1.4,
+                stagger: 0.15,
+            })
+            .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
+            .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
+        }
+
+        // Reveal on Scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+        // Parallax Effects
+        gsap.to('.page-hero-bg', {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.page-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            }
+        });
+
+        gsap.utils.toArray('.story-visual img').forEach(img => {
+            gsap.to(img, {
+                yPercent: -10,
+                ease: 'none',
+                scrollTrigger: { 
+                    trigger: img.closest('.story-block'), 
+                    start: 'top bottom', 
+                    end: 'bottom top', 
+                    scrub: true 
+                }
+            });
+        });
+
+        // Update Footer Year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Refresh ScrollTrigger on resize
+        window.addEventListener('resize', () => ScrollTrigger.refresh());
+    </script>
+</body>
+</html>
