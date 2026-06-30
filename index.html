@@ -103,23 +103,11 @@
             animation: fadeInScale 1s 0.3s var(--ease-luxury) forwards;
         }
 
-        .loader-logo-main {
-            font-family: var(--serif);
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--brand-red);
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .loader-logo-sub {
-            font-family: var(--sans);
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--brand-gold);
-            letter-spacing: 6px;
-            text-transform: uppercase;
+        .loader-logo-image {
+            width: 320px;
+            height: auto;
+            max-width: 90vw;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
         }
 
         .loader-location {
@@ -127,7 +115,7 @@
             font-size: 18px;
             font-style: italic;
             color: rgba(245, 241, 234, 0.8);
-            margin-top: 12px;
+            margin-top: 20px;
             opacity: 0;
             animation: fadeIn 1s 0.6s var(--ease-luxury) forwards;
         }
@@ -187,13 +175,13 @@
             z-index: 1000;
             background: transparent;
             transition: all 0.5s var(--ease-luxury);
-            padding: 24px 60px;
+            padding: 20px 60px;
         }
 
         #main-header.scrolled {
             background: rgba(245, 241, 234, 0.95);
             backdrop-filter: blur(20px);
-            padding: 16px 60px;
+            padding: 12px 60px;
             border-bottom: 1px solid rgba(27, 40, 69, 0.1);
         }
 
@@ -207,31 +195,31 @@
 
         .logo a {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+        }
+
+        .logo-image {
+            height: 65px;
+            width: auto;
+            transition: all 0.4s var(--ease-luxury);
         }
 
         .logo-text {
             font-family: var(--serif);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
-            color: var(--brand-red);
-            letter-spacing: 4px;
+            color: var(--brand-cream);
+            letter-spacing: 3px;
             transition: color 0.4s;
         }
 
-        .logo-sub {
-            font-family: var(--sans);
-            font-size: 10px;
-            font-weight: 400;
-            color: var(--brand-navy);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: -4px;
+        #main-header.scrolled .logo-image {
+            height: 50px;
         }
 
-        #main-header.scrolled .logo-text,
-        #main-header.scrolled .logo-sub {
+        #main-header.scrolled .logo-text {
             color: var(--brand-navy);
         }
 
@@ -240,6 +228,7 @@
             list-style: none;
             gap: 40px;
             align-items: center;
+            position: relative;
         }
 
         .nav-link {
@@ -301,6 +290,7 @@
             border: none;
             cursor: pointer;
             padding: 8px;
+            z-index: 1001;
         }
 
         .bar {
@@ -314,9 +304,71 @@
             background: var(--brand-navy);
         }
 
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background: var(--brand-gold) !important;
+        }
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background: var(--brand-gold) !important;
+        }
+
+        /* Close Menu Button */
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: 1px solid rgba(245, 241, 234, 0.3);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            color: var(--brand-cream);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 1002;
+        }
+
+        .close-menu:hover {
+            background: var(--brand-gold);
+            border-color: var(--brand-gold);
+            color: var(--brand-navy);
+        }
+
+        .close-menu svg {
+            width: 22px;
+            height: 22px;
+        }
+
         @media (max-width: 1024px) {
             #main-header {
-                padding: 20px 24px;
+                padding: 16px 24px;
+            }
+            
+            #main-header.scrolled {
+                padding: 12px 24px;
+            }
+
+            .logo-image {
+                height: 50px;
+            }
+
+            #main-header.scrolled .logo-image {
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .close-menu {
+                display: flex;
             }
             
             .hamburger {
@@ -334,6 +386,7 @@
                 justify-content: center;
                 transition: right 0.6s var(--ease-luxury);
                 z-index: 999;
+                gap: 32px;
             }
             
             .nav-links.active {
@@ -1151,13 +1204,10 @@
             margin-bottom: 60px;
         }
 
-        .footer-brand h3 {
-            font-family: var(--serif);
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--brand-red);
-            letter-spacing: 3px;
-            margin-bottom: 16px;
+        .footer-brand .footer-logo-image {
+            width: 240px;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         .footer-brand p {
@@ -1222,6 +1272,10 @@
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .footer-brand .footer-logo-image {
+                width: 200px;
+            }
             
             .footer-bottom {
                 flex-direction: column;
@@ -1261,8 +1315,7 @@
     <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="loader-logo">
-            <div class="loader-logo-main">Kadongo</div>
-            <div class="loader-logo-sub">Cool Breez Hotel</div>
+            <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="loader-logo-image">
             <div class="loader-location">Mfangano Island, Kenya</div>
         </div>
         <div class="loader-bar-container">
@@ -1276,13 +1329,19 @@
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
+                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
                     <span class="logo-text">KADONGO</span>
-                    <span class="logo-sub">Cool Breez Hotel</span>
                 </a>
             </div>
             
             <nav class="navbar" id="main-nav">
                 <ul class="nav-links">
+                    <button class="close-menu" id="close-menu" aria-label="Close Menu">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="rooms.html" class="nav-link">Rooms</a></li>
@@ -1601,7 +1660,7 @@
             </div>
             
             <p style="margin-top: 40px; font-size: 14px; color: rgba(245, 241, 234, 0.6);">
-                📧 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-gold);">paulnyumbwe@gmail.com</a>
+                 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-gold);">paulnyumbwe@gmail.com</a>
             </p>
         </div>
     </section>
@@ -1611,7 +1670,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>KADONGO</h3>
+                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="footer-logo-image">
                     <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
                 </div>
                 
@@ -1699,12 +1758,21 @@
         // Mobile Menu Toggle
         const hamburger = document.getElementById('mobile-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const closeMenuBtn = document.getElementById('close-menu');
         
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
+
+        if (closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
 
         // Close mobile menu on link click
         document.querySelectorAll('.nav-link').forEach(link => {
