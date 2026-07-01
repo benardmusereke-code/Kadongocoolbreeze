@@ -1,700 +1,1081 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="About Kadongo Resort — Rooted in Mfangano Island's rich culture, crafted for your unforgettable escape.">
-  <title>About Us | Kadongo Resort - Mfangano Island</title>
-  
-  <!-- 🌐 FONTS: Luxury Serif + Clean Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  
-  <!-- 🛠️ LIBRARIES: GSAP (Animations) + Lenis (Smooth Scroll) -->
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-  <!-- 🎨 CRITICAL CSS -->
-  <style>
-    :root {
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Lato', sans-serif;
-      --color-bg: #F9F8F6;
-      --color-text: #2C2C2C;
-      --color-text-light: #5A5A5A;
-      --color-accent: #B88B4A;
-      --color-overlay: rgba(20, 20, 20, 0.5);
-      --spacing-section: 140px;
-    }
-
-    [data-theme="dark"] {
-      --color-bg: #0F1115;
-      --color-text: #E8E8E8;
-      --color-text-light: #B0B0B0;
-      --color-overlay: rgba(0, 0, 0, 0.7);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Kadongo Cool Breez Hotel Resort - Mfangano Island</title>
+    <meta name="description" content="Discover the story of Kadongo Cool Breez Hotel Resort. Founded by Paul Nyumbwe to provide peaceful, comfortable accommodation just 100m from Sena Ferry, Mfangano Island.">
+    <meta name="keywords" content="Kadongo Cool Breez Hotel, Paul Nyumbwe, Mfangano Island history, Sena Ferry accommodation, Homa Bay hotels, Lake Victoria resorts">
     
-    html.lenis { height: auto; }
-    .lenis.lenis-smooth { scroll-behavior: auto; }
-    .lenis.lenis-stopped { overflow: hidden; }
-
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.8;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--color-text);
-    }
-
-    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-    img { max-width: 100%; display: block; object-fit: cover; }
-    video { max-width: 100%; display: block; object-fit: cover; }
-
-    /* ===== UTILITIES ===== */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 40px;
-      position: relative;
-      z-index: 2;
-    }
-    .text-center { text-align: center; }
-    .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--color-accent); }
-    .gold { color: var(--color-accent); }
-
-    /* ===== BUTTONS ===== */
-    .btn-luxury {
-      display: inline-block;
-      padding: 20px 50px;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: #fff;
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-    }
-    .btn-luxury::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 0%; height: 100%;
-      background: var(--color-accent);
-      transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: -1;
-    }
-    .btn-luxury:hover { 
-      color: #fff; 
-      border-color: var(--color-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 40px rgba(184, 139, 74, 0.4);
-    }
-    .btn-luxury:hover::before { width: 100%; }
+    <!-- Open Graph -->
+    <meta property="og:title" content="About Us | Kadongo Cool Breez Hotel Resort">
+    <meta property="og:description" content="A journey of resilience, warm hospitality, and a vision to welcome every traveler to Mfangano Island.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kadongocoolbreez.com/about.html">
     
-    .btn-luxury.dark {
-      border-color: var(--color-text);
-      color: var(--color-text);
-      background: rgba(0,0,0,0.05);
-    }
-    .btn-luxury.dark:hover { 
-      color: #fff;
-      border-color: var(--color-accent);
-    }
-    .btn-luxury.dark::before { background: var(--color-accent); }
+    <link rel="canonical" href="https://kadongocoolbreez.com/about.html">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      height: 100vh;
-      width: 100%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .hero-image {
-      position:absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      object-fit:fill;
-      z-index: 1;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-      z-index: 2;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      text-align: center;
-      color: #fff;
-      max-width: 900px;
-      padding: 0 20px;
-    }
-    .hero-title {
-      font-size: clamp(3rem, 6vw, 5rem);
-      margin-bottom: 25px;
-      opacity: 0;
-      transform: translateY(40px);
-      font-style: italic;
-    }
-    .hero-subtitle {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-weight: 300;
-      margin-bottom: 50px;
-      opacity: 0;
-      transform: translateY(40px);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-    }
-    .hero-cta {
-      opacity: 0;
-      transform: translateY(40px);
-    }
+    <style>
+        :root {
+            /* Brand Colors */
+            --brand-red: #8B1518;
+            --brand-navy: #1B2845;
+            --brand-gold: #C9A961;
+            --brand-turquoise: #4ECDC4;
+            --brand-cream: #F5F1EA;
+            --brand-dark: #1A1A1A;
+            
+            /* Semantic Colors */
+            --bg-primary: var(--brand-cream);
+            --bg-secondary: #EBE4D6;
+            --bg-dark: var(--brand-navy);
+            --text-primary: var(--brand-navy);
+            --text-secondary: #6B6458;
+            --text-muted: #9C9485;
+            --accent: var(--brand-gold);
+            --accent-red: var(--brand-red);
+            
+            /* Typography */
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+            
+            /* Motion */
+            --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-    /* ===== SECTIONS ===== */
-    section {
-      padding: var(--spacing-section) 0;
-      position: relative;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-    /* ===== STORY SECTION (Split Layout) ===== */
-    .story {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 90vh;
-      align-items: center;
-      background: #fff;
-    }
-    .story-text {
-      padding: 0 100px 0 60px;
-    }
-    .story-img-wrapper {
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-    .story-img {
-      width: 100%;
-      height: 120%;
-      object-fit: cover;
-      transform: translateY(-10%);
-    }
-    .section-label {
-      margin-bottom: 25px;
-      display: block;
-    }
-    .section-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 35px;
-      color: var(--color-text);
-    }
-    .section-desc {
-      font-size: 1.15rem;
-      color: var(--color-text-light);
-      margin-bottom: 30px;
-      max-width: 550px;
-      line-height: 1.9;
-    }
+        body {
+            font-family: var(--sans);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* ===== VALUES SECTION (Dark Background) ===== */
-    .values {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 150px 0;
-    }
-    .values-header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .values-header h2 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 20px;
-      color: var(--color-accent);
-    }
-    .values-header p {
-      opacity: 0.8;
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-    }
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .value-card {
-      background: rgba(255,255,255,0.05);
-      padding: 50px 40px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.4s ease;
-    }
-    .value-card:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: var(--color-accent);
-      transform: translateY(-5px);
-    }
-    .value-icon {
-      font-size: 2.5rem;
-      margin-bottom: 25px;
-      color: var(--color-accent);
-    }
-    .value-title {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-    .value-desc {
-      font-size: 0.95rem;
-      opacity: 0.75;
-      line-height: 1.7;
-    }
+        /* ===== LOADING SCREEN ===== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-red) 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            transition: opacity 0.8s var(--ease-luxury), visibility 0.8s;
+        }
+        .loader.done { opacity: 0; visibility: hidden; }
+        .loader-logo { text-align: center; opacity: 0; animation: fadeInScale 1s 0.3s var(--ease-luxury) forwards; }
+        .loader-logo-main {
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .loader-logo-sub {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--brand-gold);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+        .loader-location {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-style: italic;
+            color: rgba(245, 241, 234, 0.8);
+            margin-top: 12px;
+            opacity: 0;
+            animation: fadeIn 1s 0.6s var(--ease-luxury) forwards;
+        }
+        .loader-bar-container {
+            width: 280px;
+            height: 2px;
+            background: rgba(245, 241, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        .loader-bar {
+            position: absolute;
+            inset: 0;
+            background: var(--brand-gold);
+            transform: translateX(-100%);
+            animation: loadBar 2s 0.5s var(--ease-luxury) forwards;
+        }
+        .loader-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(245, 241, 234, 0.6);
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s 0.8s var(--ease-luxury) forwards;
+        }
+        @keyframes fadeInScale { to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes loadBar { to { transform: translateX(0); } }
 
-    /* ===== TEAM SECTION ===== */
-    .team {
-      background: var(--color-bg);
-      padding: 150px 0;
-    }
-    .team-header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .team-header h2 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 20px;
-    }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .team-member {
-      text-align: center;
-    }
-    .team-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 25px;
-      border: 3px solid var(--color-accent);
-    }
-    .team-name {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-      color: var(--color-text);
-    }
-    .team-role {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--color-accent);
-      margin-bottom: 8px;
-    }
-    .team-bio {
-      font-size: 0.9rem;
-      color: var(--color-text-light);
-    }
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.5s var(--ease-luxury);
+            padding: 24px 60px;
+        }
+        #main-header.scrolled {
+            background: rgba(245, 241, 234, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 60px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.1);
+        }
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 4px;
+            transition: color 0.4s;
+        }
+        .logo-sub {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--brand-navy);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -4px;
+        }
+        #main-header.scrolled .logo-text,
+        #main-header.scrolled .logo-sub { color: var(--brand-navy); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-cream);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.4s;
+        }
+        #main-header.scrolled .nav-link { color: var(--brand-navy); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--brand-gold);
+            transition: width 0.5s var(--ease-luxury);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .btn-book-nav {
+            padding: 12px 28px;
+            background: var(--brand-gold);
+            color: var(--brand-navy) !important;
+            font-weight: 600;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .btn-book-nav::after { display: none; }
+        .btn-book-nav:hover {
+            background: var(--brand-red);
+            color: var(--brand-cream) !important;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .bar {
+            width: 28px;
+            height: 2px;
+            background: var(--brand-cream);
+            transition: all 0.4s var(--ease-luxury);
+        }
+        #main-header.scrolled .bar { background: var(--brand-navy); }
 
-    /* ===== COMMITMENT SECTION (Video Background) ===== */
-    .commitment {
-      position: relative;
-      padding: 150px 0;
-      color: #fff;
-      overflow: hidden;
-    }
-    .commitment-video {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-    .commitment-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 2;
-    }
-    .commitment-content {
-      position: relative;
-      z-index: 3;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .commitment h2 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 35px;
-      color: var(--color-accent);
-    }
-    .commitment-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin: 50px 0;
-      text-align: left;
-    }
-    .commitment-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    .commitment-list span {
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
+        @media (max-width: 1024px) {
+            #main-header { padding: 20px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--brand-navy);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.6s var(--ease-luxury);
+                z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .nav-link { font-size: 18px; color: var(--brand-cream) !important; }
+        }
 
-    /* ===== FINAL CTA ===== */
-    .final-cta {
-      height: 80vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-    .final-cta-bg {
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1520257328597-2c6d0e7f6f8e?auto=format&fit=crop&w=1920&q=80') center/cover;
-      z-index: 1;
-    }
-    .final-cta-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 2;
-    }
-    .final-cta-content {
-      position: relative;
-      z-index: 3;
-    }
-    .final-cta h2 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      margin-bottom: 25px;
-      font-style: italic;
-    }
-    .final-cta p {
-      font-size: 1.25rem;
-      margin-bottom: 50px;
-      opacity: 0.9;
-    }
+        /* ===== PAGE HERO ===== */
+        .about-hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .about-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            transition: transform 8s ease-out;
+        }
+        .about-hero.loaded .about-hero-bg { transform: scale(1); }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(27, 40, 69, 0.5) 0%, rgba(27, 40, 69, 0.7) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+            color: var(--brand-cream);
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .hero-badge::before, .hero-badge::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(42px, 7vw, 96px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+        .hero-title .line { display: block; overflow: hidden; }
+        .hero-title .line-inner { display: block; transform: translateY(100%); }
+        .hero-title em { font-style: italic; color: var(--brand-gold); font-weight: 300; }
+        .hero-subtitle {
+            font-size: clamp(15px, 1.4vw, 18px);
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.9);
+        }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 992px) {
-      .story { grid-template-columns: 1fr; }
-      .story-text { padding: 80px 40px; order: 2; }
-      .story-img-wrapper { height: 60vh; order: 1; }
-      .container { padding: 0 25px; }
-    }
-    @media (max-width: 768px) {
-      .hero-title { font-size: 3rem; }
-      .hero-subtitle { font-size: 1.1rem; }
-      .values-grid, .team-grid { grid-template-columns: 1fr; }
-      .commitment-list { grid-template-columns: 1fr; }
-    }
-  </style>
+        /* ===== SECTIONS BASE ===== */
+        section { position: relative; }
+        .section-pad { padding: 140px 60px; }
+        @media (max-width: 900px) { .section-pad { padding: 80px 24px; } }
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .section-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--brand-navy);
+            margin-bottom: 28px;
+        }
+        .section-title em { font-style: italic; color: var(--brand-red); font-weight: 300; }
+        .section-lead {
+            font-size: clamp(16px, 1.3vw, 18px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-weight: 300;
+        }
 
-  <!-- 🛡️ PROTECT HEADER CLICKS -->
-  <style>
-    #particle-canvas { pointer-events: none !important; z-index: -1 !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
-    #header-placeholder { position: relative; z-index: 10000; }
-    #header-placeholder, #footer-placeholder { min-height: 80px; }
-  </style>
+        /* ===== FOUNDER STORY ===== */
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .founder-visual { position: relative; }
+        .founder-visual img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            box-shadow: 0 30px 60px rgba(27, 40, 69, 0.15);
+        }
+        .founder-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 15px 40px rgba(27, 40, 69, 0.2);
+        }
+        .founder-badge .material-icons { color: var(--brand-gold); font-size: 32px; }
+        .founder-badge span:last-child {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-style: italic;
+        }
+        .story-paragraphs p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        @media (max-width: 900px) {
+            .founder-grid { grid-template-columns: 1fr; gap: 50px; }
+            .founder-visual img { height: 400px; }
+            .founder-badge { bottom: -20px; right: 20px; padding: 16px 24px; }
+        }
+
+        /* ===== CORE VALUES ===== */
+        .core-values { background: var(--bg-secondary); }
+        .values-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+        .values-header .section-eyebrow { justify-content: center; }
+        .values-header .section-lead { margin: 0 auto; }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .value-card {
+            background: var(--bg-primary);
+            padding: 48px 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(27, 40, 69, 0.05);
+            transition: all 0.5s var(--ease-luxury);
+            border: 1px solid transparent;
+        }
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(27, 40, 69, 0.1);
+            border-color: var(--brand-gold);
+        }
+        .value-icon {
+            font-size: 48px;
+            color: var(--brand-red);
+            margin-bottom: 24px;
+            display: inline-block;
+            transition: transform 0.5s var(--ease-luxury);
+        }
+        .value-card:hover .value-icon { transform: scale(1.1); color: var(--brand-gold); }
+        .value-card h3 {
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 16px;
+        }
+        .value-card p { font-size: 15px; line-height: 1.8; color: var(--text-secondary); }
+        @media (max-width: 900px) { .values-grid { grid-template-columns: 1fr; } }
+
+        /* ===== CULTURAL HERITAGE ===== */
+        .heritage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .heritage-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .heritage-list li {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 24px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .heritage-list li:hover {
+            background: var(--brand-navy);
+            transform: translateX(10px);
+        }
+        .heritage-list li:hover .material-icons,
+        .heritage-list li:hover strong,
+        .heritage-list li:hover p { color: var(--brand-cream); }
+        .heritage-list li:hover .material-icons { color: var(--brand-gold); }
+        .heritage-list .material-icons {
+            font-size: 32px;
+            color: var(--brand-red);
+            flex-shrink: 0;
+            transition: color 0.4s;
+        }
+        .heritage-list strong {
+            display: block;
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 6px;
+            transition: color 0.4s;
+        }
+        .heritage-list p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+            transition: color 0.4s;
+        }
+        .heritage-visual { position: relative; height: 600px; }
+        .heritage-img-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 75%;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(27, 40, 69, 0.15);
+        }
+        .heritage-img-main img { width: 100%; height: 100%; object-fit: cover; }
+        .heritage-img-secondary {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 55%;
+            height: 50%;
+            overflow: hidden;
+            border: 8px solid var(--bg-primary);
+            box-shadow: 0 20px 40px rgba(27, 40, 69, 0.1);
+        }
+        .heritage-img-secondary img { width: 100%; height: 100%; object-fit: cover; }
+        @media (max-width: 900px) {
+            .heritage-grid { grid-template-columns: 1fr; gap: 50px; }
+            .heritage-visual { height: 450px; }
+        }
+
+        /* ===== CTA ABOUT ===== */
+        .cta-about {
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            padding: 120px 60px;
+            text-align: center;
+        }
+        .cta-about .section-title { color: var(--brand-cream); }
+        .cta-about .section-title em { color: var(--brand-gold); }
+        .cta-about .section-eyebrow { justify-content: center; }
+        .cta-about .section-lead { margin: 0 auto 40px; color: rgba(245, 241, 234, 0.8); }
+        .cta-phones {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 36px;
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid var(--brand-gold);
+            transition: all 0.4s var(--ease-luxury);
+            text-decoration: none;
+            color: var(--brand-cream);
+        }
+        .cta-phone:hover { background: var(--brand-gold); }
+        .cta-phone:hover .cta-phone-num { color: var(--brand-navy); }
+        .cta-phone .material-icons { font-size: 28px; color: var(--brand-gold); }
+        .cta-phone:hover .material-icons { color: var(--brand-navy); }
+        .cta-phone-info { text-align: left; }
+        .cta-phone-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .cta-phone:hover .cta-phone-label { color: var(--brand-navy); }
+        .cta-phone-num {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--brand-cream);
+            transition: color 0.4s;
+        }
+        @media (max-width: 900px) { .cta-about { padding: 80px 24px; } }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--brand-dark);
+            color: var(--brand-cream);
+            padding: 80px 60px 40px;
+        }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-brand h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.6);
+            margin-bottom: 24px;
+        }
+        .footer-heading {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: rgba(245, 241, 234, 0.7);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--brand-gold); }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: rgba(245, 241, 234, 0.7);
+        }
+        .contact-icon { font-size: 18px; flex-shrink: 0; }
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(245, 241, 234, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(245, 241, 234, 0.4);
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            footer { padding: 60px 24px 30px; }
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+        }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
+        }
+        .reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 3px; }
+    </style>
 </head>
 <body>
 
-  <!-- 🌟 PARTICLE BACKGROUND -->
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-  <!-- Dynamic Header -->
-  <div id="header-placeholder"></div>
-
-  <main>
-    
-    <!-- 🎬 HERO SECTION -->
-    <section class="hero">
-      <video class="hero-image" autoplay muted loop playsinline poster="images/steetview.png">
-        <source src="images/longview-outside-view-of-buliding.png" type="image/png">
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Our Story</h1>
-        <p class="hero-subtitle">Rooted in Mfangano Island's rich culture, crafted for your unforgettable escape.</p>
-        <div class="hero-cta">
-          <a href="#story" class="btn-luxury">Discover More</a>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">
+            <div class="loader-logo-main">Kadongo</div>
+            <div class="loader-logo-sub">Cool Breez Hotel</div>
+            <div class="loader-location">Mfangano Island, Kenya</div>
         </div>
-      </div>
+        <div class="loader-bar-container">
+            <div class="loader-bar"></div>
+        </div>
+        <div class="loader-text">Welcome</div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">KADONGO</span>
+                    <span class="logo-sub">Cool Breez Hotel</span>
+                </a>
+            </div>
+            <nav class="navbar" id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="rooms.html" class="nav-link">Rooms</a></li>
+                    <li><a href="dining.html" class="nav-link">Dining</a></li>
+                    <li><a href="amenities.html" class="nav-link">Amenities</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="location.html" class="nav-link">Location</a></li>
+                    <li><a href="booking.html" class="nav-link btn-book-nav">Book Now</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="about-hero">
+        <div class="about-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Our Story • Mfangano Island</div>
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">Rooted in Culture,</span></span>
+                <span class="line"><span class="line-inner">Crafted for <em>Your Peace</em></span></span>
+            </h1>
+            <p class="hero-subtitle">
+                A journey of resilience, warm hospitality, and a simple vision: 
+                to provide a safe, peaceful haven for every traveler arriving on our beautiful island.
+            </p>
+        </div>
     </section>
 
-    <!-- 📖 STORY SECTION -->
-    <section class="story" id="story">
-      <div class="story-text">
-        <span class="section-label uppercase">From Vision to Paradise</span>
-        <h2 class="section-title">A Dream Realized</h2>
-        <p class="section-desc">
-          Kadongo Resort was born from a dream: to create a sanctuary where luxury hospitality 
-          harmonizes with the pristine beauty of Lake Victoria and the authentic warmth of Luo culture.
-        </p>
-        <p class="section-desc">
-          Founded in 2018 by local conservationists and hospitality experts, we've carefully developed 
-          our resort to minimize environmental impact while maximizing guest comfort and cultural immersion.
-        </p>
-        <p class="section-desc">
-          Today, Kadongo Resort stands as Mfangano Island's premier eco-luxury destination — a place 
-          where every detail honors the land, the lake, and the community that calls this paradise home.
-        </p>
-        <a href="booking.html" class="btn-luxury dark">Book Your Stay</a>
-      </div>
-      <div class="story-img-wrapper">
-        <img src="images/gazebo1.png" alt="Resort Grounds" class="story-img" data-speed="0.8">
-      </div>
+    <!-- Founder's Story -->
+    <section class="founder-story section-pad">
+        <div class="founder-grid">
+            <div class="founder-visual reveal">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80" alt="Kadongo Cool Breez Hotel Resort entrance">
+                <div class="founder-badge">
+                    <span class="material-icons">lightbulb</span>
+                    <span>Est. Vision</span>
+                </div>
+            </div>
+            <div class="founder-text">
+                <div class="section-eyebrow reveal">The Beginning</div>
+                <h2 class="section-title reveal">A Vision Born from <em>Real Need</em></h2>
+                <p class="section-lead reveal">
+                    Kadongo Cool Breez Hotel Resort was founded by Paul Nyumbwe with a simple but powerful vision: to solve a common challenge faced by visitors arriving at Sena.
+                </p>
+                <div class="story-paragraphs">
+                    <p class="reveal">
+                        In the early days, many travellers—especially first-time visitors and professionals on contractual assignments—struggled to find nearby, peaceful accommodation. The nearest suitable lodging facilities were approximately four kilometres away from the ferry landing, making travel exhausting after long journeys.
+                    </p>
+                    <p class="reveal">
+                        Driven by determination, resilience, and a deep passion for hospitality, Paul established Kadongo Cool Breez Hotel Resort just 100 metres from the Sena Ferry Docking Point. 
+                    </p>
+                    <p class="reveal">
+                        Today, the resort has become one of the island's preferred destinations for visitors seeking comfort, privacy, and authentic Kenyan hospitality. What started as a solution to a practical problem has blossomed into a welcoming lakeside home for families, business travellers, and cultural explorers alike.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 💎 VALUES SECTION -->
-    <section class="values">
-      <div class="container">
+    <!-- Core Values -->
+    <section class="core-values section-pad">
         <div class="values-header">
-          <span class="section-label uppercase" style="color: var(--color-accent);">Our Philosophy</span>
-          <h2>Core Values</h2>
-          <p>The principles that guide everything we do at Kadongo Resort.</p>
+            <div class="section-eyebrow reveal">Our Philosophy</div>
+            <h2 class="section-title reveal">The Principles That <em>Guide Us</em></h2>
+            <p class="section-lead reveal">
+                We believe in creating a space that feels less like a hotel and more like a peaceful island home.
+            </p>
         </div>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">🌿</div>
-            <h3 class="value-title">Sustainability</h3>
-            <p class="value-desc">Solar-powered, water-conserving, waste-reducing operations that protect Mfangano's ecosystem for future generations.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🤝</div>
-            <h3 class="value-title">Community First</h3>
-            <p class="value-desc">90% of our staff are local. We partner with village artisans, fishermen, and cultural guides to create authentic experiences.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">✨</div>
-            <h3 class="value-title">Authentic Luxury</h3>
-            <p class="value-desc">Comfort that respects tradition. Modern amenities woven with Luo design and craftsmanship for a truly unique stay.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">💙</div>
-            <h3 class="value-title">Guest Wellbeing</h3>
-            <p class="value-desc">From spa treatments using local botanicals to mindful dining, we nurture body and soul in every interaction.</p>
-          </div>
+        <div class="values-grid reveal-stagger">
+            <div class="value-card">
+                <span class="material-icons value-icon">waving_hand</span>
+                <h3>Warm Kenyan Hospitality</h3>
+                <p>From the moment you arrive until your departure, our friendly and dedicated staff work around the clock to ensure your comfort, safety, and satisfaction.</p>
+            </div>
+            <div class="value-card">
+                <span class="material-icons value-icon">shield_month</span>
+                <h3>Peaceful & Private Sanctuary</h3>
+                <p>Unlike open beach resorts, we focus on private, comfortable indoor accommodation. Surrounded by mature indigenous trees, our environment guarantees privacy and tranquility.</p>
+            </div>
+            <div class="value-card">
+                <span class="material-icons value-icon">forest</span>
+                <h3>Natural Comfort</h3>
+                <p>Our property is blessed with fresh natural air, large shaded gardens, and the cool breeze of Lake Victoria. Relax in our gazebos and experience true relaxation.</p>
+            </div>
+            <div class="value-card">
+                <span class="material-icons value-icon">celebration</span>
+                <h3>Authentic Heritage</h3>
+                <p>We proudly celebrate the rich heritage of the Abasuba Community. During festive seasons, enjoy traditional Kadongo-style cultural music that preserves local history and values.</p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- 👥 TEAM SECTION -->
-    <section class="team">
-      <div class="container">
-        <div class="team-header">
-          <span class="section-label uppercase">Leadership</span>
-          <h2 class="section-title">Meet Our Team</h2>
-          <p class="section-desc" style="margin: 0 auto;">
-            The passionate individuals behind your unforgettable experience.
-          </p>
+    <!-- Cultural Heritage -->
+    <section class="cultural-heritage section-pad">
+        <div class="heritage-grid">
+            <div class="heritage-text">
+                <div class="section-eyebrow reveal">Cultural Heritage</div>
+                <h2 class="section-title reveal">Celebrating the <em>Abasuba</em> Community</h2>
+                <p class="section-lead reveal">
+                    Mfangano Island is rich in history, and we are proud to be part of its story. Kadongo Cool Breez Hotel Resort embraces the heritage of the local community, offering guests a genuine connection to the island's culture.
+                </p>
+                <ul class="heritage-list reveal-stagger">
+                    <li>
+                        <span class="material-icons">graphic_eq</span>
+                        <div>
+                            <strong>Traditional Music</strong>
+                            <p>Seasonal live band performances celebrating local history and cultural values.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="material-icons">museum</span>
+                        <div>
+                            <strong>Historical Guidance</strong>
+                            <p>We provide guidance to nearby attractions like the Abasuba Peace Museum and Mawanga Rock Art.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="material-icons">directions_boat</span>
+                        <div>
+                            <strong>Lake Experiences</strong>
+                            <p>Organize boat tours across Lake Victoria and visits to traditional fishing villages.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="heritage-visual reveal">
+                <div class="heritage-img-main">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=80" alt="Cultural gathering">
+                </div>
+                <div class="heritage-img-secondary">
+                    <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=600&q=80" alt="Mfangano Island nature">
+                </div>
+            </div>
         </div>
-        <div class="team-grid">
-          <div class="team-member">
-            <img src="https://i.pravatar.cc/150?img=32" alt="Paul Nyumbwe" class="team-photo">
-            <h3 class="team-name">Paul Omondi Nyumbwe</h3>
-            <p class="team-role">Founder & General Manager</p>
-            <p class="team-bio">Luo Heritage Advocate</p>
-          </div>
-         
-         </div>
-      </div>
     </section>
 
-    <!-- 🌍 COMMITMENT SECTION -->
-    <section class="commitment">
-      <video class="commitment-video" autoplay muted loop playsinline>
-        <source src="https://videos.pexels.com/video-files/3209829/3209829-uhd_2560_1440_24fps.mp4" type="video/mp4">
-      </video>
-      <div class="commitment-overlay"></div>
-      <div class="commitment-content">
-        <span class="section-label uppercase" style="color: var(--color-accent);">Our Promise</span>
-        <h2>🌍 Commitment to Mfangano</h2>
-        <p style="font-size: 1.15rem; opacity: 0.9; line-height: 1.8; max-width: 700px; margin: 0 auto 40px;">
-          We believe luxury travel should leave places better than we found them. Here's how we protect our island home:
-        </p>
-        <ul class="commitment-list">
-          <li><span>☀️</span> 100% solar-powered resort with battery backup</li>
-          <li><span>💧</span> Rainwater harvesting + greywater recycling system</li>
-          <li><span>🌱</span> Organic garden supplies 60% of our restaurant produce</li>
-          <li><span>🐠</span> Partnering with Lake Victoria conservation NGOs</li>
-          <li><span>🎨</span> Supporting local artisans through our craft marketplace</li>
-          <li><span>📚</span> Funding scholarships for Mfangano Island students</li>
-        </ul>
-        <a href="contact.html" class="btn-luxury">Learn More About Our Initiatives</a>
-      </div>
+    <!-- CTA -->
+    <section class="cta-about">
+        <div class="cta-content">
+            <div class="section-eyebrow reveal">Experience the Difference</div>
+            <h2 class="section-title reveal">Your Peaceful Island <em>Awaits</em></h2>
+            <p class="section-lead reveal">
+                Whether you are visiting for business, family, or a peaceful retreat, we invite you to experience genuine hospitality and the cool breeze of Lake Victoria.
+            </p>
+            <div class="cta-phones reveal">
+                <a href="tel:+254756585016" class="cta-phone">
+                    <span class="material-icons">call</span>
+                    <div class="cta-phone-info">
+                        <span class="cta-phone-label">Call Us Directly</span>
+                        <span class="cta-phone-num">+254 756 585 016</span>
+                    </div>
+                </a>
+                <a href="tel:+254715249204" class="cta-phone">
+                    <span class="material-icons">call</span>
+                    <div class="cta-phone-info">
+                        <span class="cta-phone-label">Alternative Line</span>
+                        <span class="cta-phone-num">+254 715 249 204</span>
+                    </div>
+                </a>
+            </div>
+            <p class="reveal" style="margin-top: 30px; font-size: 14px; color: rgba(245, 241, 234, 0.7);">
+                Reservations are handled personally by our management team to ensure you receive the perfect room for your stay.
+            </p>
+        </div>
     </section>
 
-    <!-- 🎯 FINAL CTA -->
-    <section class="final-cta">
-      <div class="final-cta-bg"></div>
-      <div class="final-cta-overlay"></div>
-      <div class="final-cta-content">
-        <h2>Experience the Kadongo Difference</h2>
-        <p>Join us in creating tourism that uplifts communities and preserves paradise.</p>
-        <a href="booking.html" class="btn-luxury">Book Your Meaningful Stay</a>
-      </div>
-    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>KADONGO</h3>
+                    <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="offers.html">Special Offers</a></li>
+                        <li><a href="cancellation.html">Cancellation</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>P.O. Box 22–40319<br>Mfangano Island<br>Homa Bay County, Kenya</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+254 756 585 016<br>+254 715 249 204</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>paulnyumbwe@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
+                <div>Crafted with ❤️ on Mfangano Island</div>
+            </div>
+        </div>
+    </footer>
 
-  </main>
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
 
-  <!-- Dynamic Footer -->
-  <div id="footer-placeholder"></div>
+                // Page Loader - Works Online & Offline
+        let loaderFinished = false;
 
-  <!-- 🧠 LOGIC SCRIPT -->
-  <script src="script.js"></script>
+        function finishLoading() {
+            if (loaderFinished) return;
+            loaderFinished = true;
+            
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.classList.add('done');
+                }
+                // Check if GSAP loaded before running animations
+                if (typeof initHeroAnimations === 'function') {
+                    initHeroAnimations();
+                }
+            }, 500);
+        }
 
-  <!-- 🎬 PAGE ANIMATIONS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. Initialize Smooth Scroll (Lenis)
-      const lenis = new Lenis({
-        duration: 1.4,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-      });
+        // Method 1: Standard load (works when online)
+        window.addEventListener('load', () => {
+            finishLoading();
+        });
 
-      function raf(time) {
-        lenis.raf(time);
+        // Method 2: Fallback timer (works when offline)
+        setTimeout(() => {
+            finishLoading();
+        }, 3000); // Forces loader to close after 3 seconds max
+
+        // Method 3: DOMContentLoaded fallback
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                finishLoading();
+            }, 1500);
+        });
+
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
 
-      // 2. Initialize GSAP ScrollTrigger
-      gsap.registerPlugin(ScrollTrigger);
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }, { passive: true });
 
-      // Hero Animations
-      const tl = gsap.timeline();
-      tl.to('.hero-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.5 })
-        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, '-=0.9')
-        .to('.hero-cta', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, '-=0.9');
-
-      // Parallax Effects
-      gsap.utils.toArray('[data-speed]').forEach(layer => {
-        const speed = layer.getAttribute('data-speed');
-        gsap.to(layer, {
-          y: (i, target) => ScrollTrigger.maxScroll(window) * speed * 0.1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: 'body',
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 0
-          }
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
-      });
 
-      // Fade In Elements
-      gsap.utils.toArray('.section-label, .section-title, .section-desc, .btn-luxury, .value-card, .team-member, .commitment-list li').forEach(elem => {
-        gsap.from(elem, {
-          opacity: 0,
-          y: 40,
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: elem,
-            start: 'top 85%',
-          }
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
-      });
 
-      // 3. Particle Animation
-      (function initParticles() {
-        const canvas = document.getElementById('particle-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        let particles = [];
-        const particleCount = 40;
-        
-        class Particle {
-          constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2;
-            this.speedX = (Math.random() - 0.5) * 0.2;
-            this.speedY = (Math.random() - 0.5) * 0.2;
-            this.opacity = Math.random() * 0.5;
-          }
-          update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            if (this.y < 0) this.y = canvas.height;
-          }
-          draw() {
-            ctx.fillStyle = `rgba(184, 139, 74, ${this.opacity})`;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-          }
+        // Hero Animations
+        function initHeroAnimations() {
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+            tl.to('.hero-title .line-inner', {
+                y: 0,
+                duration: 1.4,
+                stagger: 0.15,
+            })
+            .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
+            .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
         }
-        
-        function init() {
-          for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-        }
-        
-        function animate() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          particles.forEach(p => { p.update(); p.draw(); });
-          requestAnimationFrame(animate);
-        }
-        
-        init();
-        animate();
-        
-        window.addEventListener('resize', () => {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
+
+        // Reveal on Scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+        // Parallax Effects
+        gsap.to('.about-hero-bg', {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.about-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            }
         });
-      })();
-    });
-  </script>
+
+        gsap.to('.founder-visual img', {
+            yPercent: -10,
+            ease: 'none',
+            scrollTrigger: { 
+                trigger: '.founder-story', 
+                start: 'top bottom', 
+                end: 'bottom top', 
+                scrub: true 
+            }
+        });
+
+        gsap.to('.heritage-img-main img', {
+            yPercent: -15,
+            ease: 'none',
+            scrollTrigger: { 
+                trigger: '.cultural-heritage', 
+                start: 'top bottom', 
+                end: 'bottom top', 
+                scrub: true 
+            }
+        });
+
+        // Update Footer Year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Refresh ScrollTrigger on resize
+        window.addEventListener('resize', () => ScrollTrigger.refresh());
+    </script>
 </body>
 </html>

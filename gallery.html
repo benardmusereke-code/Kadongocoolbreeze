@@ -1,737 +1,1099 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Photo Gallery — A visual journey through Kadongo Resort's rooms, dining, and the breathtaking beauty of Mfangano Island.">
-  <title>Gallery | Kadongo Resort - Mfangano Island</title>
-  
-  <!-- 🌐 FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  
-  <!-- 🛠️ LIBRARIES -->
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-  <!-- 🎨 CRITICAL CSS -->
-  <style>
-    :root {
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Lato', sans-serif;
-      --color-bg: #F9F8F6;
-      --color-text: #2C2C2C;
-      --color-text-light: #5A5A5A;
-      --color-accent: #B88B4A;
-      --color-overlay: rgba(20, 20, 20, 0.5);
-      --spacing-section: 140px;
-    }
-
-    [data-theme="dark"] {
-      --color-bg: #0F1115;
-      --color-text: #E8E8E8;
-      --color-text-light: #B0B0B0;
-      --color-overlay: rgba(0, 0, 0, 0.7);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Kadongo Cool Breez Hotel Resort - Visual Journey Mfangano Island</title>
+    <meta name="description" content="Explore Kadongo Cool Breez Hotel Resort through our photo gallery. Discover our rooms, lakeside dining, gardens, gazebos, and stunning Lake Victoria sunsets on Mfangano Island.">
+    <meta name="keywords" content="Kadongo Cool Breez gallery, Mfangano Island photos, Lake Victoria resort images, Sena Ferry hotel pictures, Homa Bay accommodation gallery">
     
-    html.lenis { height: auto; }
-    .lenis.lenis-smooth { scroll-behavior: auto; }
-    .lenis.lenis-stopped { overflow: hidden; }
-
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--color-text);
-    }
-
-    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-    img, video { max-width: 100%; display: block; object-fit: cover; }
-
-    /* ===== UTILITIES ===== */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 40px;
-      position: relative;
-      z-index: 2;
-    }
-    .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--color-accent); }
-
-    /* ===== BUTTONS ===== */
-    .btn-luxury {
-      display: inline-block;
-      padding: 20px 50px;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: #fff;
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-    }
-    .btn-luxury::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 0%; height: 100%;
-      background: var(--color-accent);
-      transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: -1;
-    }
-    .btn-luxury:hover { 
-      color: #fff; 
-      border-color: var(--color-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 40px rgba(184, 139, 74, 0.4);
-    }
-    .btn-luxury:hover::before { width: 100%; }
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gallery | Kadongo Cool Breez Hotel Resort">
+    <meta property="og:description" content="A visual journey through our peaceful lakeside retreat on Mfangano Island.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kadongocoolbreez.com/gallery.html">
     
-    .btn-luxury.dark {
-      border-color: var(--color-text);
-      color: var(--color-text);
-      background: rgba(0,0,0,0.05);
-    }
-    .btn-luxury.dark:hover { 
-      color: #fff;
-      border-color: var(--color-accent);
-    }
-    .btn-luxury.dark::before { background: var(--color-accent); }
+    <link rel="canonical" href="https://kadongocoolbreez.com/gallery.html">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      height: 100vh;
-      width: 100%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .hero-video {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-      z-index: 2;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      text-align: center;
-      color: #fff;
-      max-width: 900px;
-      padding: 0 20px;
-    }
-    .hero-title {
-      font-size: clamp(3rem, 6vw, 5rem);
-      margin-bottom: 25px;
-      opacity: 0;
-      transform: translateY(40px);
-      font-style: italic;
-    }
-    .hero-subtitle {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-weight: 300;
-      margin-bottom: 50px;
-      opacity: 0;
-      transform: translateY(40px);
-    }
+    <style>
+        :root {
+            /* Brand Colors */
+            --brand-red: #8B1518;
+            --brand-navy: #1B2845;
+            --brand-gold: #C9A961;
+            --brand-turquoise: #4ECDC4;
+            --brand-cream: #F5F1EA;
+            --brand-dark: #1A1A1A;
+            
+            /* Semantic Colors */
+            --bg-primary: var(--brand-cream);
+            --bg-secondary: #EBE4D6;
+            --bg-dark: var(--brand-navy);
+            --text-primary: var(--brand-navy);
+            --text-secondary: #6B6458;
+            --text-muted: #9C9485;
+            --accent: var(--brand-gold);
+            --accent-red: var(--brand-red);
+            
+            /* Typography */
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+            
+            /* Motion */
+            --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-    /* ===== FILTERS ===== */
-    .gallery-filters {
-      padding: 80px 0 40px;
-      text-align: center;
-    }
-    .filter-btn {
-      padding: 14px 35px;
-      border: 1px solid rgba(0,0,0,0.15);
-      background: transparent;
-      color: var(--color-text);
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      margin: 0 5px 10px;
-    }
-    .filter-btn:hover,
-    .filter-btn.active {
-      border-color: var(--color-accent);
-      background: var(--color-accent);
-      color: #fff;
-    }
-    [data-theme="dark"] .filter-btn {
-      border-color: rgba(255,255,255,0.2);
-      color: var(--color-text);
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-    /* ===== GALLERY GRID ===== */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 3px;
-      padding: 40px 0 100px;
-    }
-    .gallery-item {
-      position: relative;
-      height: 450px;
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .gallery-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .gallery-item.hidden {
-      display: none;
-    }
-    .gallery-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .gallery-item:hover .gallery-img {
-      transform: scale(1.12);
-    }
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-    }
-    .gallery-caption {
-      position: absolute;
-      bottom: 40px;
-      left: 40px;
-      color: #fff;
-      z-index: 2;
-      transform: translateY(20px);
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover .gallery-caption {
-      transform: translateY(0);
-    }
-    .gallery-caption h3 {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    .gallery-caption p {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      font-weight: 300;
-    }
+        body {
+            font-family: var(--sans);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* ===== LIGHTBOX ===== */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.95);
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-    }
-    .lightbox.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    .lightbox-image {
-      max-width: 90%;
-      max-height: 80vh;
-      object-fit: contain;
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 30px;
-      right: 30px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 2.5rem;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .lightbox-close:hover {
-      transform: rotate(90deg);
-    }
-    .lightbox-prev,
-    .lightbox-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      padding: 20px 25px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .lightbox-prev:hover,
-    .lightbox-next:hover {
-      background: rgba(255,255,255,0.2);
-    }
-    .lightbox-prev { left: 30px; }
-    .lightbox-next { right: 30px; }
-    .lightbox-caption {
-      color: #fff;
-      margin-top: 25px;
-      font-size: 1.1rem;
-      text-align: center;
-      font-family: var(--font-serif);
-      font-style: italic;
-    }
+        /* ===== LOADING SCREEN ===== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-red) 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            transition: opacity 0.8s var(--ease-luxury), visibility 0.8s;
+        }
+        .loader.done { opacity: 0; visibility: hidden; }
+        .loader-logo { text-align: center; opacity: 0; animation: fadeInScale 1s 0.3s var(--ease-luxury) forwards; }
+        .loader-logo-main {
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .loader-logo-sub {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--brand-gold);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+        .loader-location {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-style: italic;
+            color: rgba(245, 241, 234, 0.8);
+            margin-top: 12px;
+            opacity: 0;
+            animation: fadeIn 1s 0.6s var(--ease-luxury) forwards;
+        }
+        .loader-bar-container {
+            width: 280px;
+            height: 2px;
+            background: rgba(245, 241, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        .loader-bar {
+            position: absolute;
+            inset: 0;
+            background: var(--brand-gold);
+            transform: translateX(-100%);
+            animation: loadBar 2s 0.5s var(--ease-luxury) forwards;
+        }
+        .loader-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(245, 241, 234, 0.6);
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s 0.8s var(--ease-luxury) forwards;
+        }
+        @keyframes fadeInScale { to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes loadBar { to { transform: translateX(0); } }
 
-    /* ===== FINAL CTA ===== */
-    .final-cta {
-      height: 80vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-    .final-cta-bg {
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1520257328597-2c6d0e7f6f8e?auto=format&fit=crop&w=1920&q=80') center/cover;
-      z-index: 1;
-    }
-    .final-cta-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 2;
-    }
-    .final-cta-content {
-      position: relative;
-      z-index: 3;
-    }
-    .final-cta h2 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      margin-bottom: 25px;
-      font-style: italic;
-      color: #fff;
-    }
-    .final-cta p {
-      font-size: 1.25rem;
-      margin-bottom: 50px;
-      opacity: 0.9;
-    }
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.5s var(--ease-luxury);
+            padding: 24px 60px;
+        }
+        #main-header.scrolled {
+            background: rgba(245, 241, 234, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 60px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.1);
+        }
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 4px;
+            transition: color 0.4s;
+        }
+        .logo-sub {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--brand-navy);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -4px;
+        }
+        #main-header.scrolled .logo-text,
+        #main-header.scrolled .logo-sub { color: var(--brand-navy); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-cream);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.4s;
+        }
+        #main-header.scrolled .nav-link { color: var(--brand-navy); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--brand-gold);
+            transition: width 0.5s var(--ease-luxury);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .btn-book-nav {
+            padding: 12px 28px;
+            background: var(--brand-gold);
+            color: var(--brand-navy) !important;
+            font-weight: 600;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .btn-book-nav::after { display: none; }
+        .btn-book-nav:hover {
+            background: var(--brand-red);
+            color: var(--brand-cream) !important;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .bar {
+            width: 28px;
+            height: 2px;
+            background: var(--brand-cream);
+            transition: all 0.4s var(--ease-luxury);
+        }
+        #main-header.scrolled .bar { background: var(--brand-navy); }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 992px) {
-      .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-      .container { padding: 0 25px; }
-    }
-    @media (max-width: 768px) {
-      .hero-title { font-size: 3rem; }
-      .hero-subtitle { font-size: 1.1rem; }
-      .gallery-item { height: 350px; }
-      .filter-btn { padding: 12px 25px; font-size: 0.7rem; }
-      .lightbox-prev, .lightbox-next { padding: 15px 20px; font-size: 1.5rem; }
-    }
-    @media (max-width: 480px) {
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-caption h3 { font-size: 1.4rem; }
-    }
-  </style>
+        @media (max-width: 1024px) {
+            #main-header { padding: 20px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--brand-navy);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.6s var(--ease-luxury);
+                z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .nav-link { font-size: 18px; color: var(--brand-cream) !important; }
+        }
 
-  <!-- 🛡️ PROTECT HEADER CLICKS -->
-  <style>
-    #particle-canvas { pointer-events: none !important; z-index: -1 !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
-    #header-placeholder { position: relative; z-index: 10000; }
-    #header-placeholder, #footer-placeholder { min-height: 80px; }
-  </style>
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            transition: transform 8s ease-out;
+        }
+        .page-hero.loaded .page-hero-bg { transform: scale(1); }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(27, 40, 69, 0.4) 0%, rgba(27, 40, 69, 0.7) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+            color: var(--brand-cream);
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .hero-badge::before, .hero-badge::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(42px, 7vw, 86px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+        .hero-title .line { display: block; overflow: hidden; }
+        .hero-title .line-inner { display: block; transform: translateY(100%); }
+        .hero-title em { font-style: italic; color: var(--brand-gold); font-weight: 300; }
+        .hero-subtitle {
+            font-size: clamp(15px, 1.4vw, 18px);
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.9);
+        }
+
+        /* ===== SECTIONS BASE ===== */
+        section { position: relative; }
+        .section-pad { padding: 120px 60px; }
+        @media (max-width: 900px) { .section-pad { padding: 80px 24px; } }
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .section-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--brand-gold);
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--brand-navy);
+            margin-bottom: 28px;
+        }
+        .section-title em { font-style: italic; color: var(--brand-red); font-weight: 300; }
+        .section-lead {
+            font-size: clamp(16px, 1.3vw, 18px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* ===== GALLERY FILTER ===== */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 12px 28px;
+            background: transparent;
+            border: 1px solid rgba(27, 40, 69, 0.2);
+            color: var(--text-secondary);
+            font-family: var(--sans);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--brand-navy);
+            border-color: var(--brand-navy);
+            color: var(--brand-cream);
+        }
+
+        /* ===== GALLERY GRID ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(27, 40, 69, 0.08);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.4s var(--ease-luxury);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(27, 40, 69, 0.85) 100%);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease-luxury);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 8px;
+        }
+        .gallery-title {
+            font-family: var(--serif);
+            font-size: 24px;
+            color: var(--brand-cream);
+            font-weight: 400;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(27, 40, 69, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            background: none;
+            border: none;
+            color: var(--brand-cream);
+            font-size: 40px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .lightbox-close:hover {
+            color: var(--brand-gold);
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--brand-cream);
+            font-family: var(--serif);
+            font-size: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 16px;
+            }
+            .lightbox {
+                padding: 20px;
+            }
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        /* ===== CTA ===== */
+        .cta-gallery {
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            padding: 120px 60px;
+            text-align: center;
+        }
+        .cta-gallery .section-title { color: var(--brand-cream); }
+        .cta-gallery .section-title em { color: var(--brand-gold); }
+        .cta-gallery .section-eyebrow { justify-content: center; }
+        .cta-gallery .section-lead { margin: 0 auto 40px; color: rgba(245, 241, 234, 0.8); }
+        .cta-phones {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 36px;
+            background: rgba(201, 169, 97, 0.1);
+            border: 1px solid var(--brand-gold);
+            transition: all 0.4s var(--ease-luxury);
+            text-decoration: none;
+            color: var(--brand-cream);
+            border-radius: 8px;
+        }
+        .cta-phone:hover { background: var(--brand-gold); }
+        .cta-phone:hover .cta-phone-num { color: var(--brand-navy); }
+        .cta-phone .material-icons { font-size: 28px; color: var(--brand-gold); }
+        .cta-phone:hover .material-icons { color: var(--brand-navy); }
+        .cta-phone-info { text-align: left; }
+        .cta-phone-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .cta-phone:hover .cta-phone-label { color: var(--brand-navy); }
+        .cta-phone-num {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--brand-cream);
+            transition: color 0.4s;
+        }
+        @media (max-width: 900px) { .cta-gallery { padding: 80px 24px; } }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--brand-dark);
+            color: var(--brand-cream);
+            padding: 80px 60px 40px;
+        }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-brand h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--brand-red);
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(245, 241, 234, 0.6);
+            margin-bottom: 24px;
+        }
+        .footer-heading {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-gold);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: rgba(245, 241, 234, 0.7);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--brand-gold); }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: rgba(245, 241, 234, 0.7);
+        }
+        .contact-icon { font-size: 18px; flex-shrink: 0; }
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(245, 241, 234, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(245, 241, 234, 0.4);
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            footer { padding: 60px 24px 30px; }
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+        }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
+        }
+        .reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 3px; }
+    </style>
 </head>
 <body>
 
-  <!-- 🌟 PARTICLE BACKGROUND -->
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-  <!-- Dynamic Header -->
-  <div id="header-placeholder"></div>
-
-  <main>
-    
-    <!-- 🎬 HERO SECTION -->
-    <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80">
-        <source src="https://videos.pexels.com/video-files/5829129/5829129-uhd_2560_1440_25fps.mp4" type="video/mp4">
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Photo Gallery</h1>
-        <p class="hero-subtitle">A visual journey through paradise. Explore our rooms, dining, and the breathtaking beauty of Mfangano Island.</p>
-      </div>
-    </section>
-
-    <!-- 🖼️ GALLERY FILTERS -->
-    <section class="gallery-filters">
-      <div class="container">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="rooms">Rooms & Suites</button>
-        <button class="filter-btn" data-filter="dining">Dining</button>
-        <button class="filter-btn" data-filter="nature">Nature & Lake</button>
-        <button class="filter-btn" data-filter="culture">Culture</button>
-      </div>
-    </section>
-
-    <!-- 🖼️ GALLERY GRID -->
-    <section class="container">
-      <div class="gallery-grid">
-        
-        <div class="gallery-item" data-category="rooms">
-          <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" alt="Lake View Suite" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Lake View Suite</h3>
-            <p>Wake up to the sunrise over Lake Victoria.</p>
-          </div>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">
+            <div class="loader-logo-main">Kadongo</div>
+            <div class="loader-logo-sub">Cool Breez Hotel</div>
+            <div class="loader-location">Mfangano Island, Kenya</div>
         </div>
-        
-        <div class="gallery-item" data-category="dining">
-          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Lakeside Dining" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Lakeside Dining</h3>
-            <p>Fresh catch of the day served under the stars.</p>
-          </div>
+        <div class="loader-bar-container">
+            <div class="loader-bar"></div>
         </div>
-        
-        <div class="gallery-item" data-category="nature">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Private Beach" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Private Beach</h3>
-            <p>Pristine sands exclusive to our guests.</p>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="rooms">
-          <img src="https://images.unsplash.com/photo-1590490360182-c31938a86497?auto=format&fit=crop&w=800&q=80" alt="Garden Villa" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Garden Villa</h3>
-            <p>Surrounded by tropical lushness.</p>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="culture">
-          <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=800&q=80" alt="Cultural Experience" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Cultural Experience</h3>
-            <p>Traditional Luo dance performances.</p>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="amenities">
-          <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Infinity Pool" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Infinity Pool</h3>
-            <p>Blending seamlessly with the lake horizon.</p>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="dining">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Local Cuisine" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Local Cuisine</h3>
-            <p>Organic ingredients from our own garden.</p>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-category="rooms">
-          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Traditional Banda" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay"></div>
-          <div class="gallery-caption">
-            <h3>Traditional Banda</h3>
-            <p>Authentic architecture with modern luxury.</p>
-          </div>
-        </div>
-        
-      </div>
-    </section>
-
-    <!-- 🎯 FINAL CTA -->
-    <section class="final-cta">
-      <div class="final-cta-bg"></div>
-      <div class="final-cta-overlay"></div>
-      <div class="final-cta-content">
-        <h2>Ready to Experience Paradise?</h2>
-        <p>These images only capture a glimpse of what awaits you at Kadongo Resort.</p>
-        <a href="booking.html" class="btn-luxury">Book Your Stay Now</a>
-      </div>
-    </section>
-
-    <!-- 🖼️ LIGHTBOX MODAL -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
-      <button class="lightbox-prev" aria-label="Previous image">❮</button>
-      <img src="" alt="" class="lightbox-image">
-      <button class="lightbox-next" aria-label="Next image">❯</button>
-      <div class="lightbox-caption"></div>
+        <div class="loader-text">Welcome</div>
     </div>
 
-  </main>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">KADONGO</span>
+                    <span class="logo-sub">Cool Breez Hotel</span>
+                </a>
+            </div>
+            <nav class="navbar" id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="rooms.html" class="nav-link">Rooms</a></li>
+                    <li><a href="dining.html" class="nav-link">Dining</a></li>
+                    <li><a href="amenities.html" class="nav-link">Amenities</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                    <li><a href="location.html" class="nav-link">Location</a></li>
+                    <li><a href="booking.html" class="nav-link btn-book-nav">Book Now</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
 
-  <!-- Dynamic Footer -->
-  <div id="footer-placeholder"></div>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Visual Journey • Mfangano Island</div>
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">A Glimpse of</span></span>
+                <span class="line"><span class="line-inner"><em>Paradise</em></span></span>
+            </h1>
+            <p class="hero-subtitle">
+                Explore the beauty of Kadongo Cool Breez Hotel Resort through our gallery. 
+                From comfortable rooms to lakeside dining, lush gardens to stunning sunsets, 
+                discover the moments that await you on Mfangano Island.
+            </p>
+        </div>
+    </section>
 
-  <!-- 🧠 LOGIC SCRIPT -->
-  <script src="script.js"></script>
+    <!-- Gallery Section -->
+    <section class="section-pad">
+        <div class="section-header reveal" style="text-align: center; max-width: 700px; margin: 0 auto 60px;">
+            <div class="section-eyebrow" style="justify-content: center;">Our Gallery</div>
+            <h2 class="section-title" style="margin: 0 auto;">Captured <em>Moments</em></h2>
+            <p class="section-lead" style="margin: 0 auto;">
+                A visual journey through our peaceful lakeside retreat. 
+                Each image tells a story of comfort, nature, and authentic Kenyan hospitality.
+            </p>
+        </div>
 
-  <!-- 🎬 PAGE ANIMATIONS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. Initialize Smooth Scroll (Lenis)
-      const lenis = new Lenis({
-        duration: 1.4,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-      });
+        <div class="gallery-filter reveal">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="rooms">Rooms</button>
+            <button class="filter-btn" data-filter="dining">Dining</button>
+            <button class="filter-btn" data-filter="nature">Nature & Lake</button>
+            <button class="filter-btn" data-filter="gardens">Gardens</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+        </div>
 
-      function raf(time) {
-        lenis.raf(time);
+        <div class="gallery-grid reveal-stagger">
+            <!-- Rooms -->
+            <div class="gallery-item" data-category="rooms" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" alt="Standard Room at Kadongo Cool Breez Hotel">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Rooms</div>
+                    <div class="gallery-title">Comfortable Standard Room</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="rooms" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1590490360182-c31938a86497?auto=format&fit=crop&w=800&q=80" alt="Deluxe Room with lake view">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Rooms</div>
+                    <div class="gallery-title">Deluxe Room with Lake View</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="rooms" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Family Suite accommodation">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Rooms</div>
+                    <div class="gallery-title">Spacious Family Suite</div>
+                </div>
+            </div>
+
+            <!-- Dining -->
+            <div class="gallery-item" data-category="dining" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1520257328597-2c6d0e7f6f8e?auto=format&fit=crop&w=800&q=80" alt="Lakeside dining at Kadongo">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Dining</div>
+                    <div class="gallery-title">Lakeside Dining Experience</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="dining" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Authentic Kenyan cuisine">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Dining</div>
+                    <div class="gallery-title">Authentic Kenyan Cuisine</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="dining" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Outdoor dining with sunset views">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Dining</div>
+                    <div class="gallery-title">Sunset Dining by the Lake</div>
+                </div>
+            </div>
+
+            <!-- Nature & Lake -->
+            <div class="gallery-item" data-category="nature" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80" alt="Lake Victoria sunset from Kadongo">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Nature & Lake</div>
+                    <div class="gallery-title">Stunning Lake Victoria Sunsets</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="nature" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Lake Victoria shoreline">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Nature & Lake</div>
+                    <div class="gallery-title">Peaceful Lakeshore</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="nature" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" alt="Mfangano Island nature">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Nature & Lake</div>
+                    <div class="gallery-title">Mfangano Island Beauty</div>
+                </div>
+            </div>
+
+            <!-- Gardens -->
+            <div class="gallery-item" data-category="gardens" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Shaded gardens at Kadongo">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Gardens</div>
+                    <div class="gallery-title">Lush Shaded Gardens</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="gardens" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80" alt="Gazebos and outdoor spaces">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Gardens</div>
+                    <div class="gallery-title">Beautiful Gazebos</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="gardens" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Mature indigenous trees">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Gardens</div>
+                    <div class="gallery-title">Mature Indigenous Trees</div>
+                </div>
+            </div>
+
+            <!-- Events -->
+            <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Traditional cultural performance">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Events</div>
+                    <div class="gallery-title">Traditional Cultural Performances</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Meeting space at Kadongo">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Events</div>
+                    <div class="gallery-title">Peaceful Meeting Spaces</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1478146896981-b80c4638f0af?auto=format&fit=crop&w=800&q=80" alt="Family gathering at the resort">
+                <div class="gallery-overlay">
+                    <div class="gallery-category">Events</div>
+                    <div class="gallery-title">Family Gatherings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-gallery">
+        <div class="cta-content">
+            <div class="section-eyebrow reveal">Ready to Visit?</div>
+            <h2 class="section-title reveal">Experience It <em>Yourself</em></h2>
+            <p class="section-lead reveal">
+                These images only capture a glimpse of what awaits you at Kadongo Cool Breez Hotel Resort. 
+                Come experience the cool breeze, warm hospitality, and peaceful lakeside atmosphere in person.
+            </p>
+            <div class="cta-phones reveal">
+                <a href="tel:+254756585016" class="cta-phone">
+                    <span class="material-icons">call</span>
+                    <div class="cta-phone-info">
+                        <span class="cta-phone-label">Call Us Directly</span>
+                        <span class="cta-phone-num">+254 756 585 016</span>
+                    </div>
+                </a>
+                <a href="tel:+254715249204" class="cta-phone">
+                    <span class="material-icons">call</span>
+                    <div class="cta-phone-info">
+                        <span class="cta-phone-label">Alternative Line</span>
+                        <span class="cta-phone-num">+254 715 249 204</span>
+                    </div>
+                </a>
+            </div>
+            <p class="reveal" style="margin-top: 30px; font-size: 14px; color: rgba(245, 241, 234, 0.7);">
+                📧 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-gold); text-decoration: underline;">paulnyumbwe@gmail.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>KADONGO</h3>
+                    <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="offers.html">Special Offers</a></li>
+                        <li><a href="cancellation.html">Cancellation</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>P.O. Box 22–40319<br>Mfangano Island<br>Homa Bay County, Kenya</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+254 756 585 016<br>+254 715 249 204</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>paulnyumbwe@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
+                <div>Crafted with ❤️ on Mfangano Island</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Page Loader & Hero Init
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('done');
+                document.querySelector('.page-hero').classList.add('loaded');
+                initHeroAnimations();
+            }, 2500);
+        });
+
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
 
-      // 2. Initialize GSAP ScrollTrigger
-      gsap.registerPlugin(ScrollTrigger);
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }, { passive: true });
 
-      // Hero Animations
-      const tl = gsap.timeline();
-      tl.to('.hero-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.5 })
-        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, '-=0.9');
-
-      // Gallery Item Animations
-      gsap.utils.toArray('.gallery-item').forEach((item, index) => {
-        gsap.to(item, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-          },
-          delay: index * 0.05
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
-      });
 
-      // 3. Gallery Filter Functionality
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          
-          const filter = this.dataset.filter;
-          
-          galleryItems.forEach((item, index) => {
-            if (filter === 'all' || item.dataset.category.includes(filter)) {
-              item.classList.remove('hidden');
-              setTimeout(() => {
-                item.classList.add('visible');
-              }, 50);
-            } else {
-              item.classList.remove('visible');
-              setTimeout(() => {
-                item.classList.add('hidden');
-              }, 300);
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Hero Animations
+        function initHeroAnimations() {
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+            tl.to('.hero-title .line-inner', {
+                y: 0,
+                duration: 1.4,
+                stagger: 0.15,
+            })
+            .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
+            .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
+        }
+
+        // Reveal on Scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                // Filter items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        gsap.fromTo(item, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5 });
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const caption = element.querySelector('.gallery-title').textContent;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Parallax Effects
+        gsap.to('.page-hero-bg', {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.page-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
             }
-          });
         });
-      });
 
-      // 4. Lightbox Functionality
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = lightbox.querySelector('.lightbox-image');
-      const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-      const closeBtn = lightbox.querySelector('.lightbox-close');
-      const prevBtn = lightbox.querySelector('.lightbox-prev');
-      const nextBtn = lightbox.querySelector('.lightbox-next');
-      
-      let currentIndex = 0;
-      let visibleItems = [];
-      
-      function updateVisibleItems() {
-        visibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
-      }
-      
-      function openLightbox(index) {
-        updateVisibleItems();
-        currentIndex = index;
-        const item = visibleItems[currentIndex];
-        const img = item.querySelector('img');
-        const caption = item.querySelector('.gallery-caption h3').textContent;
-        
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = caption;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-      
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      
-      function showNext() {
-        updateVisibleItems();
-        currentIndex = (currentIndex + 1) % visibleItems.length;
-        const item = visibleItems[currentIndex];
-        const img = item.querySelector('img');
-        const caption = item.querySelector('.gallery-caption h3').textContent;
-        
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = caption;
-      }
-      
-      function showPrev() {
-        updateVisibleItems();
-        currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
-        const item = visibleItems[currentIndex];
-        const img = item.querySelector('img');
-        const caption = item.querySelector('.gallery-caption h3').textContent;
-        
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = caption;
-      }
-      
-      galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-          updateVisibleItems();
-          const visibleIndex = visibleItems.indexOf(item);
-          if (visibleIndex !== -1) openLightbox(visibleIndex);
-        });
-      });
-      
-      closeBtn.addEventListener('click', closeLightbox);
-      nextBtn.addEventListener('click', showNext);
-      prevBtn.addEventListener('click', showPrev);
-      
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-      
-      document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') showNext();
-        if (e.key === 'ArrowLeft') showPrev();
-      });
+        // Update Footer Year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-      // 5. Particle Animation
-      (function initParticles() {
-        const canvas = document.getElementById('particle-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        let particles = [];
-        const particleCount = 40;
-        
-        class Particle {
-          constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2;
-            this.speedX = (Math.random() - 0.5) * 0.2;
-            this.speedY = (Math.random() - 0.5) * 0.2;
-            this.opacity = Math.random() * 0.5;
-          }
-          update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            if (this.y < 0) this.y = canvas.height;
-          }
-          draw() {
-            ctx.fillStyle = `rgba(184, 139, 74, ${this.opacity})`;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-        
-        function init() {
-          for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-        }
-        
-        function animate() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          particles.forEach(p => { p.update(); p.draw(); });
-          requestAnimationFrame(animate);
-        }
-        
-        init();
-        animate();
-        
-        window.addEventListener('resize', () => {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-        });
-      })();
-    });
-  </script>
+        // Refresh ScrollTrigger on resize
+        window.addEventListener('resize', () => ScrollTrigger.refresh());
+    </script>
 </body>
 </html>

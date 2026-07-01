@@ -194,33 +194,18 @@
         }
 
         .logo a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            display: block;
             text-decoration: none;
         }
 
         .logo-image {
-            height: 65px;
+            height: 70px;
             width: auto;
             transition: all 0.4s var(--ease-luxury);
         }
 
-        .logo-text {
-            font-family: var(--serif);
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--brand-cream);
-            letter-spacing: 3px;
-            transition: color 0.4s;
-        }
-
         #main-header.scrolled .logo-image {
-            height: 50px;
-        }
-
-        #main-header.scrolled .logo-text {
-            color: var(--brand-navy);
+            height: 55px;
         }
 
         .nav-links {
@@ -228,7 +213,6 @@
             list-style: none;
             gap: 40px;
             align-items: center;
-            position: relative;
         }
 
         .nav-link {
@@ -290,7 +274,6 @@
             border: none;
             cursor: pointer;
             padding: 8px;
-            z-index: 1001;
         }
 
         .bar {
@@ -304,48 +287,6 @@
             background: var(--brand-navy);
         }
 
-        .hamburger.active .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-            background: var(--brand-gold) !important;
-        }
-        .hamburger.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-            background: var(--brand-gold) !important;
-        }
-
-        /* Close Menu Button */
-        .close-menu {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background: none;
-            border: 1px solid rgba(245, 241, 234, 0.3);
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            color: var(--brand-cream);
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 1002;
-        }
-
-        .close-menu:hover {
-            background: var(--brand-gold);
-            border-color: var(--brand-gold);
-            color: var(--brand-navy);
-        }
-
-        .close-menu svg {
-            width: 22px;
-            height: 22px;
-        }
-
         @media (max-width: 1024px) {
             #main-header {
                 padding: 16px 24px;
@@ -356,19 +297,11 @@
             }
 
             .logo-image {
-                height: 50px;
+                height: 55px;
             }
 
             #main-header.scrolled .logo-image {
-                height: 40px;
-            }
-
-            .logo-text {
-                font-size: 20px;
-            }
-
-            .close-menu {
-                display: flex;
+                height: 45px;
             }
             
             .hamburger {
@@ -386,7 +319,6 @@
                 justify-content: center;
                 transition: right 0.6s var(--ease-luxury);
                 z-index: 999;
-                gap: 32px;
             }
             
             .nav-links.active {
@@ -1330,18 +1262,11 @@
             <div class="logo">
                 <a href="index.html">
                     <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
-                    <span class="logo-text">KADONGO</span>
                 </a>
             </div>
             
             <nav class="navbar" id="main-nav">
                 <ul class="nav-links">
-                    <button class="close-menu" id="close-menu" aria-label="Close Menu">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="rooms.html" class="nav-link">Rooms</a></li>
@@ -1660,7 +1585,7 @@
             </div>
             
             <p style="margin-top: 40px; font-size: 14px; color: rgba(245, 241, 234, 0.6);">
-                 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-gold);">paulnyumbwe@gmail.com</a>
+                📧 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-gold);">paulnyumbwe@gmail.com</a>
             </p>
         </div>
     </section>
@@ -1724,12 +1649,40 @@
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        // Page Loader
-        window.addEventListener('load', () => {
+              // Page Loader - Works Online & Offline
+        let loaderFinished = false;
+
+        function finishLoading() {
+            if (loaderFinished) return;
+            loaderFinished = true;
+            
             setTimeout(() => {
-                document.getElementById('loader').classList.add('done');
-                initHeroAnimations();
-            }, 2500);
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.classList.add('done');
+                }
+                // Check if GSAP loaded before running animations
+                if (typeof initHeroAnimations === 'function') {
+                    initHeroAnimations();
+                }
+            }, 500);
+        }
+
+        // Method 1: Standard load (works when online)
+        window.addEventListener('load', () => {
+            finishLoading();
+        });
+
+        // Method 2: Fallback timer (works when offline)
+        setTimeout(() => {
+            finishLoading();
+        }, 3000); // Forces loader to close after 3 seconds max
+
+        // Method 3: DOMContentLoaded fallback
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                finishLoading();
+            }, 1500);
         });
 
         // Initialize Lenis Smooth Scroll
@@ -1758,21 +1711,12 @@
         // Mobile Menu Toggle
         const hamburger = document.getElementById('mobile-toggle');
         const navLinks = document.querySelector('.nav-links');
-        const closeMenuBtn = document.getElementById('close-menu');
         
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
-
-        if (closeMenuBtn) {
-            closeMenuBtn.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        }
 
         // Close mobile menu on link click
         document.querySelectorAll('.nav-link').forEach(link => {

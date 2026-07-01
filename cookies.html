@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Cookie Policy — How Kadongo Resort uses cookies and similar tracking technologies to enhance your experience.">
+  <title>Cookie Policy | Kadongo Resort - Mfangano Island</title>
+  
+  <!-- 🌐 FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- 🛠️ LIBRARIES -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- 🎨 CRITICAL CSS -->
+  <style>
+    :root {
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Lato', sans-serif;
+      --color-bg: #F9F8F6;
+      --color-text: #2C2C2C;
+      --color-text-light: #5A5A5A;
+      --color-accent: #B88B4A;
+      --color-border: rgba(0,0,0,0.1);
+      --spacing-section: 140px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #0F1115;
+      --color-text: #E8E8E8;
+      --color-text-light: #B0B0B0;
+      --color-border: rgba(255,255,255,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto; }
+    .lenis.lenis-stopped { overflow: hidden; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-text);
+    }
+
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    a:hover { color: var(--color-accent); }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--color-accent); }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      height: 60vh;
+      min-height: 400px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(44,95,77,0.9), rgba(26,37,47,0.85));
+      text-align: center;
+      color: #fff;
+    }
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      opacity: 0;
+      transform: translateY(30px);
+      margin-bottom: 20px;
+    }
+    .hero-date {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-weight: 300;
+    }
+
+    /* ===== CONTENT SECTIONS ===== */
+    .policy-content {
+      padding: 80px 0;
+    }
+
+    /* ===== TABLE OF CONTENTS ===== */
+    .toc {
+      background: #fff;
+      padding: 40px;
+      border-radius: 2px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+      margin-bottom: 60px;
+    }
+    [data-theme="dark"] .toc {
+      background: #1a1a1a;
+    }
+    .toc h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--color-text);
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+    }
+    .toc li {
+      counter-increment: toc-counter;
+      margin: 15px 0;
+      padding-left: 40px;
+      position: relative;
+    }
+    .toc li::before {
+      content: counter(toc-counter);
+      position: absolute;
+      left: 0;
+      background: var(--color-accent);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .toc a {
+      color: var(--color-text);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .toc a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ===== POLICY ARTICLES ===== */
+    .policy-article {
+      margin-bottom: 60px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .policy-article:last-child {
+      border-bottom: none;
+    }
+    .policy-article h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: var(--color-text);
+    }
+    .policy-article h3 {
+      font-size: 1.4rem;
+      margin: 30px 0 15px;
+      color: var(--color-text);
+    }
+    .policy-article p {
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+    .policy-article ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+    .policy-article li {
+      color: var(--color-text-light);
+      margin: 12px 0;
+      padding-left: 28px;
+      position: relative;
+      line-height: 1.8;
+    }
+    .policy-article li::before {
+      content: '▸';
+      color: var(--color-accent);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    /* ===== TABLE STYLES ===== */
+    .table-container {
+      overflow-x: auto;
+      margin: 30px 0;
+      border-radius: 2px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+    }
+    .policy-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      min-width: 600px;
+    }
+    [data-theme="dark"] .policy-table {
+      background: #1a1a1a;
+    }
+    .policy-table th,
+    .policy-table td {
+      padding: 18px 25px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+    .policy-table th {
+      background: var(--color-accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .policy-table tr:hover {
+      background: rgba(184, 139, 74, 0.05);
+    }
+    [data-theme="dark"] .policy-table tr:hover {
+      background: rgba(184, 139, 74, 0.1);
+    }
+    .policy-table td:first-child {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* ===== INFO BOXES ===== */
+    .info-box,
+    .warning-box {
+      background: rgba(184, 139, 74, 0.1);
+      border-left: 4px solid var(--color-accent);
+      padding: 25px 30px;
+      border-radius: 2px;
+      margin: 30px 0;
+    }
+    .info-box p,
+    .warning-box p {
+      color: var(--color-text);
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    /* ===== CONTACT BOX ===== */
+    .contact-box {
+      background: #fff;
+      padding: 35px;
+      border-radius: 2px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+      margin-top: 30px;
+    }
+    [data-theme="dark"] .contact-box {
+      background: #1a1a1a;
+    }
+    .contact-box p {
+      margin: 12px 0;
+      color: var(--color-text);
+    }
+    .contact-box a {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== LEGAL LINKS ===== */
+    .legal-links {
+      background: #fff;
+      padding: 50px 0;
+      border-top: 1px solid var(--color-border);
+    }
+    [data-theme="dark"] .legal-links {
+      background: #1a1a1a;
+    }
+    .legal-links-container {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .legal-links a {
+      color: var(--color-text-light);
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    .legal-links a:hover {
+      color: var(--color-accent);
+      background: rgba(184, 139, 74, 0.1);
+    }
+
+    /* ===== BACK BUTTON ===== */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-text);
+      font-weight: 500;
+      margin-bottom: 40px;
+      transition: all 0.3s;
+    }
+    .back-btn:hover {
+      color: var(--color-accent);
+      gap: 15px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero { height: 50vh; min-height: 350px; }
+      .hero-title { font-size: 2.5rem; }
+      .container { padding: 0 25px; }
+      .toc { padding: 30px 25px; }
+      .policy-article h2 { font-size: 1.6rem; }
+      .policy-table { font-size: 0.9rem; }
+      .policy-table th,
+      .policy-table td { padding: 14px 18px; }
+      .legal-links-container { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2rem; }
+      .toc li { padding-left: 35px; }
+    }
+  </style>
+
+  <!-- 🛡️ PROTECT HEADER CLICKS -->
+  <style>
+    #particle-canvas { pointer-events: none !important; z-index: -1 !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+    #header-placeholder { position: relative; z-index: 10000; }
+    #header-placeholder, #footer-placeholder { min-height: 80px; }
+  </style>
+</head>
+<body>
+
+  <!-- 🌟 PARTICLE BACKGROUND -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Dynamic Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+    
+    <!-- 🎬 HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">🍪 Cookie Policy</h1>
+        <p class="hero-subtitle">How Kadongo Resort uses cookies and similar tracking technologies</p>
+        <p class="hero-date">Last Updated: <span id="last-updated">Loading...</span></p>
+      </div>
+    </section>
+
+    <!-- 📋 POLICY CONTENT -->
+    <section class="policy-content">
+      <div class="container">
+        
+        <a href="index.html" class="back-btn">← Back to Website</a>
+        
+        <!-- Table of Contents -->
+        <div class="toc">
+          <h2>Table of Contents</h2>
+          <ol>
+            <li><a href="#what-are-cookies">What Are Cookies?</a></li>
+            <li><a href="#why-we-use">Why We Use Cookies</a></li>
+            <li><a href="#cookie-types">Types of Cookies We Use</a></li>
+            <li><a href="#third-party">Third-Party Cookies</a></li>
+            <li><a href="#manage-cookies">Managing Your Cookie Preferences</a></li>
+            <li><a href="#do-not-track">Do Not Track Signals</a></li>
+            <li><a href="#contact-cookies">Contact Us</a></li>
+          </ol>
+        </div>
+
+        <!-- Policy Articles -->
+        <article id="what-are-cookies" class="policy-article">
+          <h2>1. What Are Cookies?</h2>
+          <p>
+            Cookies are small text files stored on your device when you visit a website. They help sites 
+            remember your actions and preferences (like login, language, font size) over time so you don't 
+            have to re-enter them.
+          </p>
+          <p>Similar technologies we may use include:</p>
+          <ul>
+            <li><strong>Local Storage:</strong> Stores data persistently on your device for app functionality</li>
+            <li><strong>Web Beacons:</strong> Tiny images that track page views or email opens</li>
+            <li><strong>Device Fingerprinting:</strong> Collects device characteristics for security/fraud prevention</li>
+          </ul>
+        </article>
+
+        <article id="why-we-use" class="policy-article">
+          <h2>2. Why We Use Cookies</h2>
+          <p>Cookies enable Kadongo Resort to:</p>
+          <ul>
+            <li>Keep you logged in to your account and booking portal</li>
+            <li>Remember your language, currency, and accessibility preferences</li>
+            <li>Analyze website traffic to improve user experience and content</li>
+            <li>Personalize offers and recommendations based on your interests</li>
+            <li>Measure the effectiveness of our marketing campaigns</li>
+            <li>Ensure website security and prevent fraudulent activity</li>
+          </ul>
+        </article>
+
+        <article id="cookie-types" class="policy-article">
+          <h2>3. Types of Cookies We Use</h2>
+          <div class="table-container">
+            <table class="policy-table">
+              <thead>
+                <tr>
+                  <th>Cookie Category</th>
+                  <th>Purpose</th>
+                  <th>Duration</th>
+                  <th>Managed By</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Essential</strong></td>
+                  <td>Enable core website functions: secure login, booking engine, session management</td>
+                  <td>Session to 1 year</td>
+                  <td>Kadongo Resort</td>
+                </tr>
+                <tr>
+                  <td><strong>Analytics</strong></td>
+                  <td>Understand how visitors use our site (pages viewed, time spent) via Google Analytics</td>
+                  <td>Up to 2 years</td>
+                  <td>Google LLC</td>
+                </tr>
+                <tr>
+                  <td><strong>Marketing</strong></td>
+                  <td>Deliver personalized ads on social media and search engines; measure campaign performance</td>
+                  <td>Up to 13 months</td>
+                  <td>Meta, Google, TikTok</td>
+                </tr>
+                <tr>
+                  <td><strong>Preferences</strong></td>
+                  <td>Remember your choices: language, region, accessibility settings</td>
+                  <td>1 year</td>
+                  <td>Kadongo Resort</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="warning-box">
+            <p>
+              <strong>⚠️ Essential Cookies Cannot Be Disabled:</strong> These cookies are strictly necessary 
+              for the website to function and cannot be switched off. They are usually only set in response 
+              to actions made by you which amount to a request for services.
+            </p>
+          </div>
+        </article>
+
+        <article id="third-party" class="policy-article">
+          <h2>4. Third-Party Cookies</h2>
+          <p>We partner with trusted service providers who may place cookies on your device:</p>
+          <ul>
+            <li><strong>Google Analytics:</strong> For website usage analytics</li>
+            <li><strong>Meta (Facebook/Instagram):</strong> For ad measurement and retargeting</li>
+            <li><strong>Booking Engine Provider:</strong> For reservation functionality and payment processing</li>
+            <li><strong>Cloudflare:</strong> For security, performance, and DDoS protection</li>
+          </ul>
+          <p>These parties have their own privacy policies. We encourage you to review them.</p>
+        </article>
+
+        <article id="manage-cookies" class="policy-article">
+          <h2>5. Managing Your Cookie Preferences</h2>
+          <h3>Browser Settings</h3>
+          <p>You can control cookies through your browser settings:</p>
+          <ul>
+            <li><strong>Chrome:</strong> Settings → Privacy & Security → Cookies</li>
+            <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies</li>
+            <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
+            <li><strong>Edge:</strong> Settings → Cookies and site permissions</li>
+          </ul>
+          <div class="info-box">
+            <p>
+              <strong>Note:</strong> Disabling essential cookies may break website functionality like booking or login.
+            </p>
+          </div>
+          <h3>Opt-Out of Marketing Cookies</h3>
+          <p>Manage personalized ads via industry opt-out tools:</p>
+          <ul>
+            <li><strong>Google Ads:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a></li>
+            <li><strong>Meta:</strong> <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">Facebook Ad Preferences</a></li>
+            <li><strong>Global:</strong> <a href="https://optout.aboutads.info" target="_blank" rel="noopener">aboutads.info/choices</a></li>
+          </ul>
+        </article>
+
+        <article id="do-not-track" class="policy-article">
+          <h2>6. Do Not Track Signals</h2>
+          <p>
+            Some browsers send "Do Not Track" (DNT) signals. While there is no universal standard for 
+            responding to DNT, Kadongo Resort respects your privacy choices. Our analytics and marketing 
+            partners honor industry opt-out mechanisms where available.
+          </p>
+        </article>
+
+        <article id="contact-cookies" class="policy-article">
+          <h2>7. Contact Us</h2>
+          <div class="contact-box">
+            <p><strong>Questions about cookies or tracking?</strong></p>
+            <p>📧 <a href="mailto:privacy@kadongoresort.com">privacy@kadongoresort.com</a></p>
+            <p>📞 <a href="tel:+254700000000">+254 700 000 000</a></p>
+            <p>🌐 Kadongo Resort, Mfangano Island, Kenya</p>
+            <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border);">
+              We respond to privacy inquiries within 30 days.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 🔗 LEGAL LINKS -->
+    <section class="legal-links">
+      <div class="container">
+        <div class="legal-links-container">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="cancellation.html">Cancellation Policy</a>
+          <a href="cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 🧠 LOGIC SCRIPT -->
+  <script src="script.js"></script>
+
+  <!-- 🎬 PAGE ANIMATIONS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Initialize Smooth Scroll (Lenis)
+      const lenis = new Lenis({
+        duration: 1.4,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Initialize GSAP ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Animations
+      const tl = gsap.timeline();
+      tl.to('.hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.3 })
+        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.7')
+        .to('.hero-date', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.7');
+
+      // Fade In Elements
+      gsap.utils.toArray('.toc, .policy-article, .contact-box').forEach(elem => {
+        gsap.from(elem, {
+          opacity: 0,
+          y: 40,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: elem,
+            start: 'top 85%',
+          }
+        });
+      });
+
+      // 3. Smooth Scroll for TOC Links
+      document.querySelectorAll('.toc a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            const headerOffset = 100;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // 4. Particle Animation
+      (function initParticles() {
+        const canvas = document.getElementById('particle-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let particles = [];
+        const particleCount = 40;
+        
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2;
+            this.speedX = (Math.random() - 0.5) * 0.2;
+            this.speedY = (Math.random() - 0.5) * 0.2;
+            this.opacity = Math.random() * 0.5;
+          }
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+          }
+          draw() {
+            ctx.fillStyle = `rgba(184, 139, 74, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+        
+        function init() {
+          for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+        
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach(p => { p.update(); p.draw(); });
+          requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+      })();
+    });
+  </script>
+</body>
+</html>
