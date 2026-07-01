@@ -540,6 +540,66 @@
             .enquiry-form-wrapper { padding: 32px 24px; }
             .form-row { grid-template-columns: 1fr; }
         }
+        .form-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.btn-submit {
+    flex: 1;
+    min-width: 200px;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* WhatsApp Button Styling */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+/* Email Button Styling */
+.btn-email {
+    background-color: var(--brand-navy);
+    color: #ffffff;
+}
+
+.btn-email:hover {
+    background-color: var(--brand-red);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(27, 40, 69, 0.2);
+}
+
+@media (max-width: 600px) {
+    .form-actions {
+        flex-direction: column;
+    }
+    .btn-submit {
+        width: 100%;
+    }
+}
 
         /* ===== ROOM CATEGORIES ===== */
         .rooms-section { background: var(--bg-secondary); }
@@ -825,11 +885,11 @@
                 </p>
 
                 <div class="contact-methods">
-                    <a href="tel:+254756585016" class="contact-method">
+                    <a href="tel:+254715153787" class="contact-method">
                         <span class="material-icons contact-method-icon">call</span>
                         <div>
                             <div class="contact-method-label">Primary Line</div>
-                            <div class="contact-method-value">+254 756 585 016</div>
+                            <div class="contact-method-value">+254 715 153 787</div>
                         </div>
                     </a>
                     <a href="tel:+254715249204" class="contact-method">
@@ -859,7 +919,7 @@
                 <h3>Send an Enquiry</h3>
                 <p>Prefer to write first? Fill out the form below and we will call you back to confirm your booking.</p>
                 
-                <form id="bookingEnquiryForm" onsubmit="handleEnquirySubmit(event)">
+                <form id="bookingEnquiryForm">
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="fullName">Full Name *</label>
@@ -916,7 +976,16 @@
                         <textarea id="message" class="form-textarea" placeholder="Dietary requirements, accessibility needs, or special occasions..."></textarea>
                     </div>
 
-                    <button type="submit" class="form-submit">Send Enquiry</button>
+                    <div class="form-actions">
+    <button type="button" class="btn-submit btn-whatsapp" id="sendWhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        Send via WhatsApp
+    </button>
+    <button type="button" class="btn-submit btn-email" id="sendEmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        Send via Email
+    </button>
+</div>
                     <p class="form-note">This is an enquiry form. Our team will contact you to confirm availability and finalize your booking.</p>
                 </form>
             </div>
@@ -1078,42 +1147,53 @@
     </footer>
 
     <script>
-        // Register ScrollTrigger
+    // Register ScrollTrigger (if loaded)
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
+    }
 
-        // Page Loader & Hero Init
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('done');
-                document.querySelector('.page-hero').classList.add('loaded');
-                initHeroAnimations();
-            }, 2500);
-        });
+    // Page Loader (Works Online & Offline)
+    let loaderFinished = false;
+    function finishLoading() {
+        if (loaderFinished) return;
+        loaderFinished = true;
+        setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('done');
+            document.querySelector('.page-hero')?.classList.add('loaded');
+            if (typeof initHeroAnimations === 'function') initHeroAnimations();
+        }, 300);
+    }
+    window.addEventListener('load', finishLoading);
+    setTimeout(finishLoading, 3000); // Fallback for offline
+    document.addEventListener('DOMContentLoaded', () => setTimeout(finishLoading, 1500));
 
-        // Initialize Lenis Smooth Scroll
+    // Initialize Lenis Smooth Scroll (if loaded)
+    if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
         });
-
         function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
+    }
 
-        // Header Scroll Effect
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        }, { passive: true });
+    // Header Scroll Effect
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    }, { passive: true });
 
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
@@ -1127,29 +1207,32 @@
                 document.body.style.overflow = '';
             });
         });
+    }
 
-        // Hero Animations
-        function initHeroAnimations() {
-            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-            tl.to('.hero-title .line-inner', {
-                y: 0,
-                duration: 1.4,
-                stagger: 0.15,
-            })
-            .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
-            .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
-        }
+    // Hero Animations
+    function initHeroAnimations() {
+        if (typeof gsap === 'undefined') return;
+        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+        tl.to('.hero-title .line-inner', {
+            y: 0,
+            duration: 1.4,
+            stagger: 0.15,
+        })
+        .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
+        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
+    }
 
-        // Reveal on Scroll
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('in-view');
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+    // Reveal on Scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('in-view');
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
 
-        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
 
-        // Parallax Effects
+    // Parallax Effects
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.to('.page-hero-bg', {
             yPercent: 20,
             ease: 'none',
@@ -1160,36 +1243,89 @@
                 scrub: true,
             }
         });
+    }
 
-        // Form Handling
-        function handleEnquirySubmit(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('.form-submit');
-            const originalText = btn.textContent;
-            
-            btn.textContent = 'Sending...';
-            btn.style.background = 'var(--brand-gold)';
-            btn.style.color = 'var(--brand-navy)';
-            
-            setTimeout(() => {
-                btn.textContent = 'Enquiry Sent Successfully!';
-                btn.style.background = '#27ae60';
-                btn.style.color = '#fff';
-                e.target.reset();
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                    btn.style.color = '';
-                }, 4000);
-            }, 1500);
+    // Update Footer Year
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+    // Refresh ScrollTrigger on resize
+    window.addEventListener('resize', () => {
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+    });
+
+    // ===== FORM HANDLING (WhatsApp & Email) =====
+    document.addEventListener('DOMContentLoaded', function() {
+        // FIXED: Matched the ID from your HTML
+        const form = document.getElementById('bookingEnquiryForm'); 
+        if (!form) return;
+
+        // Helper to get form data
+        function getFormData() {
+            return {
+                name: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value, // FIXED: Was 'phoneNumber'
+                email: document.getElementById('email').value,
+                checkIn: document.getElementById('checkIn').value,
+                checkOut: document.getElementById('checkOut').value,
+                guests: document.getElementById('guests').value,
+                room: document.getElementById('roomType').value,
+                requests: document.getElementById('message').value // FIXED: Was 'specialRequests'
+            };
         }
 
-        // Update Footer Year
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        // Helper to format the message
+        function formatMessage(data) {
+            return `*New Booking Enquiry - Kadongo Cool Breez Hotel*\n\n` +
+                   `*Name:* ${data.name}\n` +
+                   `*Phone:* ${data.phone}\n` +
+                   `*Email:* ${data.email || 'N/A'}\n\n` +
+                   `*Check-in:* ${data.checkIn}\n` +
+                   `*Check-out:* ${data.checkOut}\n` +
+                   `*Guests:* ${data.guests}\n` +
+                   `*Room Preference:* ${data.room}\n\n` +
+                   `*Special Requests:*\n${data.requests || 'None'}`;
+        }
 
-        // Refresh ScrollTrigger on resize
-        window.addEventListener('resize', () => ScrollTrigger.refresh());
-    </script>
+        // WhatsApp Handler
+        const whatsappBtn = document.getElementById('sendWhatsApp');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Trigger browser validation if fields are missing
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                const data = getFormData();
+                const message = formatMessage(data);
+                const encodedMessage = encodeURIComponent(message);
+                // Opens WhatsApp with the pre-filled message
+                window.open(`https://wa.me/254715153787?text=${encodedMessage}`, '_blank');
+            });
+        }
+
+           // Email Handler (Opens Gmail Web Compose)
+    const emailBtn = document.getElementById('sendEmail');
+    if (emailBtn) {
+        emailBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            const data = getFormData();
+            const subject = `Booking Enquiry: ${data.name} - ${data.checkIn} to ${data.checkOut}`;
+            const body = formatMessage(data).replace(/\*/g, ''); 
+            
+            // Opens Gmail compose window in a new tab
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=paulnyumbwe@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(gmailUrl, '_blank');
+        });
+    }
+    });
+</script>
+
+    
 </body>
 </html>
