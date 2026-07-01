@@ -194,19 +194,34 @@
         }
 
         .logo a {
-            display: block;
-            text-decoration: none;
-        }
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
 
-        .logo-image {
-            height: 70px;
-            width: auto;
-            transition: all 0.4s var(--ease-luxury);
-        }
+.logo-image {
+    height: 65px;
+    width: auto;
+    transition: all 0.4s var(--ease-luxury);
+}
 
-        #main-header.scrolled .logo-image {
-            height: 55px;
-        }
+.logo-text {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--brand-cream);
+    letter-spacing: 3px;
+    transition: color 0.4s;
+}
+
+#main-header.scrolled .logo-image {
+    height: 50px;
+}
+
+#main-header.scrolled .logo-text {
+    color: var(--brand-navy);
+}
 
         .nav-links {
             display: flex;
@@ -1260,10 +1275,11 @@
     <header id="main-header">
         <div class="header-container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
-                </a>
-            </div>
+    <a href="index.html">
+        <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
+        <span class="logo-text">KADONGO</span>
+    </a>
+</div>
             
             <nav class="navbar" id="main-nav">
                 <ul class="nav-links">
