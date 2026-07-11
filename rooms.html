@@ -546,52 +546,57 @@
         @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
 
-        /* ===== COMPARISON TABLE ===== */
-        .compare-section { background: var(--bg-secondary); }
-        .compare-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-        .compare-header .section-eyebrow { justify-content: center; }
-        .compare-header .section-lead { margin: 0 auto; }
-        
-        .table-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow-x: auto;
-            background: var(--bg-primary);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(27, 40, 69, 0.05);
+        /* ===== EXPERIENCE STORY ===== */
+        .experience-story {
+            padding: 100px 60px 120px;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
         }
-        .compare-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 800px;
+        .experience-story-inner { max-width: 1100px; margin: 0 auto; }
+        .experience-story-header { text-align: center; max-width: 700px; margin: 0 auto 72px; }
+        .experience-story-header .section-eyebrow { justify-content: center; }
+        .story-moments { display: grid; gap: 0; }
+        .story-moment {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 36px;
+            align-items: start;
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.06);
         }
-        .compare-table th, .compare-table td {
-            padding: 20px 24px;
-            text-align: left;
-            border-bottom: 1px solid rgba(27, 40, 69, 0.08);
+        .story-moment:last-child { border-bottom: none; }
+        .story-moment-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-deep));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(232, 101, 10, 0.2);
         }
-        .compare-table th {
-            background: var(--brand-navy);
-            color: var(--brand-cream);
-            font-family: var(--sans);
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 500;
+        .story-moment-icon .material-icons { font-size: 28px; color: #fff; }
+        .story-moment-content h3 {
+            font-family: var(--serif);
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
-        .compare-table th:first-child { border-top-left-radius: 12px; }
-        .compare-table th:last-child { border-top-right-radius: 12px; }
-        .compare-table td {
-            font-size: 15px;
+        .story-moment-content p {
+            font-size: 1.05rem;
+            line-height: 1.85;
             color: var(--text-secondary);
+            max-width: 640px;
         }
-        .compare-table td:first-child {
-            font-weight: 500;
-            color: var(--brand-navy);
+        @media (max-width: 900px) {
+            .experience-story { padding: 80px 24px 100px; }
+            .experience-story-header { margin-bottom: 48px; }
+            .story-moment { grid-template-columns: 1fr; gap: 20px; padding: 36px 0; }
+            .story-moment-icon { width: 52px; height: 52px; border-radius: 12px; }
+            .story-moment-icon .material-icons { font-size: 24px; }
         }
-        .compare-table tr:last-child td { border-bottom: none; }
-        .check-yes { color: var(--brand-orange-light); font-size: 20px; }
-        .check-no { color: var(--text-muted); font-size: 20px; }
 
         /* ===== BOOKING CTA ===== */
         .cta-rooms {
@@ -986,93 +991,55 @@
         </div>
     </section>
 
-    <!-- Comparison Table -->
-    <section class="compare-section section-pad">
-        <div class="compare-header">
-            <div class="section-eyebrow reveal">Compare Rooms</div>
-            <h2 class="section-title reveal">Find the <em>Right Fit</em></h2>
-            <p class="section-lead reveal">
-                A quick overview to help you choose the ideal accommodation for your stay.
-            </p>
-        </div>
+    <!-- Experience Section -->
+    <section class="experience-story">
+        <div class="experience-story-inner">
+            <div class="experience-story-header">
+                <div class="section-eyebrow reveal">The Experience</div>
+                <h2 class="section-title reveal">Every Stay Begins with <em>a Story</em></h2>
+            </div>
 
-        <div class="table-wrapper reveal">
-            <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Single Room</th>
-                        <th>Standard Double</th>
-                        <th>Deluxe Room</th>
-                        <th>Family Suite</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Max Guests</td>
-                        <td>1 Adult</td>
-                        <td>2 Adults</td>
-                        <td>2 Adults</td>
-                        <td>4+ (Family)</td>
-                    </tr>
-                    <tr>
-                        <td>Bed Type</td>
-                        <td>Single</td>
-                        <td>Double</td>
-                        <td>Queen / King</td>
-                        <td>Multiple Beds</td>
-                    </tr>
-                    <tr>
-                        <td>En-Suite Bathroom</td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                    </tr>
-                    <tr>
-                        <td>Free Wi-Fi</td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                    </tr>
-                    <tr>
-                        <td>24-Hour Electricity</td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                    </tr>
-                    <tr>
-                        <td>Room Service</td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                    </tr>
-                    <tr>
-                        <td>Garden / Lake View</td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                    </tr>
-                    <tr>
-                        <td>Extra Space</td>
-                        <td><span class="material-icons check-no">remove</span></td>
-                        <td><span class="material-icons check-no">remove</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                        <td><span class="material-icons check-yes">check_circle</span></td>
-                    </tr>
-                    <tr>
-                        <td>Starting Rate (KES)</td>
-                        <td><strong>2,000</strong></td>
-                        <td><strong>3,500</strong></td>
-                        <td><strong>5,000</strong></td>
-                        <td><strong>7,500</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="story-moments">
+                <div class="story-moment reveal">
+                    <div class="story-moment-icon">
+                        <span class="material-icons">wb_sunny</span>
+                    </div>
+                    <div class="story-moment-content">
+                        <h3>Wake Up to the Lake</h3>
+                        <p>Imagine opening your eyes to the gentle shimmer of Lake Victoria through your window. The morning light filters softly through the curtains, and the only sound is the quiet lapping of water against the shore. This is how every day begins at Kadongo — unhurried, peaceful, and entirely yours.</p>
+                    </div>
+                </div>
+
+                <div class="story-moment reveal">
+                    <div class="story-moment-icon">
+                        <span class="material-icons">hotel</span>
+                    </div>
+                    <div class="story-moment-content">
+                        <h3>Comfort That Feels Like Home</h3>
+                        <p>Our rooms are designed around a simple idea: you should feel at ease the moment you step inside. Crisp linens, thoughtful spacing, and the kind of quiet that city life rarely allows. Whether you're here for a single night or a full week, your room becomes your sanctuary — a place to rest, recharge, and simply be.</p>
+                    </div>
+                </div>
+
+                <div class="story-moment reveal">
+                    <div class="story-moment-icon">
+                        <span class="material-icons">favorite</span>
+                    </div>
+                    <div class="story-moment-content">
+                        <h3>Hospitality That Remembers You</h3>
+                        <p>At Kadongo, hospitality isn't a service — it's a relationship. Our team learns what you prefer, what makes you comfortable, and how to make your stay feel personal. From the warm greeting at arrival to the small, thoughtful gestures throughout your visit, we care about the details that make you feel genuinely welcomed.</p>
+                    </div>
+                </div>
+
+                <div class="story-moment reveal">
+                    <div class="story-moment-icon">
+                        <span class="material-icons">nature</span>
+                    </div>
+                    <div class="story-moment-content">
+                        <h3>A Place Apart from the World</h3>
+                        <p>Mfangano Island has a way of slowing time. The lush greenery, the vast sky over the lake, the gentle breeze that carries the scent of tropical gardens — everything invites you to pause. Your room at Kadongo is your front-row seat to this quiet beauty, a retreat where the pace of life finally matches the rhythm of your breath.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1113,7 +1080,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>KADONGO</h3>
+                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" style="width: 200px; height: auto; margin-bottom: 16px;">
                     <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
                     <div class="footer-social" style="display: flex; gap: 16px; margin-top: 8px;">
                         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(253, 248, 243, 0.08); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
