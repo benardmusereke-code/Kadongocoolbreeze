@@ -843,34 +843,40 @@
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
-            background: rgba(27, 40, 69, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            color: var(--brand-cream);
+            right: 0;
+            z-index: 9999;
+            background: rgba(27, 40, 69, 0.97);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-top: 1px solid rgba(232, 101, 10, 0.2);
             padding: 24px 60px;
-            z-index: 10001;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px;
+            gap: 32px;
             transform: translateY(100%);
-            transition: transform 0.5s var(--ease-luxury);
-            border-top: 1px solid rgba(232, 101, 10, 0.3);
+            transition: transform 0.6s var(--ease-luxury), opacity 0.6s;
+            opacity: 0;
         }
-        .cookie-consent.show { transform: translateY(0); }
-        .cookie-consent p {
+        .cookie-consent.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .cookie-consent-text {
             font-size: 14px;
-            line-height: 1.7;
             color: rgba(253, 248, 243, 0.85);
-            margin: 0;
+            line-height: 1.7;
             flex: 1;
         }
-        .cookie-consent a {
+        .cookie-consent-text a {
             color: var(--brand-orange-light);
             text-decoration: underline;
+            text-underline-offset: 3px;
         }
-        .cookie-btn-group {
+        .cookie-consent-text a:hover {
+            color: var(--brand-orange);
+        }
+        .cookie-consent-actions {
             display: flex;
             gap: 12px;
             flex-shrink: 0;
@@ -886,31 +892,44 @@
             transition: all 0.4s var(--ease-luxury);
             font-family: var(--sans);
         }
-        .cookie-accept {
+        .cookie-btn-accept {
             background: var(--brand-orange);
-            color: var(--brand-cream);
+            color: #fff;
         }
-        .cookie-accept:hover {
-            background: var(--brand-orange-light);
+        .cookie-btn-accept:hover {
+            background: var(--brand-orange-deep);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 101, 10, 0.35);
         }
-        .cookie-decline {
+        .cookie-btn-reject {
             background: transparent;
-            color: rgba(253, 248, 243, 0.7);
-            border: 1px solid rgba(253, 248, 243, 0.3);
+            color: rgba(253, 248, 243, 0.5);
+            border: 1px solid rgba(253, 248, 243, 0.15);
         }
-        .cookie-decline:hover {
-            color: var(--brand-cream);
-            border-color: var(--brand-cream);
+        .cookie-btn-reject:hover {
+            border-color: rgba(253, 248, 243, 0.3);
+            color: rgba(253, 248, 243, 0.8);
+        }
+        .cookie-btn-learn {
+            background: transparent;
+            color: var(--brand-orange-light);
+            border: 1px solid rgba(232, 101, 10, 0.3);
+        }
+        .cookie-btn-learn:hover {
+            border-color: var(--brand-orange);
+            background: rgba(232, 101, 10, 0.08);
         }
         @media (max-width: 768px) {
             .cookie-consent {
                 flex-direction: column;
-                padding: 20px 24px;
-                gap: 16px;
+                padding: 24px;
+                gap: 20px;
                 text-align: center;
             }
-            .cookie-btn-group { width: 100%; justify-content: center; }
+            .cookie-consent-actions {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -1429,10 +1448,14 @@
 
     <!-- Cookie Consent -->
     <div class="cookie-consent" id="cookieConsent">
-        <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="cookies.html">Cookie Policy</a> | <a href="privacy.html">Privacy Policy</a></p>
-        <div class="cookie-btn-group">
-            <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
-            <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
+        <div class="cookie-consent-text">
+            We use cookies to enhance your experience and analyze site traffic. By continuing to use our site, you consent to our use of cookies.
+            <a href="cookies.html">Learn more in our Cookie Policy</a>.
+        </div>
+        <div class="cookie-consent-actions">
+            <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject</button>
+            <button class="cookie-btn cookie-btn-learn" onclick="window.location.href='cookies.html'">Learn More</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
         </div>
     </div>
 
@@ -1490,16 +1513,10 @@
         const footerYear = document.getElementById('footer-year');
         if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-        if (!localStorage.getItem('cookiesAccepted')) {
-            setTimeout(() => { document.getElementById('cookieConsent').classList.add('show'); }, 1500);
-        }
-        document.getElementById('cookieAccept').addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieConsent').classList.remove('show');
-        });
-        document.getElementById('cookieDecline').addEventListener('click', () => {
-            document.getElementById('cookieConsent').classList.remove('show');
-        });
+        function acceptCookies() { localStorage.setItem('kadongo_cookies_accepted', 'true'); closeCookieConsent(); }
+        function rejectCookies() { localStorage.setItem('kadongo_cookies_accepted', 'rejected'); closeCookieConsent(); }
+        function closeCookieConsent() { const b = document.getElementById('cookieConsent'); if (b) { b.classList.remove('show'); setTimeout(() => b.style.display = 'none', 600); } }
+        window.addEventListener('load', () => { if (!localStorage.getItem('kadongo_cookies_accepted')) { setTimeout(() => { const b = document.getElementById('cookieConsent'); if (b) b.classList.add('show'); }, 3500); } });
 
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'P') {
