@@ -7,59 +7,50 @@
     <meta name="description" content="Peaceful lakeside retreat on Mfangano Island, Kenya. 100m from Sena Ferry. Comfortable rooms, authentic dining, Lake Victoria views. Call +254 756 585 016">
     <meta name="keywords" content="Kadongo Cool Breez Hotel, Mfangano Island, Lake Victoria, Sena Ferry, Homa Bay, Kenya accommodation, lakeside resort">
     
-    <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Kadongo Cool Breez Hotel Resort | Mfangano Island">
     <meta property="og:description" content="Where Comfort Meets the Cool Breeze of Lake Victoria">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kadongocoolbreez.com">
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://kadongocoolbreez.com/index.html">
-    
-    <!-- Preconnect for Performance -->
+    <link rel="icon" type="image/png" href="images/kadongologo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- GSAP for Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
-    <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
     <style>
         :root {
-            /* Brand Colors from Logo */
-            --brand-red: #8B1518;
+            --brand-orange: #E8650A;
+            --brand-orange-light: #F28C28;
+            --brand-orange-deep: #CC5500;
+            --brand-orange-glow: #FF8C42;
             --brand-navy: #1B2845;
-            --brand-gold: #C9A961;
-            --brand-turquoise: #4ECDC4;
-            --brand-cream: #F5F1EA;
+            --brand-cream: #FDF8F3;
             --brand-dark: #1A1A1A;
             
-            /* Semantic Colors */
             --bg-primary: var(--brand-cream);
-            --bg-secondary: #EBE4D6;
+            --bg-secondary: #F5EDE3;
             --bg-dark: var(--brand-navy);
             --text-primary: var(--brand-navy);
             --text-secondary: #6B6458;
             --text-muted: #9C9485;
-            --accent: var(--brand-gold);
-            --accent-red: var(--brand-red);
+            --accent: var(--brand-orange);
+            --accent-light: var(--brand-orange-light);
             
-            /* Typography */
-            --serif: 'Cormorant Garamond', serif;
-            --sans: 'Inter', sans-serif;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             
-            /* Motion */
             --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
             --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -67,6 +58,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -76,25 +68,32 @@
             overflow-x: hidden;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* ===== LOADING SCREEN ===== */
         .loader {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-red) 100%);
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-orange-deep) 50%, var(--brand-orange) 100%);
             z-index: 10000;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 40px;
-            transition: opacity 0.8s var(--ease-luxury), visibility 0.8s;
+            transition: opacity 0.5s var(--ease-luxury), visibility 0.5s;
         }
 
         .loader.done {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
 
         .loader-logo {
@@ -104,26 +103,26 @@
         }
 
         .loader-logo-image {
-            width: 320px;
+            width: 280px;
             height: auto;
-            max-width: 90vw;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            max-width: 85vw;
+            filter: drop-shadow(0 10px 40px rgba(0,0,0,0.4));
         }
 
         .loader-location {
             font-family: var(--serif);
             font-size: 18px;
             font-style: italic;
-            color: rgba(245, 241, 234, 0.8);
+            color: rgba(253, 248, 243, 0.8);
             margin-top: 20px;
             opacity: 0;
             animation: fadeIn 1s 0.6s var(--ease-luxury) forwards;
         }
 
         .loader-bar-container {
-            width: 280px;
+            width: 260px;
             height: 2px;
-            background: rgba(245, 241, 234, 0.2);
+            background: rgba(253, 248, 243, 0.2);
             position: relative;
             overflow: hidden;
             border-radius: 2px;
@@ -132,38 +131,29 @@
         .loader-bar {
             position: absolute;
             inset: 0;
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
             transform: translateX(-100%);
             animation: loadBar 2s 0.5s var(--ease-luxury) forwards;
         }
 
         .loader-text {
             font-size: 11px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: rgba(245, 241, 234, 0.6);
-            margin-top: 20px;
+            color: rgba(253, 248, 243, 0.6);
+            margin-top: 16px;
             opacity: 0;
             animation: fadeIn 1s 0.8s var(--ease-luxury) forwards;
         }
 
         @keyframes fadeInScale {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            to { opacity: 1; transform: scale(1); }
         }
-
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+            to { opacity: 1; }
         }
-
         @keyframes loadBar {
-            to {
-                transform: translateX(0);
-            }
+            to { transform: translateX(0); }
         }
 
         /* ===== HEADER ===== */
@@ -179,10 +169,12 @@
         }
 
         #main-header.scrolled {
-            background: rgba(245, 241, 234, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(253, 248, 243, 0.92);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             padding: 12px 60px;
-            border-bottom: 1px solid rgba(27, 40, 69, 0.1);
+            border-bottom: 1px solid rgba(232, 101, 10, 0.08);
+            box-shadow: 0 4px 30px rgba(27, 40, 69, 0.06);
         }
 
         .header-container {
@@ -194,45 +186,45 @@
         }
 
         .logo a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-}
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
 
-.logo-image {
-    height: 65px;
-    width: auto;
-    transition: all 0.4s var(--ease-luxury);
-}
+        .logo-image {
+            height: 65px;
+            width: auto;
+            transition: all 0.4s var(--ease-luxury);
+        }
 
-.logo-text {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--brand-cream);
-    letter-spacing: 3px;
-    transition: color 0.4s;
-}
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--brand-cream);
+            letter-spacing: 3px;
+            transition: color 0.4s;
+        }
 
-#main-header.scrolled .logo-image {
-    height: 50px;
-}
+        #main-header.scrolled .logo-image {
+            height: 48px;
+        }
 
-#main-header.scrolled .logo-text {
-    color: var(--brand-navy);
-}
+        #main-header.scrolled .logo-text {
+            color: var(--brand-navy);
+        }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 36px;
             align-items: center;
         }
 
         .nav-link {
             font-family: var(--sans);
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 500;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -253,9 +245,10 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 1px;
-            background: var(--brand-gold);
+            height: 2px;
+            background: var(--brand-orange);
             transition: width 0.5s var(--ease-luxury);
+            border-radius: 1px;
         }
 
         .nav-link:hover::after {
@@ -264,21 +257,38 @@
 
         .btn-book-nav {
             padding: 12px 28px;
-            background: var(--brand-gold);
-            color: var(--brand-navy) !important;
+            background: var(--brand-orange);
+            color: #fff !important;
             border-radius: 0;
             font-weight: 600;
+            letter-spacing: 1.5px;
             transition: all 0.4s var(--ease-luxury);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-book-nav::after {
             display: none;
         }
 
+        .btn-book-nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--brand-orange-deep);
+            transform: translateX(-100%);
+            transition: transform 0.4s var(--ease-luxury);
+            z-index: 0;
+        }
+
+        .btn-book-nav:hover::before {
+            transform: translateX(0);
+        }
+
         .btn-book-nav:hover {
-            background: var(--brand-red);
-            color: var(--brand-cream) !important;
+            color: #fff !important;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 101, 10, 0.35);
         }
 
         .hamburger {
@@ -289,6 +299,7 @@
             border: none;
             cursor: pointer;
             padding: 8px;
+            z-index: 1001;
         }
 
         .bar {
@@ -296,6 +307,20 @@
             height: 2px;
             background: var(--brand-cream);
             transition: all 0.4s var(--ease-luxury);
+            transform-origin: center;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+            background: var(--brand-cream);
+        }
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+            background: var(--brand-cream);
         }
 
         #main-header.scrolled .bar {
@@ -306,43 +331,43 @@
             #main-header {
                 padding: 16px 24px;
             }
-            
             #main-header.scrolled {
                 padding: 12px 24px;
             }
-
             .logo-image {
-                height: 55px;
+                height: 50px;
             }
-
             #main-header.scrolled .logo-image {
-                height: 45px;
+                height: 42px;
             }
-            
             .hamburger {
                 display: flex;
             }
-            
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 width: 100%;
                 height: 100vh;
-                background: var(--brand-navy);
+                height: 100dvh;
+                background: linear-gradient(180deg, var(--brand-navy) 0%, #0F1A2E 100%);
                 flex-direction: column;
                 justify-content: center;
                 transition: right 0.6s var(--ease-luxury);
                 z-index: 999;
+                gap: 8px;
             }
-            
             .nav-links.active {
                 right: 0;
             }
-            
             .nav-link {
-                font-size: 18px;
+                font-size: 16px;
                 color: var(--brand-cream) !important;
+                padding: 12px 0;
+            }
+            .btn-book-nav {
+                margin-top: 16px;
+                background: var(--brand-orange);
             }
         }
 
@@ -350,6 +375,7 @@
         .hero {
             position: relative;
             height: 100vh;
+            height: 100dvh;
             width: 100%;
             overflow: hidden;
             background: var(--brand-navy);
@@ -377,9 +403,10 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg,
-                rgba(27, 40, 69, 0.6) 0%,
-                rgba(27, 40, 69, 0.4) 50%,
-                rgba(27, 40, 69, 0.8) 100%);
+                rgba(27, 40, 69, 0.65) 0%,
+                rgba(27, 40, 69, 0.35) 40%,
+                rgba(232, 101, 10, 0.1) 70%,
+                rgba(27, 40, 69, 0.85) 100%);
             z-index: 1;
         }
 
@@ -403,10 +430,11 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 32px;
             opacity: 0;
             transform: translateY(30px);
+            font-weight: 500;
         }
 
         .hero-badge::before,
@@ -414,12 +442,12 @@
             content: '';
             width: 50px;
             height: 1px;
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
         }
 
         .hero-title {
             font-family: var(--serif);
-            font-size: clamp(42px, 7vw, 96px);
+            font-size: clamp(40px, 7vw, 92px);
             font-weight: 400;
             line-height: 1.05;
             letter-spacing: -1px;
@@ -439,7 +467,7 @@
 
         .hero-title em {
             font-style: italic;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             font-weight: 300;
         }
 
@@ -451,7 +479,7 @@
             opacity: 0;
             transform: translateY(30px);
             line-height: 1.8;
-            color: rgba(245, 241, 234, 0.9);
+            color: rgba(253, 248, 243, 0.9);
         }
 
         .hero-cta {
@@ -465,8 +493,8 @@
 
         .btn-primary {
             padding: 18px 42px;
-            background: var(--brand-gold);
-            color: var(--brand-navy);
+            background: var(--brand-orange);
+            color: #fff;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 2.5px;
@@ -475,13 +503,14 @@
             transition: all 0.5s var(--ease-luxury);
             position: relative;
             overflow: hidden;
+            display: inline-block;
         }
 
         .btn-primary::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--brand-cream);
+            background: var(--brand-orange-deep);
             transform: translateY(100%);
             transition: transform 0.5s var(--ease-luxury);
             z-index: 0;
@@ -497,12 +526,14 @@
         }
 
         .btn-primary:hover {
-            color: var(--brand-navy);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(232, 101, 10, 0.3);
         }
 
         .btn-ghost {
             padding: 18px 42px;
-            border: 1px solid rgba(245, 241, 234, 0.5);
+            border: 1px solid rgba(253, 248, 243, 0.4);
             color: var(--brand-cream);
             font-size: 12px;
             font-weight: 500;
@@ -512,13 +543,15 @@
             transition: all 0.5s var(--ease-luxury);
             position: relative;
             overflow: hidden;
+            display: inline-block;
         }
 
         .btn-ghost::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--brand-cream);
+            background: rgba(253, 248, 243, 0.1);
+            backdrop-filter: blur(10px);
             transform: translateY(100%);
             transition: transform 0.5s var(--ease-luxury);
             z-index: 0;
@@ -535,7 +568,11 @@
         }
 
         .btn-ghost:hover span {
-            color: var(--brand-navy);
+            color: var(--brand-cream);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--brand-orange-light);
         }
 
         .scroll-indicator {
@@ -563,7 +600,7 @@
         .scroll-line {
             width: 1px;
             height: 60px;
-            background: linear-gradient(180deg, var(--brand-gold) 0%, transparent 100%);
+            background: linear-gradient(180deg, var(--brand-orange-light) 0%, transparent 100%);
             position: relative;
             overflow: hidden;
         }
@@ -606,7 +643,7 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange);
             margin-bottom: 24px;
             font-weight: 600;
         }
@@ -614,8 +651,9 @@
         .section-eyebrow::before {
             content: '';
             width: 40px;
-            height: 1px;
-            background: var(--brand-gold);
+            height: 2px;
+            background: var(--brand-orange);
+            border-radius: 1px;
         }
 
         .section-title {
@@ -629,7 +667,7 @@
 
         .section-title em {
             font-style: italic;
-            color: var(--brand-red);
+            color: var(--brand-orange);
             font-weight: 300;
         }
 
@@ -663,7 +701,8 @@
         .experience-img {
             position: absolute;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(27, 40, 69, 0.2);
+            box-shadow: 0 30px 80px rgba(27, 40, 69, 0.15);
+            border-radius: 2px;
         }
 
         .experience-img img {
@@ -689,7 +728,7 @@
             right: 0;
             width: 55%;
             height: 55%;
-            border: 8px solid var(--bg-primary);
+            border: 6px solid var(--bg-primary);
         }
 
         .experience-badge {
@@ -699,15 +738,21 @@
             transform: translateY(-50%);
             width: 140px;
             height: 140px;
-            background: var(--brand-gold);
+            background: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-orange-deep) 100%);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--brand-navy);
+            color: #fff;
             z-index: 3;
-            box-shadow: 0 20px 40px rgba(201, 169, 97, 0.4);
+            box-shadow: 0 20px 50px rgba(232, 101, 10, 0.35);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 20px 50px rgba(232, 101, 10, 0.35); }
+            50% { box-shadow: 0 20px 60px rgba(232, 101, 10, 0.5); }
         }
 
         .experience-badge .num {
@@ -723,6 +768,7 @@
             text-transform: uppercase;
             margin-top: 4px;
             font-weight: 500;
+            opacity: 0.9;
         }
 
         .experience-features {
@@ -734,7 +780,13 @@
 
         .feature-item {
             padding-left: 24px;
-            border-left: 2px solid var(--brand-gold);
+            border-left: 2px solid var(--brand-orange);
+            transition: all 0.4s var(--ease-luxury);
+        }
+
+        .feature-item:hover {
+            border-left-color: var(--brand-orange-deep);
+            padding-left: 28px;
         }
 
         .feature-item h4 {
@@ -756,19 +808,25 @@
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
-            
             .experience-visual {
-                height: 450px;
+                height: 400px;
             }
-            
             .experience-features {
                 grid-template-columns: 1fr;
+            }
+            .experience-badge {
+                width: 110px;
+                height: 110px;
+                right: 0;
+            }
+            .experience-badge .num {
+                font-size: 32px;
             }
         }
 
         /* ===== ROOMS PREVIEW ===== */
         .rooms {
-            background: var(--brand-navy);
+            background: linear-gradient(180deg, var(--brand-navy) 0%, #0F1A2E 100%);
             color: var(--brand-cream);
         }
 
@@ -783,36 +841,55 @@
         }
 
         .rooms-header .section-title em {
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
         }
 
         .rooms-header .section-lead {
-            color: rgba(245, 241, 234, 0.75);
+            color: rgba(253, 248, 243, 0.75);
             margin: 0 auto;
         }
 
         .rooms-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 32px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .room-card {
-            background: rgba(245, 241, 234, 0.03);
-            border: 1px solid rgba(201, 169, 97, 0.15);
+            background: rgba(253, 248, 243, 0.04);
+            border: 1px solid rgba(232, 101, 10, 0.12);
             transition: all 0.5s var(--ease-luxury);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-luxury);
+        }
+
+        .room-card:hover::before {
+            transform: scaleX(1);
         }
 
         .room-card:hover {
             transform: translateY(-10px);
-            border-color: var(--brand-gold);
+            border-color: rgba(232, 101, 10, 0.3);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
 
         .room-visual {
-            height: 320px;
+            height: 300px;
             overflow: hidden;
             position: relative;
         }
@@ -834,26 +911,27 @@
 
         .room-meta {
             display: flex;
-            gap: 16px;
-            font-size: 11px;
+            gap: 12px;
+            font-size: 10.5px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 16px;
         }
 
         .room-name {
             font-family: var(--serif);
-            font-size: 28px;
-            font-weight: 400;
+            font-size: 26px;
+            font-weight: 500;
             margin-bottom: 12px;
             color: var(--brand-cream);
+            line-height: 1.2;
         }
 
         .room-desc {
             font-size: 14px;
-            line-height: 1.7;
-            color: rgba(245, 241, 234, 0.7);
+            line-height: 1.75;
+            color: rgba(253, 248, 243, 0.65);
             margin-bottom: 24px;
         }
 
@@ -862,14 +940,14 @@
             align-items: baseline;
             gap: 8px;
             padding-top: 20px;
-            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            border-top: 1px solid rgba(232, 101, 10, 0.15);
         }
 
         .room-price .from {
-            font-size: 11px;
+            font-size: 10.5px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
         }
 
         .room-price .amount {
@@ -881,10 +959,17 @@
 
         .room-price .per {
             font-size: 13px;
-            color: rgba(245, 241, 234, 0.6);
+            color: rgba(253, 248, 243, 0.5);
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
             .rooms-grid {
                 grid-template-columns: 1fr;
             }
@@ -912,12 +997,18 @@
         .dining-img {
             position: absolute;
             overflow: hidden;
+            border-radius: 2px;
         }
 
         .dining-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 1.4s var(--ease-luxury);
+        }
+
+        .dining-img:hover img {
+            transform: scale(1.05);
         }
 
         .dining-img-1 {
@@ -932,13 +1023,13 @@
             right: 0;
             width: 50%;
             height: 50%;
-            border: 8px solid var(--bg-primary);
+            border: 6px solid var(--bg-primary);
         }
 
         .dining-list {
             margin-top: 40px;
             display: grid;
-            gap: 20px;
+            gap: 16px;
         }
 
         .dining-item {
@@ -948,21 +1039,28 @@
             padding: 20px;
             background: var(--bg-secondary);
             transition: all 0.4s var(--ease-luxury);
+            border-left: 3px solid transparent;
         }
 
         .dining-item:hover {
-            background: var(--brand-gold);
-            transform: translateX(10px);
+            background: var(--brand-orange);
+            transform: translateX(8px);
+            border-left-color: var(--brand-orange-deep);
         }
 
         .dining-item:hover .dining-item-title,
         .dining-item:hover .dining-item-desc {
-            color: var(--brand-navy);
+            color: #fff;
         }
 
         .dining-icon {
-            font-size: 32px;
+            font-size: 28px;
             flex-shrink: 0;
+            transition: transform 0.4s var(--ease-bounce);
+        }
+
+        .dining-item:hover .dining-icon {
+            transform: scale(1.15) rotate(-5deg);
         }
 
         .dining-item-title {
@@ -985,9 +1083,9 @@
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
-            
             .dining-visual {
                 height: 400px;
+                order: -1;
             }
         }
 
@@ -1005,26 +1103,35 @@
         .location-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 32px;
             margin-top: 60px;
         }
 
         .location-item {
             padding: 40px 30px;
-            background: var(--bg-primary);
-            border: 1px solid rgba(201, 169, 97, 0.2);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(232, 101, 10, 0.1);
+            border-radius: 4px;
             transition: all 0.5s var(--ease-luxury);
         }
 
         .location-item:hover {
-            border-color: var(--brand-gold);
+            border-color: var(--brand-orange);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(27, 40, 69, 0.1);
+            box-shadow: 0 20px 50px rgba(232, 101, 10, 0.1);
         }
 
         .location-icon {
             font-size: 40px;
             margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.5s var(--ease-bounce);
+        }
+
+        .location-item:hover .location-icon {
+            transform: scale(1.15) translateY(-4px);
         }
 
         .location-item h4 {
@@ -1049,7 +1156,7 @@
 
         /* ===== CTA SECTION ===== */
         .cta {
-            background: var(--brand-navy);
+            background: linear-gradient(135deg, var(--brand-navy) 0%, #0F1A2E 60%, var(--brand-orange-deep) 150%);
             color: var(--brand-cream);
             padding: 140px 60px;
             text-align: center;
@@ -1061,8 +1168,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="rgba(201,169,97,0.05)" stroke-width="1"/></svg>');
-            opacity: 0.3;
+            background: radial-gradient(circle at 30% 50%, rgba(232, 101, 10, 0.08) 0%, transparent 60%);
         }
 
         .cta-content {
@@ -1077,8 +1183,12 @@
             margin-bottom: 24px;
         }
 
+        .cta .section-title em {
+            color: var(--brand-orange-light);
+        }
+
         .cta .section-lead {
-            color: rgba(245, 241, 234, 0.8);
+            color: rgba(253, 248, 243, 0.8);
             margin: 0 auto 48px;
         }
 
@@ -1095,21 +1205,26 @@
             align-items: center;
             gap: 12px;
             padding: 16px 32px;
-            background: rgba(201, 169, 97, 0.1);
-            border: 1px solid var(--brand-gold);
+            background: rgba(232, 101, 10, 0.08);
+            border: 1px solid rgba(232, 101, 10, 0.3);
             transition: all 0.4s var(--ease-luxury);
+            text-decoration: none;
+            border-radius: 2px;
         }
 
         .cta-phone:hover {
-            background: var(--brand-gold);
+            background: var(--brand-orange);
+            border-color: var(--brand-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(232, 101, 10, 0.25);
         }
 
         .cta-phone:hover .cta-phone-num {
-            color: var(--brand-navy);
+            color: #fff;
         }
 
         .cta-phone-icon {
-            font-size: 24px;
+            font-size: 22px;
         }
 
         .cta-phone-info {
@@ -1120,7 +1235,7 @@
             font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             display: block;
             margin-bottom: 4px;
         }
@@ -1130,6 +1245,102 @@
             font-size: 20px;
             color: var(--brand-cream);
             transition: color 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .cta {
+                padding: 80px 24px;
+            }
+        }
+
+        /* ===== SOCIAL MEDIA ===== */
+        .social-links {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s var(--ease-luxury);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s var(--ease-luxury);
+        }
+
+        .social-link:hover svg {
+            transform: scale(1.1);
+        }
+
+        .social-link--facebook {
+            background: rgba(253, 248, 243, 0.08);
+            color: rgba(253, 248, 243, 0.7);
+            border: 1px solid rgba(253, 248, 243, 0.1);
+        }
+        .social-link--facebook::before {
+            background: #1877F2;
+        }
+        .social-link--facebook:hover {
+            color: #fff;
+            border-color: #1877F2;
+            box-shadow: 0 0 20px rgba(24, 119, 242, 0.4);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .social-link--whatsapp {
+            background: rgba(253, 248, 243, 0.08);
+            color: rgba(253, 248, 243, 0.7);
+            border: 1px solid rgba(253, 248, 243, 0.1);
+        }
+        .social-link--whatsapp::before {
+            background: #25D366;
+        }
+        .social-link--whatsapp:hover {
+            color: #fff;
+            border-color: #25D366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .social-link--youtube {
+            background: rgba(253, 248, 243, 0.08);
+            color: rgba(253, 248, 243, 0.7);
+            border: 1px solid rgba(253, 248, 243, 0.1);
+        }
+        .social-link--youtube::before {
+            background: #FF0000;
+        }
+        .social-link--youtube:hover {
+            color: #fff;
+            border-color: #FF0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            transform: translateY(-3px) scale(1.05);
         }
 
         /* ===== FOOTER ===== */
@@ -1152,7 +1363,7 @@
         }
 
         .footer-brand .footer-logo-image {
-            width: 240px;
+            width: 220px;
             height: auto;
             margin-bottom: 20px;
         }
@@ -1160,7 +1371,7 @@
         .footer-brand p {
             font-size: 14px;
             line-height: 1.8;
-            color: rgba(245, 241, 234, 0.6);
+            color: rgba(253, 248, 243, 0.55);
             margin-bottom: 24px;
         }
 
@@ -1168,7 +1379,7 @@
             font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 24px;
             font-weight: 600;
         }
@@ -1182,14 +1393,16 @@
         }
 
         .footer-links a {
-            color: rgba(245, 241, 234, 0.7);
+            color: rgba(253, 248, 243, 0.65);
             font-size: 14px;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            display: inline-block;
         }
 
         .footer-links a:hover {
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
+            transform: translateX(4px);
         }
 
         .contact-item {
@@ -1198,32 +1411,43 @@
             gap: 12px;
             margin-bottom: 16px;
             font-size: 14px;
-            color: rgba(245, 241, 234, 0.7);
+            color: rgba(253, 248, 243, 0.65);
         }
 
         .contact-icon {
-            font-size: 18px;
+            font-size: 16px;
             flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .footer-social {
+            margin-top: 24px;
         }
 
         .footer-bottom {
             padding-top: 30px;
-            border-top: 1px solid rgba(245, 241, 234, 0.1);
+            border-top: 1px solid rgba(253, 248, 243, 0.08);
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-size: 12px;
-            color: rgba(245, 241, 234, 0.4);
+            color: rgba(253, 248, 243, 0.35);
         }
 
         @media (max-width: 900px) {
+            footer {
+                padding: 60px 24px 30px;
+            }
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 40px;
             }
-
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
             .footer-brand .footer-logo-image {
-                width: 200px;
+                width: 180px;
             }
-            
             .footer-bottom {
                 flex-direction: column;
                 gap: 12px;
@@ -1231,11 +1455,17 @@
             }
         }
 
+        @media (max-width: 540px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ===== REVEAL ANIMATIONS ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+            transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
         }
 
         .reveal.in-view {
@@ -1243,17 +1473,151 @@
             transform: translateY(0);
         }
 
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ===== GLASSMORPHISM UTILITY ===== */
+        .glass {
+            background: rgba(253, 248, 243, 0.06);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid rgba(253, 248, 243, 0.08);
+        }
+
+        /* ===== AI GLOW EFFECT ===== */
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* ===== FLOAT ANIMATION ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         /* ===== ACCESSIBILITY ===== */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 transition-duration: 0.01ms !important;
                 animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
             }
         }
 
         a:focus-visible, button:focus-visible {
-            outline: 2px solid var(--brand-gold);
+            outline: 2px solid var(--brand-orange);
             outline-offset: 3px;
+        }
+
+        /* ===== COOKIE CONSENT ===== */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(27, 40, 69, 0.97);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-top: 1px solid rgba(232, 101, 10, 0.2);
+            padding: 24px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            transform: translateY(100%);
+            transition: transform 0.6s var(--ease-luxury), opacity 0.6s;
+            opacity: 0;
+        }
+        .cookie-consent.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .cookie-consent-text {
+            font-size: 14px;
+            color: rgba(253, 248, 243, 0.85);
+            line-height: 1.7;
+            flex: 1;
+        }
+        .cookie-consent-text a {
+            color: var(--brand-orange-light);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .cookie-consent-text a:hover {
+            color: var(--brand-orange);
+        }
+        .cookie-consent-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .cookie-btn {
+            padding: 12px 28px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-luxury);
+            font-family: var(--sans);
+        }
+        .cookie-btn-accept {
+            background: var(--brand-orange);
+            color: #fff;
+        }
+        .cookie-btn-accept:hover {
+            background: var(--brand-orange-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 101, 10, 0.35);
+        }
+        .cookie-btn-reject {
+            background: transparent;
+            color: rgba(253, 248, 243, 0.5);
+            border: 1px solid rgba(253, 248, 243, 0.15);
+        }
+        .cookie-btn-reject:hover {
+            border-color: rgba(253, 248, 243, 0.3);
+            color: rgba(253, 248, 243, 0.8);
+        }
+        .cookie-btn-learn {
+            background: transparent;
+            color: var(--brand-orange-light);
+            border: 1px solid rgba(232, 101, 10, 0.3);
+        }
+        .cookie-btn-learn:hover {
+            border-color: var(--brand-orange);
+            background: rgba(232, 101, 10, 0.08);
+        }
+        @media (max-width: 768px) {
+            .cookie-consent {
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                text-align: center;
+            }
+            .cookie-consent-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--brand-navy);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--brand-orange);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-orange-light);
         }
     </style>
 </head>
@@ -1275,11 +1639,11 @@
     <header id="main-header">
         <div class="header-container">
             <div class="logo">
-    <a href="index.html">
-        <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
-        <span class="logo-text">KADONGO</span>
-    </a>
-</div>
+                <a href="index.html">
+                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
+                    <span class="logo-text">KADONGO</span>
+                </a>
+            </div>
             
             <nav class="navbar" id="main-nav">
                 <ul class="nav-links">
@@ -1305,14 +1669,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-video-wrap">
-            <video class="hero-video" autoplay muted loop playsinline poster="images/viewtakawiri.png">
+            <video class="hero-video" autoplay muted loop playsinline poster="images/longsteetview-with-shade.jpg">
                 <source src="images/landing.mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <div class="hero-badge">Mfangano Island • Lake Victoria</div>
+            <div class="hero-badge">Mfangano Island &bull; Lake Victoria</div>
             <h1 class="hero-title">
                 <span class="line"><span class="line-inner">Where Comfort Meets</span></span>
                 <span class="line"><span class="line-inner">the <em>Cool Breeze</em> of Lake Victoria</span></span>
@@ -1368,7 +1732,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 40px;">
-                    <a href="about.html" class="btn-primary" style="display: inline-block;">
+                    <a href="about.html" class="btn-primary">
                         <span>Discover Our Story</span>
                     </a>
                 </div>
@@ -1376,10 +1740,10 @@
             
             <div class="experience-visual reveal">
                 <div class="experience-img experience-img-1">
-                    <img src="images/pathview2.png" alt="Kadongo Cool Breez Hotel lakeside view">
+                    <img src="images/pathview2.png" alt="Kadongo Cool Breez Hotel lakeside view" loading="lazy">
                 </div>
                 <div class="experience-img experience-img-2">
-                    <img src="images/terminus1619.png" alt="Lake Victoria sunset">
+                    <img src="images/terminus1619.png" alt="Transport Vessels" loading="lazy">
                 </div>
                 <div class="experience-badge">
                     <div class="num">100m</div>
@@ -1395,27 +1759,27 @@
             <div class="section-eyebrow reveal">Accommodation</div>
             <h2 class="section-title reveal">Comfortable <em>Rooms</em> for Every Traveller</h2>
             <p class="section-lead reveal">
-                Private, clean, and comfortable rooms designed for relaxation. 
-                From solo travellers to families, we have the perfect space for your stay.
+                Private, clean, and beautifully appointed rooms designed for relaxation. 
+                From solo travellers to families, find the perfect space for your island escape.
             </p>
         </div>
         
         <div class="rooms-grid">
             <article class="room-card reveal">
                 <div class="room-visual">
-                    <img src="images/exeptionalroom.png" alt="Standard Room">
+                    <img src="images/singlestarndard3.png" alt="Standard Single Room" loading="lazy">
                 </div>
                 <div class="room-content">
                     <div class="room-meta">
-                        <span>Single/Double</span>
-                        <span>•</span>
+                        <span>Single Occupancy</span>
+                        <span>&bull;</span>
                         <span>En-suite</span>
                     </div>
-                    <h3 class="room-name">Standard Room</h3>
-                    <p class="room-desc">Comfortable room with quality bedding, private bathroom, and modern amenities. Perfect for business travellers and couples.</p>
+                    <h3 class="room-name">Standard Single Room</h3>
+                    <p class="room-desc">A thoughtfully designed retreat for the solo traveller. Enjoy plush bedding, a private en-suite bathroom, and modern amenities set against the tranquil backdrop of Mfangano Island — ideal for business guests and solo adventurers alike.</p>
                     <div class="room-price">
                         <span class="from">From</span>
-                        <span class="amount">KES 3,500</span>
+                        <span class="amount">KES 1,500</span>
                         <span class="per">/ night</span>
                     </div>
                 </div>
@@ -1423,39 +1787,59 @@
             
             <article class="room-card reveal">
                 <div class="room-visual">
-                    <img src="images/kingbed.png" alt="Deluxe Room">
+                    <img src="images/doublebedroom.png" alt="Double Bed Room" loading="lazy">
+                </div>
+                <div class="room-content">
+                    <div class="room-meta">
+                        <span>Double / Family</span>
+                        <span>&bull;</span>
+                        <span>En-suite</span>
+                    </div>
+                    <h3 class="room-name">Standard Double Room</h3>
+                    <p class="room-desc">A spacious and welcoming room that doubles as an ideal family suite. With generous sleeping arrangements, a private bathroom, and a warm, home-like atmosphere, it provides the comfort and privacy families need to create lasting holiday memories together.</p>
+                    <div class="room-price">
+                        <span class="from">From</span>
+                        <span class="amount">KES 2,500</span>
+                        <span class="per">/ night</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="room-card reveal">
+                <div class="room-visual">
+                    <img src="images/executivesingle.png" alt="Executive Suite" loading="lazy">
+                </div>
+                <div class="room-content">
+                    <div class="room-meta">
+                        <span>Premium</span>
+                        <span>&bull;</span>
+                        <span>En-suite</span>
+                    </div>
+                    <h3 class="room-name">Executive Suite</h3>
+                    <p class="room-desc">Elevate your stay in our premium executive accommodation. Featuring refined furnishings, enhanced living space, superior bedding, and premium finishes — this suite is crafted for discerning guests who appreciate understated luxury and attentive service.</p>
+                    <div class="room-price">
+                        <span class="from">From</span>
+                        <span class="amount">KES 2,500</span>
+                        <span class="per">/ night</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="room-card reveal">
+                <div class="room-visual">
+                    <img src="images/deluxeroomwithbalcony.png" alt="Deluxe Room" loading="lazy">
                 </div>
                 <div class="room-content">
                     <div class="room-meta">
                         <span>Spacious</span>
-                        <span>•</span>
+                        <span>&bull;</span>
                         <span>Lake View</span>
                     </div>
                     <h3 class="room-name">Deluxe Room</h3>
-                    <p class="room-desc">Spacious room with enhanced comfort, beautiful views, and premium amenities. Ideal for extended stays and special occasions.</p>
+                    <p class="room-desc">Our finest accommodation offering expansive living space with a private balcony overlooking Lake Victoria. Premium amenities, elegant décor, and breathtaking views combine to create an exceptional retreat for extended stays and special occasions.</p>
                     <div class="room-price">
                         <span class="from">From</span>
-                        <span class="amount">KES 5,000</span>
-                        <span class="per">/ night</span>
-                    </div>
-                </div>
-            </article>
-            
-            <article class="room-card reveal">
-                <div class="room-visual">
-                    <img src="images/bedroom1.png" alt="Family Suite">
-                </div>
-                <div class="room-content">
-                    <div class="room-meta">
-                        <span>Multiple Beds</span>
-                        <span>•</span>
-                        <span>Family Friendly</span>
-                    </div>
-                    <h3 class="room-name">Family Suite</h3>
-                    <p class="room-desc">Large suite accommodating families with comfort and privacy. Perfect for creating lasting memories together.</p>
-                    <div class="room-price">
-                        <span class="from">From</span>
-                        <span class="amount">KES 7,500</span>
+                        <span class="amount">KES 3,000</span>
                         <span class="per">/ night</span>
                     </div>
                 </div>
@@ -1463,7 +1847,7 @@
         </div>
         
         <div style="text-align: center; margin-top: 60px;">
-            <a href="rooms.html" class="btn-ghost" style="display: inline-block;">
+            <a href="rooms.html" class="btn-ghost">
                 <span>View All Rooms</span>
             </a>
         </div>
@@ -1513,7 +1897,7 @@
                 </div>
                 
                 <div style="margin-top: 40px;">
-                    <a href="dining.html" class="btn-primary" style="display: inline-block;">
+                    <a href="dining.html" class="btn-primary">
                         <span>Explore Our Menu</span>
                     </a>
                 </div>
@@ -1521,10 +1905,10 @@
             
             <div class="dining-visual reveal">
                 <div class="dining-img dining-img-1">
-                    <img src="images/lunchdinner.png" alt="Restaurant dining">
+                    <img src="images/dineerset3.png" alt="Restaurant dining">
                 </div>
                 <div class="dining-img dining-img-2">
-                    <img src="images/kenyanlunchdinner.png" alt="Kenyan cuisine">
+                    <img src="images/indoor-dinner-set2.png" alt="Kenyan cuisine">
                 </div>
             </div>
         </div>
@@ -1533,7 +1917,7 @@
     <!-- Location -->
     <section class="location section-pad" id="location">
         <div class="location-content">
-            <div class="section-eyebrow reveal">Location</div>
+            <div class="section-eyebrow reveal" style="justify-content: center;">Location</div>
             <h2 class="section-title reveal">Find <em>Your Way</em> to Paradise</h2>
             <p class="section-lead reveal" style="margin: 0 auto;">
                 Nestled on Mfangano Island in the Winam Gulf of Lake Victoria, 
@@ -1560,7 +1944,7 @@
             </div>
             
             <div style="margin-top: 60px;">
-                <a href="location.html" class="btn-primary" style="display: inline-block;">
+                <a href="location.html" class="btn-primary">
                     <span>Get Directions</span>
                 </a>
             </div>
@@ -1570,7 +1954,7 @@
     <!-- CTA Section -->
     <section class="cta" id="booking">
         <div class="cta-content">
-            <div class="section-eyebrow reveal" style="justify-content: center; color: var(--brand-gold);">
+            <div class="section-eyebrow reveal" style="justify-content: center; color: var(--brand-orange-light);">
                 Ready to Visit?
             </div>
             <h2 class="section-title reveal">Book Your <em>Lakeside Escape</em></h2>
@@ -1579,7 +1963,7 @@
                 every guest receives attentive service and the perfect room for their stay.
             </p>
             
-            <a href="booking.html" class="btn-primary reveal" style="display: inline-block; margin-top: 20px;">
+            <a href="booking.html" class="btn-primary reveal" style="margin-top: 20px;">
                 <span>Make a Reservation</span>
             </a>
             
@@ -1600,8 +1984,8 @@
                 </a>
             </div>
             
-            <p style="margin-top: 40px; font-size: 14px; color: rgba(245, 241, 234, 0.6);">
-                📧 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-gold);">paulnyumbwe@gmail.com</a>
+            <p style="margin-top: 40px; font-size: 14px; color: rgba(253, 248, 243, 0.6);">
+                📧 Email: <a href="mailto:paulnyumbwe@gmail.com" style="color: var(--brand-orange-light); text-decoration: none; border-bottom: 1px solid rgba(232, 101, 10, 0.3); transition: border-color 0.3s;">paulnyumbwe@gmail.com</a>
             </p>
         </div>
     </section>
@@ -1613,6 +1997,19 @@
                 <div class="footer-brand">
                     <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="footer-logo-image">
                     <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                    <div class="footer-social">
+                        <div class="social-links">
+                            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link social-link--facebook" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="https://wa.me/254756585016" target="_blank" rel="noopener noreferrer" class="social-link social-link--whatsapp" aria-label="WhatsApp">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </a>
+                            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-link social-link--youtube" aria-label="YouTube">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="footer-col">
@@ -1655,17 +2052,16 @@
             </div>
             
             <div class="footer-bottom">
-                <div>© <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
-                <div>Crafted with ❤️ on Mfangano Island</div>
+                <div>&copy; <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
+                <div>Mfangano Island, Kenya</div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-              // Page Loader - Works Online & Offline
+        // Page Loader
         let loaderFinished = false;
 
         function finishLoading() {
@@ -1674,34 +2070,16 @@
             
             setTimeout(() => {
                 const loader = document.getElementById('loader');
-                if (loader) {
-                    loader.classList.add('done');
-                }
-                // Check if GSAP loaded before running animations
-                if (typeof initHeroAnimations === 'function') {
-                    initHeroAnimations();
-                }
+                if (loader) loader.classList.add('done');
+                if (typeof initHeroAnimations === 'function') initHeroAnimations();
             }, 500);
         }
 
-        // Method 1: Standard load (works when online)
-        window.addEventListener('load', () => {
-            finishLoading();
-        });
+        window.addEventListener('load', finishLoading);
+        setTimeout(finishLoading, 2500);
+        document.addEventListener('DOMContentLoaded', () => setTimeout(finishLoading, 1200));
 
-        // Method 2: Fallback timer (works when offline)
-        setTimeout(() => {
-            finishLoading();
-        }, 3000); // Forces loader to close after 3 seconds max
-
-        // Method 3: DOMContentLoaded fallback
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                finishLoading();
-            }, 1500);
-        });
-
-        // Initialize Lenis Smooth Scroll
+        // Lenis Smooth Scroll
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -1714,27 +2092,25 @@
         }
         requestAnimationFrame(raf);
 
-        // Header Scroll Effect
+        // Header Scroll
         const header = document.getElementById('main-header');
+        let lastScroll = 0;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            const scrollY = window.scrollY;
+            header.classList.toggle('scrolled', scrollY > 80);
+            lastScroll = scrollY;
         }, { passive: true });
 
-        // Mobile Menu Toggle
+        // Mobile Menu
         const hamburger = document.getElementById('mobile-toggle');
         const navLinks = document.querySelector('.nav-links');
         
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isActive = navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
 
-        // Close mobile menu on link click
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -1752,25 +2128,10 @@
                 duration: 1.4,
                 stagger: 0.15,
             })
-            .to('.hero-badge', { 
-                opacity: 1, 
-                y: 0, 
-                duration: 1 
-            }, '-=1')
-            .to('.hero-subtitle', { 
-                opacity: 1, 
-                y: 0, 
-                duration: 1 
-            }, '-=0.7')
-            .to('.hero-cta', { 
-                opacity: 1, 
-                y: 0, 
-                duration: 1 
-            }, '-=0.7')
-            .to('.scroll-indicator', { 
-                opacity: 1, 
-                duration: 1 
-            }, '-=0.5');
+            .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
+            .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7')
+            .to('.hero-cta', { opacity: 1, y: 0, duration: 1 }, '-=0.7')
+            .to('.scroll-indicator', { opacity: 1, duration: 1 }, '-=0.5');
         }
 
         // Hero Parallax
@@ -1805,7 +2166,7 @@
                     entry.target.classList.add('in-view');
                 }
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
@@ -1813,29 +2174,32 @@
         gsap.to('.experience-img-1', {
             yPercent: -10,
             ease: 'none',
-            scrollTrigger: { 
-                trigger: '.experience', 
-                start: 'top bottom', 
-                end: 'bottom top', 
-                scrub: true 
-            }
+            scrollTrigger: { trigger: '.experience', start: 'top bottom', end: 'bottom top', scrub: true }
         });
         
         gsap.to('.experience-img-2', {
             yPercent: 15,
             ease: 'none',
-            scrollTrigger: { 
-                trigger: '.experience', 
-                start: 'top bottom', 
-                end: 'bottom top', 
-                scrub: true 
-            }
+            scrollTrigger: { trigger: '.experience', start: 'top bottom', end: 'bottom top', scrub: true }
         });
 
-        // Update Footer Year
+        // Dining Image Parallax
+        gsap.to('.dining-img-1', {
+            yPercent: -8,
+            ease: 'none',
+            scrollTrigger: { trigger: '.dining', start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+
+        gsap.to('.dining-img-2', {
+            yPercent: 12,
+            ease: 'none',
+            scrollTrigger: { trigger: '.dining', start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+
+        // Footer Year
         document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-        // Smooth Scroll for Anchor Links
+        // Smooth Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -1846,10 +2210,27 @@
             });
         });
 
-        // Refresh ScrollTrigger on resize
-        window.addEventListener('resize', () => {
-            ScrollTrigger.refresh();
-        });
+        // Resize handler
+        window.addEventListener('resize', () => ScrollTrigger.refresh());
+    </script>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-consent-text">
+            We use cookies to enhance your experience and analyze site traffic. By continuing to use our site, you consent to our use of cookies.
+            <a href="cookies.html">Learn more in our Cookie Policy</a>.
+        </div>
+        <div class="cookie-consent-actions">
+            <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject</button>
+            <button class="cookie-btn cookie-btn-learn" onclick="window.location.href='cookies.html'">Learn More</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
+    <script>
+        function acceptCookies() { localStorage.setItem('kadongo_cookies_accepted', 'true'); closeCookieConsent(); }
+        function rejectCookies() { localStorage.setItem('kadongo_cookies_accepted', 'rejected'); closeCookieConsent(); }
+        function closeCookieConsent() { const b = document.getElementById('cookieConsent'); if (b) { b.classList.remove('show'); setTimeout(() => b.style.display = 'none', 600); } }
+        window.addEventListener('load', () => { if (!localStorage.getItem('kadongo_cookies_accepted')) { setTimeout(() => { const b = document.getElementById('cookieConsent'); if (b) b.classList.add('show'); }, 3500); } });
     </script>
 </body>
 </html>

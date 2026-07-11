@@ -14,6 +14,7 @@
     <meta property="og:url" content="https://kadongocoolbreez.com/booking.html">
     
     <link rel="canonical" href="https://kadongocoolbreez.com/booking.html">
+    <link rel="icon" type="image/png" href="images/kadongologo.png">
     
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,35 +29,33 @@
 
     <style>
         :root {
-            /* Brand Colors */
-            --brand-red: #8B1518;
+            --brand-orange: #E8650A;
+            --brand-orange-light: #F28C28;
+            --brand-orange-deep: #CC5500;
+            --brand-orange-glow: #FF8C42;
             --brand-navy: #1B2845;
-            --brand-gold: #C9A961;
-            --brand-turquoise: #4ECDC4;
-            --brand-cream: #F5F1EA;
+            --brand-cream: #FDF8F3;
             --brand-dark: #1A1A1A;
             
-            /* Semantic Colors */
             --bg-primary: var(--brand-cream);
-            --bg-secondary: #EBE4D6;
+            --bg-secondary: #F5EDE3;
             --bg-dark: var(--brand-navy);
             --text-primary: var(--brand-navy);
             --text-secondary: #6B6458;
             --text-muted: #9C9485;
-            --accent: var(--brand-gold);
-            --accent-red: var(--brand-red);
+            --accent: var(--brand-orange);
+            --accent-light: var(--brand-orange-light);
             
-            /* Typography */
-            --serif: 'Cormorant Garamond', serif;
-            --sans: 'Inter', sans-serif;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             
-            /* Motion */
             --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
             --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
             font-family: var(--sans);
@@ -71,7 +70,7 @@
         .loader {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-red) 100%);
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-orange-deep) 50%, var(--brand-orange) 100%);
             z-index: 10000;
             display: flex;
             flex-direction: column;
@@ -86,7 +85,7 @@
             font-family: var(--serif);
             font-size: 48px;
             font-weight: 700;
-            color: var(--brand-red);
+            color: var(--brand-orange);
             letter-spacing: 8px;
             text-transform: uppercase;
             margin-bottom: 8px;
@@ -95,7 +94,7 @@
             font-family: var(--sans);
             font-size: 14px;
             font-weight: 300;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             letter-spacing: 6px;
             text-transform: uppercase;
         }
@@ -103,7 +102,7 @@
             font-family: var(--serif);
             font-size: 18px;
             font-style: italic;
-            color: rgba(245, 241, 234, 0.8);
+            color: rgba(253, 248, 243, 0.8);
             margin-top: 12px;
             opacity: 0;
             animation: fadeIn 1s 0.6s var(--ease-luxury) forwards;
@@ -111,7 +110,7 @@
         .loader-bar-container {
             width: 280px;
             height: 2px;
-            background: rgba(245, 241, 234, 0.2);
+            background: rgba(253, 248, 243, 0.2);
             position: relative;
             overflow: hidden;
             border-radius: 2px;
@@ -119,7 +118,7 @@
         .loader-bar {
             position: absolute;
             inset: 0;
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
             transform: translateX(-100%);
             animation: loadBar 2s 0.5s var(--ease-luxury) forwards;
         }
@@ -127,7 +126,7 @@
             font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(245, 241, 234, 0.6);
+            color: rgba(253, 248, 243, 0.6);
             margin-top: 20px;
             opacity: 0;
             animation: fadeIn 1s 0.8s var(--ease-luxury) forwards;
@@ -148,8 +147,9 @@
             padding: 24px 60px;
         }
         #main-header.scrolled {
-            background: rgba(245, 241, 234, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(253, 248, 243, 0.92);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             padding: 16px 60px;
             border-bottom: 1px solid rgba(27, 40, 69, 0.1);
         }
@@ -162,28 +162,29 @@
         }
         .logo a {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+        }
+        .logo-image {
+            height: 65px;
+            width: auto;
+            transition: all 0.4s var(--ease-luxury);
         }
         .logo-text {
             font-family: var(--serif);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
-            color: var(--brand-red);
-            letter-spacing: 4px;
+            color: var(--brand-cream);
+            letter-spacing: 3px;
             transition: color 0.4s;
         }
-        .logo-sub {
-            font-family: var(--sans);
-            font-size: 10px;
-            font-weight: 400;
-            color: var(--brand-navy);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: -4px;
+        #main-header.scrolled .logo-image {
+            height: 48px;
         }
-        #main-header.scrolled .logo-text,
-        #main-header.scrolled .logo-sub { color: var(--brand-navy); }
+        #main-header.scrolled .logo-text {
+            color: var(--brand-navy);
+        }
         .nav-links {
             display: flex;
             list-style: none;
@@ -210,20 +211,20 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
             transition: width 0.5s var(--ease-luxury);
         }
         .nav-link:hover::after, .nav-link.active::after { width: 100%; }
         .btn-book-nav {
             padding: 12px 28px;
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
             color: var(--brand-navy) !important;
             font-weight: 600;
             transition: all 0.4s var(--ease-luxury);
         }
         .btn-book-nav::after { display: none; }
         .btn-book-nav:hover {
-            background: var(--brand-red);
+            background: var(--brand-orange);
             color: var(--brand-cream) !important;
             transform: translateY(-2px);
         }
@@ -246,6 +247,12 @@
 
         @media (max-width: 1024px) {
             #main-header { padding: 20px 24px; }
+            .logo-image {
+                height: 50px;
+            }
+            #main-header.scrolled .logo-image {
+                height: 42px;
+            }
             .hamburger { display: flex; }
             .nav-links {
                 position: fixed;
@@ -253,7 +260,7 @@
                 right: -100%;
                 width: 100%;
                 height: 100vh;
-                background: var(--brand-navy);
+                background: linear-gradient(180deg, var(--brand-navy) 0%, #0f1a30 100%);
                 flex-direction: column;
                 justify-content: center;
                 transition: right 0.6s var(--ease-luxury);
@@ -303,7 +310,7 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 32px;
             opacity: 0;
             transform: translateY(30px);
@@ -312,7 +319,7 @@
             content: '';
             width: 50px;
             height: 1px;
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
         }
         .hero-title {
             font-family: var(--serif);
@@ -324,7 +331,7 @@
         }
         .hero-title .line { display: block; overflow: hidden; }
         .hero-title .line-inner { display: block; transform: translateY(100%); }
-        .hero-title em { font-style: italic; color: var(--brand-gold); font-weight: 300; }
+        .hero-title em { font-style: italic; color: var(--brand-orange-light); font-weight: 300; }
         .hero-subtitle {
             font-size: clamp(15px, 1.4vw, 18px);
             font-weight: 300;
@@ -333,7 +340,7 @@
             opacity: 0;
             transform: translateY(30px);
             line-height: 1.8;
-            color: rgba(245, 241, 234, 0.9);
+            color: rgba(253, 248, 243, 0.9);
         }
 
         /* ===== SECTIONS BASE ===== */
@@ -347,7 +354,7 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 24px;
             font-weight: 600;
         }
@@ -355,7 +362,7 @@
             content: '';
             width: 40px;
             height: 1px;
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
         }
         .section-title {
             font-family: var(--serif);
@@ -365,7 +372,7 @@
             color: var(--brand-navy);
             margin-bottom: 28px;
         }
-        .section-title em { font-style: italic; color: var(--brand-red); font-weight: 300; }
+        .section-title em { font-style: italic; color: var(--brand-orange); font-weight: 300; }
         .section-lead {
             font-size: clamp(16px, 1.3vw, 18px);
             line-height: 1.8;
@@ -392,7 +399,7 @@
             margin-bottom: 24px;
             line-height: 1.1;
         }
-        .reservation-info h2 em { font-style: italic; color: var(--brand-red); }
+        .reservation-info h2 em { font-style: italic; color: var(--brand-orange); }
         .reservation-info > p {
             font-size: 16px;
             line-height: 1.8;
@@ -424,18 +431,18 @@
         .contact-method:hover .contact-method-icon,
         .contact-method:hover .contact-method-label,
         .contact-method:hover .contact-method-value { color: var(--brand-cream); }
-        .contact-method:hover .contact-method-icon { color: var(--brand-gold); }
+        .contact-method:hover .contact-method-icon { color: var(--brand-orange-light); }
         
         .contact-method-icon {
             font-size: 32px;
-            color: var(--brand-red);
+            color: var(--brand-orange);
             transition: color 0.4s;
         }
         .contact-method-label {
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 4px;
             transition: color 0.4s;
         }
@@ -449,7 +456,7 @@
 
         .booking-hours {
             padding: 24px;
-            border-left: 3px solid var(--brand-gold);
+            border-left: 3px solid var(--brand-orange-light);
             background: rgba(201, 169, 97, 0.05);
         }
         .booking-hours h4 {
@@ -506,7 +513,7 @@
         }
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
-            border-color: var(--brand-gold);
+            border-color: var(--brand-orange-light);
         }
         .form-textarea { resize: vertical; min-height: 100px; }
         .form-submit {
@@ -524,7 +531,7 @@
             transition: all 0.4s var(--ease-luxury);
         }
         .form-submit:hover {
-            background: var(--brand-gold);
+            background: var(--brand-orange-light);
             color: var(--brand-navy);
         }
         .form-note {
@@ -587,7 +594,7 @@
 }
 
 .btn-email:hover {
-    background-color: var(--brand-red);
+    background-color: var(--brand-orange);
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(27, 40, 69, 0.2);
 }
@@ -672,7 +679,7 @@
         .room-price-tag .amount {
             font-family: var(--serif);
             font-size: 28px;
-            color: var(--brand-red);
+            color: var(--brand-orange);
             font-weight: 600;
         }
         .room-price-tag .per {
@@ -704,7 +711,7 @@
         }
         .guideline-item .material-icons {
             font-size: 40px;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 20px;
         }
         .guideline-item h4 {
@@ -737,49 +744,71 @@
             font-family: var(--serif);
             font-size: 32px;
             font-weight: 700;
-            color: var(--brand-red);
+            color: var(--brand-orange);
             letter-spacing: 3px;
             margin-bottom: 16px;
         }
         .footer-brand p {
             font-size: 14px;
             line-height: 1.8;
-            color: rgba(245, 241, 234, 0.6);
+            color: rgba(253, 248, 243, 0.6);
             margin-bottom: 24px;
         }
         .footer-heading {
             font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--brand-gold);
+            color: var(--brand-orange-light);
             margin-bottom: 24px;
             font-weight: 600;
         }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 12px; }
         .footer-links a {
-            color: rgba(245, 241, 234, 0.7);
+            color: rgba(253, 248, 243, 0.7);
             font-size: 14px;
             text-decoration: none;
             transition: color 0.3s;
         }
-        .footer-links a:hover { color: var(--brand-gold); }
+        .footer-links a:hover { color: var(--brand-orange-light); }
         .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 12px;
             margin-bottom: 16px;
             font-size: 14px;
-            color: rgba(245, 241, 234, 0.7);
+            color: rgba(253, 248, 243, 0.7);
         }
         .contact-icon { font-size: 18px; flex-shrink: 0; }
         .footer-bottom {
             padding-top: 30px;
-            border-top: 1px solid rgba(245, 241, 234, 0.1);
+            border-top: 1px solid rgba(253, 248, 243, 0.1);
             display: flex;
             justify-content: space-between;
             font-size: 12px;
-            color: rgba(245, 241, 234, 0.4);
+            color: rgba(253, 248, 243, 0.4);
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(253, 248, 243, 0.1);
+            color: rgba(253, 248, 243, 0.7);
+            transition: all 0.3s var(--ease-luxury);
+            text-decoration: none;
+        }
+        .social-link:hover {
+            background: var(--brand-orange);
+            color: var(--brand-cream);
+            transform: translateY(-3px);
         }
         @media (max-width: 900px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -804,11 +833,103 @@
         .reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
         .reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
 
+        /* ===== HAMBURGER ACTIVE STATE ===== */
+        .hamburger.active .bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* ===== COOKIE CONSENT ===== */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(27, 40, 69, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: var(--brand-cream);
+            padding: 24px 60px;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            transform: translateY(100%);
+            transition: transform 0.5s var(--ease-luxury);
+            border-top: 1px solid rgba(232, 101, 10, 0.3);
+        }
+        .cookie-consent.show { transform: translateY(0); }
+        .cookie-consent p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(253, 248, 243, 0.85);
+            margin: 0;
+            flex: 1;
+        }
+        .cookie-consent a {
+            color: var(--brand-orange-light);
+            text-decoration: underline;
+        }
+        .cookie-btn-group {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .cookie-btn {
+            padding: 12px 28px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-luxury);
+            font-family: var(--sans);
+        }
+        .cookie-accept {
+            background: var(--brand-orange);
+            color: var(--brand-cream);
+        }
+        .cookie-accept:hover {
+            background: var(--brand-orange-light);
+            transform: translateY(-2px);
+        }
+        .cookie-decline {
+            background: transparent;
+            color: rgba(253, 248, 243, 0.7);
+            border: 1px solid rgba(253, 248, 243, 0.3);
+        }
+        .cookie-decline:hover {
+            color: var(--brand-cream);
+            border-color: var(--brand-cream);
+        }
+        @media (max-width: 768px) {
+            .cookie-consent {
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 16px;
+                text-align: center;
+            }
+            .cookie-btn-group { width: 100%; justify-content: center; }
+        }
+
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--brand-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--brand-orange-light); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--brand-orange); }
+
         /* ===== ACCESSIBILITY ===== */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
         }
-        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 3px; }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-orange-light); outline-offset: 3px; }
     </style>
 </head>
 <body>
@@ -831,8 +952,8 @@
         <div class="header-container">
             <div class="logo">
                 <a href="index.html">
+                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
                     <span class="logo-text">KADONGO</span>
-                    <span class="logo-sub">Cool Breez Hotel</span>
                 </a>
             </div>
             <nav class="navbar" id="main-nav">
@@ -857,7 +978,7 @@
 
     <!-- Page Hero -->
     <section class="page-hero">
-        <div class="page-hero-bg" style="background-image: url('images/longview-outside-view-of-buliding.png');"></div>
+        <div class="page-hero-bg" style="background-image: url('images/deluxeroom1.png');"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-badge">Personalised Reservations • Mfangano Island</div>
@@ -910,7 +1031,7 @@
 
                 <div class="booking-hours">
                     <h4>Reservation Hours</h4>
-                    <p>Our team is available to take your call daily from 8:00 AM to 8:00 PM (EAT). 
+                    <p>Our team is available to take your call daily from 7:00 AM to 11:00 PM (EAT). 
                     For enquiries outside these hours, please leave a message or send an email, and we will respond promptly.</p>
                 </div>
             </div>
@@ -1006,14 +1127,14 @@
         <div class="rooms-grid reveal-stagger">
             <div class="room-card">
                 <div class="room-card-img">
-                    <img src="images/bedroom1.png" alt="Single Room at Kadongo Cool Breez Hotel">
+                    <img src="images/singlestarndard3.png" alt="Single Room at Kadongo Cool Breez Hotel" loading="lazy">
                 </div>
                 <div class="room-card-content">
-                    <h3>Single Room</h3>
+                    <h3>Standard Single Room</h3>
                     <p>Comfortable and private, perfect for solo travellers and business guests. Includes en-suite bathroom and quality bedding.</p>
                     <div class="room-price-tag">
                         <span class="from">From</span>
-                        <span class="amount">KES 2,000</span>
+                        <span class="amount">KES 1,500</span>
                         <span class="per">/ night</span>
                     </div>
                 </div>
@@ -1021,29 +1142,50 @@
 
             <div class="room-card">
                 <div class="room-card-img">
-                    <img src="images/exeptionalroom.png" alt="Standard Double Room at Kadongo">
+                    <img src="images/doublebedroom.png" alt="Standard Double Room at Kadongo" loading="lazy">
                 </div>
                 <div class="room-card-content">
-                    <h3>Standard Double</h3>
-                    <p>Ideal for couples. Features a comfortable double bed, private bathroom, and modern amenities for a restful stay.</p>
+                    <h3>Standard Double bed | Single Room</h3>
+                    <p>Ideal for couples and family. Features a comfortable double bed, private bathroom, and modern amenities for a restful stay.</p>
                     <div class="room-price-tag">
                         <span class="from">From</span>
-                        <span class="amount">KES 3,500</span>
+                        <span class="amount">KES 2,500</span>
                         <span class="per">/ night</span>
                     </div>
                 </div>
             </div>
+            
+            
+            
+         <div class="room-card">
+                <div class="room-card-img">
+                    <img src="images/executivesingle.png" alt="Standard Double Room at Kadongo" loading="lazy">
+                </div>
+                <div class="room-card-content">
+                    <h3>Executive | Single Suite</h3>
+                    <p>Ideal for Perfect for business travellers and couples. Features a comfortable bed, private bathroom, and modern amenities for a restful stay.</p>
+                    <div class="room-price-tag">
+                        <span class="from">From</span>
+                        <span class="amount">KES 2,500</span>
+                        <span class="per">/ night</span>
+                    </div>
+                </div>
+            </div>   
+            
+            
+            
+            
 
             <div class="room-card">
                 <div class="room-card-img">
-                    <img src="images/exeptonalroom2.jpg" alt="Deluxe Room at Kadongo">
+                    <img src="images/deluxeroomwithbalcony.png" alt="Deluxe Room at Kadongo" loading="lazy">
                 </div>
                 <div class="room-card-content">
                     <h3>Deluxe Room</h3>
                     <p>Spacious and enhanced with premium comforts. Beautiful views and extra space for extended stays or special occasions.</p>
                     <div class="room-price-tag">
                         <span class="from">From</span>
-                        <span class="amount">KES 5,000</span>
+                        <span class="amount">KES 3,000</span>
                         <span class="per">/ night</span>
                     </div>
                 </div>
@@ -1051,7 +1193,7 @@
 
             <div class="room-card">
                 <div class="room-card-img">
-                    <img src="images/kingbed.png" alt="Family Suite at Kadongo">
+                    <img src="images/kingbed.png" alt="Family Suite at Kadongo" loading="lazy">
                 </div>
                 <div class="room-card-content">
                     <h3>Family Suite</h3>
@@ -1102,6 +1244,17 @@
                 <div class="footer-brand">
                     <h3>KADONGO</h3>
                     <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://wa.me/254756585016" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-heading">Quick Links</h4>
@@ -1146,185 +1299,148 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="cookies.html">Cookie Policy</a> | <a href="privacy.html">Privacy Policy</a></p>
+        <div class="cookie-btn-group">
+            <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
+            <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
+        </div>
+    </div>
+
     <script>
-    // Register ScrollTrigger (if loaded)
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-    }
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+        }
 
-    // Page Loader (Works Online & Offline)
-    let loaderFinished = false;
-    function finishLoading() {
-        if (loaderFinished) return;
-        loaderFinished = true;
-        setTimeout(() => {
-            const loader = document.getElementById('loader');
-            if (loader) loader.classList.add('done');
-            document.querySelector('.page-hero')?.classList.add('loaded');
-            if (typeof initHeroAnimations === 'function') initHeroAnimations();
-        }, 300);
-    }
-    window.addEventListener('load', finishLoading);
-    setTimeout(finishLoading, 3000); // Fallback for offline
-    document.addEventListener('DOMContentLoaded', () => setTimeout(finishLoading, 1500));
-
-    // Initialize Lenis Smooth Scroll (if loaded)
-    if (typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true,
-        });
-        function raf(time) {
-            lenis.raf(time);
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+            });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
             requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
-    }
 
-    // Header Scroll Effect
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-    }, { passive: true });
-
-    // Mobile Menu Toggle
-    const hamburger = document.getElementById('mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) loader.classList.add('done');
+                if (typeof initHeroAnimations === 'function') initHeroAnimations();
+            }, 500);
         });
+        setTimeout(() => { const l = document.getElementById('loader'); if (l && !l.classList.contains('done')) { l.classList.add('done'); if (typeof initHeroAnimations === 'function') initHeroAnimations(); } }, 3000);
 
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.style.overflow = '';
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 80);
+        }, { passive: true });
+
+        const hamburger = document.getElementById('mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
             });
-        });
-    }
-
-    // Hero Animations
-    function initHeroAnimations() {
-        if (typeof gsap === 'undefined') return;
-        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-        tl.to('.hero-title .line-inner', {
-            y: 0,
-            duration: 1.4,
-            stagger: 0.15,
-        })
-        .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
-        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
-    }
-
-    // Reveal on Scroll
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('in-view');
-        });
-    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
-
-    // Parallax Effects
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.to('.page-hero-bg', {
-            yPercent: 20,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '.page-hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true,
-            }
-        });
-    }
-
-    // Update Footer Year
-    const footerYear = document.getElementById('footer-year');
-    if (footerYear) footerYear.textContent = new Date().getFullYear();
-
-    // Refresh ScrollTrigger on resize
-    window.addEventListener('resize', () => {
-        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-    });
-
-    // ===== FORM HANDLING (WhatsApp & Email) =====
-    document.addEventListener('DOMContentLoaded', function() {
-        // FIXED: Matched the ID from your HTML
-        const form = document.getElementById('bookingEnquiryForm'); 
-        if (!form) return;
-
-        // Helper to get form data
-        function getFormData() {
-            return {
-                name: document.getElementById('fullName').value,
-                phone: document.getElementById('phone').value, // FIXED: Was 'phoneNumber'
-                email: document.getElementById('email').value,
-                checkIn: document.getElementById('checkIn').value,
-                checkOut: document.getElementById('checkOut').value,
-                guests: document.getElementById('guests').value,
-                room: document.getElementById('roomType').value,
-                requests: document.getElementById('message').value // FIXED: Was 'specialRequests'
-            };
-        }
-
-        // Helper to format the message
-        function formatMessage(data) {
-            return `*New Booking Enquiry - Kadongo Cool Breez Hotel*\n\n` +
-                   `*Name:* ${data.name}\n` +
-                   `*Phone:* ${data.phone}\n` +
-                   `*Email:* ${data.email || 'N/A'}\n\n` +
-                   `*Check-in:* ${data.checkIn}\n` +
-                   `*Check-out:* ${data.checkOut}\n` +
-                   `*Guests:* ${data.guests}\n` +
-                   `*Room Preference:* ${data.room}\n\n` +
-                   `*Special Requests:*\n${data.requests || 'None'}`;
-        }
-
-        // WhatsApp Handler
-        const whatsappBtn = document.getElementById('sendWhatsApp');
-        if (whatsappBtn) {
-            whatsappBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Trigger browser validation if fields are missing
-                if (!form.checkValidity()) {
-                    form.reportValidity();
-                    return;
-                }
-                const data = getFormData();
-                const message = formatMessage(data);
-                const encodedMessage = encodeURIComponent(message);
-                // Opens WhatsApp with the pre-filled message
-                window.open(`https://wa.me/254715153787?text=${encodedMessage}`, '_blank');
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
             });
         }
 
-           // Email Handler (Opens Gmail Web Compose)
-    const emailBtn = document.getElementById('sendEmail');
-    if (emailBtn) {
-        emailBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-            const data = getFormData();
-            const subject = `Booking Enquiry: ${data.name} - ${data.checkIn} to ${data.checkOut}`;
-            const body = formatMessage(data).replace(/\*/g, ''); 
-            
-            // Opens Gmail compose window in a new tab
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=paulnyumbwe@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.open(gmailUrl, '_blank');
+        function initHeroAnimations() {
+            if (typeof gsap === 'undefined') return;
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+            tl.to('.hero-title .line-inner', { y: 0, duration: 1.4, stagger: 0.15 })
+              .to('.hero-badge', { opacity: 1, y: 0, duration: 1 }, '-=1')
+              .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
+        }
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.to('.page-hero-bg', { yPercent: 20, ease: 'none', scrollTrigger: { trigger: '.page-hero', start: 'top top', end: 'bottom top', scrub: true } });
+        }
+
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => { document.getElementById('cookieConsent').classList.add('show'); }, 1500);
+        }
+        document.getElementById('cookieAccept').addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieConsent').classList.remove('show');
         });
-    }
-    });
-</script>
+        document.getElementById('cookieDecline').addEventListener('click', () => {
+            document.getElementById('cookieConsent').classList.remove('show');
+        });
+
+        window.addEventListener('resize', () => { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); });
+
+        // ===== FORM HANDLING (WhatsApp & Email) =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('bookingEnquiryForm');
+            if (!form) return;
+
+            function getFormData() {
+                return {
+                    name: document.getElementById('fullName').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    checkIn: document.getElementById('checkIn').value,
+                    checkOut: document.getElementById('checkOut').value,
+                    guests: document.getElementById('guests').value,
+                    room: document.getElementById('roomType').value,
+                    requests: document.getElementById('message').value
+                };
+            }
+
+            function formatMessage(data) {
+                return `*New Booking Enquiry - Kadongo Cool Breez Hotel*\n\n` +
+                       `*Name:* ${data.name}\n` +
+                       `*Phone:* ${data.phone}\n` +
+                       `*Email:* ${data.email || 'N/A'}\n\n` +
+                       `*Check-in:* ${data.checkIn}\n` +
+                       `*Check-out:* ${data.checkOut}\n` +
+                       `*Guests:* ${data.guests}\n` +
+                       `*Room Preference:* ${data.room}\n\n` +
+                       `*Special Requests:*\n${data.requests || 'None'}`;
+            }
+
+            const whatsappBtn = document.getElementById('sendWhatsApp');
+            if (whatsappBtn) {
+                whatsappBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (!form.checkValidity()) { form.reportValidity(); return; }
+                    const data = getFormData();
+                    const message = formatMessage(data);
+                    window.open(`https://wa.me/254715153787?text=${encodeURIComponent(message)}`, '_blank');
+                });
+            }
+
+            const emailBtn = document.getElementById('sendEmail');
+            if (emailBtn) {
+                emailBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (!form.checkValidity()) { form.reportValidity(); return; }
+                    const data = getFormData();
+                    const subject = `Booking Enquiry: ${data.name} - ${data.checkIn} to ${data.checkOut}`;
+                    const body = formatMessage(data).replace(/\*/g, '');
+                    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=paulnyumbwe@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+                });
+            }
+        });
+    </script>
 
     
 </body>

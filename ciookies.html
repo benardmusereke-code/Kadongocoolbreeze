@@ -1,671 +1,775 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Cookie Policy — How Kadongo Resort uses cookies and similar tracking technologies to enhance your experience.">
-  <title>Cookie Policy | Kadongo Resort - Mfangano Island</title>
-  
-  <!-- 🌐 FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  
-  <!-- 🛠️ LIBRARIES -->
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy | Kadongo Cool Breez Hotel Resort</title>
+    <meta name="description" content="Cookie Policy for Kadongo Cool Breez Hotel Resort on Mfangano Island. Learn how we use cookies and tracking technologies.">
+    <link rel="icon" type="image/png" href="images/kadongologo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --brand-orange: #E8650A;
+            --brand-orange-light: #F28C28;
+            --brand-orange-deep: #CC5500;
+            --brand-orange-glow: #FF8C42;
+            --brand-navy: #1B2845;
+            --brand-navy-deep: #141E33;
+            --brand-cream: #FDF8F3;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        body {
+            font-family: var(--sans);
+            background: var(--brand-cream);
+            color: var(--brand-navy);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
 
-  <!-- 🎨 CRITICAL CSS -->
-  <style>
-    :root {
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Lato', sans-serif;
-      --color-bg: #F9F8F6;
-      --color-text: #2C2C2C;
-      --color-text-light: #5A5A5A;
-      --color-accent: #B88B4A;
-      --color-border: rgba(0,0,0,0.1);
-      --spacing-section: 140px;
-    }
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s var(--ease-luxury);
+        }
+        .header.scrolled {
+            background: rgba(27, 40, 69, 0.97);
+            backdrop-filter: blur(24px) saturate(180%);
+            padding: 12px 40px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+        .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-image { height: 45px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); transition: all 0.4s var(--ease-luxury); }
+        .header.scrolled .logo-image { height: 38px; }
+        .logo-text { font-family: var(--serif); font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 0.5px; }
+        .logo-sub { font-size: 10px; font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; color: var(--brand-orange-light); display: block; margin-top: -2px; }
+        .nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
+        .nav-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(253, 248, 243, 0.8);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-orange);
+            transition: width 0.3s var(--ease-luxury);
+        }
+        .nav-link:hover { color: var(--brand-orange-light); }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active { color: var(--brand-orange); }
+        .nav-link.active::after { width: 100%; }
+        .btn-book-nav {
+            background: var(--brand-orange) !important;
+            color: #fff !important;
+            padding: 10px 24px !important;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            letter-spacing: 1.5px;
+            transition: all 0.3s var(--ease-luxury) !important;
+        }
+        .btn-book-nav::after { display: none !important; }
+        .btn-book-nav:hover { background: var(--brand-orange-deep) !important; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232, 101, 10, 0.3); }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 10001; background: none; border: none; }
+        .mobile-toggle span {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s var(--ease-luxury);
+            transform-origin: center;
+        }
+        .mobile-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .mobile-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    [data-theme="dark"] {
-      --color-bg: #0F1115;
-      --color-text: #E8E8E8;
-      --color-text-light: #B0B0B0;
-      --color-border: rgba(255,255,255,0.1);
-    }
+        /* ===== HERO ===== */
+        .page-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 50%, rgba(204, 85, 0, 0.3) 100%);
+            transform: scale(1.1);
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 0 24px;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            background: rgba(232, 101, 10, 0.15);
+            border: 1px solid rgba(232, 101, 10, 0.3);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-orange-light);
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .page-hero-title {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .page-hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-weight: 300;
+            color: rgba(253, 248, 243, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html.lenis { height: auto; }
-    .lenis.lenis-smooth { scroll-behavior: auto; }
-    .lenis.lenis-stopped { overflow: hidden; }
+        /* ===== CONTENT ===== */
+        .policy-section {
+            padding: 80px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--brand-orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            transition: all 0.3s;
+        }
+        .back-link:hover { gap: 12px; color: var(--brand-orange-deep); }
+        .toc {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 40, 69, 0.06);
+            margin-bottom: 60px;
+        }
+        .toc h2 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--brand-navy);
+        }
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+        }
+        .toc li {
+            counter-increment: toc;
+            margin: 12px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        .toc li::before {
+            content: counter(toc);
+            position: absolute;
+            left: 0;
+            background: var(--brand-orange);
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .toc a {
+            color: var(--brand-navy);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .toc a:hover { color: var(--brand-orange); }
+        .policy-article {
+            margin-bottom: 60px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.08);
+        }
+        .policy-article:last-child { border-bottom: none; }
+        .policy-article h2 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--brand-navy);
+        }
+        .policy-article h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin: 30px 0 12px;
+            color: var(--brand-navy);
+        }
+        .policy-article p {
+            color: #555;
+            margin-bottom: 16px;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        .policy-article ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+        .policy-article li {
+            color: #555;
+            margin: 10px 0;
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.8;
+        }
+        .policy-article li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--brand-orange);
+            border-radius: 50%;
+        }
+        .info-box {
+            background: rgba(232, 101, 10, 0.06);
+            border-left: 4px solid var(--brand-orange);
+            padding: 24px 28px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+        .info-box p { color: var(--brand-navy); margin: 0; font-weight: 500; }
+        .table-container {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 40, 69, 0.06);
+        }
+        .policy-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            min-width: 550px;
+        }
+        .policy-table th,
+        .policy-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.06);
+        }
+        .policy-table th {
+            background: var(--brand-navy);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .policy-table tr:hover { background: rgba(232, 101, 10, 0.03); }
+        .policy-table td:first-child { font-weight: 600; color: var(--brand-navy); }
+        .contact-box {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 40, 69, 0.06);
+            margin-top: 24px;
+        }
+        .contact-box p { margin: 10px 0; color: var(--brand-navy); }
+        .contact-box a { color: var(--brand-orange); font-weight: 600; text-decoration: none; }
+        .contact-box a:hover { text-decoration: underline; }
 
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
+        /* ===== LEGAL LINKS ===== */
+        .legal-links {
+            background: var(--brand-navy);
+            padding: 40px 24px;
+        }
+        .legal-links-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .legal-links a {
+            color: rgba(253, 248, 243, 0.7);
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .legal-links a:hover { color: var(--brand-orange-light); background: rgba(232, 101, 10, 0.1); }
 
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--color-text);
-    }
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--brand-navy-deep);
+            padding: 80px 40px 30px;
+            color: rgba(253, 248, 243, 0.7);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(253, 248, 243, 0.08);
+        }
+        .footer-brand p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-top: 16px;
+            color: rgba(253, 248, 243, 0.6);
+        }
+        .footer-logo-image {
+            width: 200px;
+            height: auto;
+        }
+        .footer h4 {
+            font-family: var(--serif);
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin: 12px 0; }
+        .footer-links a {
+            color: rgba(253, 248, 243, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--brand-orange-light); }
+        .social-links { display: flex; gap: 12px; margin-top: 20px; }
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(253, 248, 243, 0.08);
+            color: rgba(253, 248, 243, 0.7);
+            border: 1px solid rgba(253, 248, 243, 0.1);
+            transition: all 0.4s var(--ease-luxury);
+            text-decoration: none;
+        }
+        .social-link svg { width: 18px; height: 18px; fill: currentColor; }
+        .social-link:hover { background: var(--brand-orange); color: #fff; border-color: var(--brand-orange); transform: translateY(-3px); }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: rgba(253, 248, 243, 0.4);
+        }
 
-    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-    a:hover { color: var(--color-accent); }
+        /* ===== COOKIE CONSENT ===== */
+        .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: rgba(27, 40, 69, 0.97); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-top: 1px solid rgba(232, 101, 10, 0.2); padding: 24px 60px; display: flex; align-items: center; justify-content: space-between; gap: 32px; transform: translateY(100%); transition: transform 0.6s var(--ease-luxury), opacity 0.6s; opacity: 0; }
+        .cookie-consent.show { transform: translateY(0); opacity: 1; }
+        .cookie-consent-text { font-size: 14px; color: rgba(253, 248, 243, 0.85); line-height: 1.7; flex: 1; }
+        .cookie-consent-text a { color: var(--brand-orange-light); text-decoration: underline; text-underline-offset: 3px; }
+        .cookie-consent-text a:hover { color: var(--brand-orange); }
+        .cookie-consent-actions { display: flex; gap: 12px; flex-shrink: 0; }
+        .cookie-btn { padding: 12px 28px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.4s var(--ease-luxury); font-family: var(--sans); }
+        .cookie-btn-accept { background: var(--brand-orange); color: #fff; }
+        .cookie-btn-accept:hover { background: var(--brand-orange-deep); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232, 101, 10, 0.35); }
+        .cookie-btn-reject { background: transparent; color: rgba(253, 248, 243, 0.5); border: 1px solid rgba(253, 248, 243, 0.15); }
+        .cookie-btn-reject:hover { border-color: rgba(253, 248, 243, 0.3); color: rgba(253, 248, 243, 0.8); }
 
-    /* ===== UTILITIES ===== */
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 40px;
-      position: relative;
-      z-index: 2;
-    }
-    .uppercase { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; color: var(--color-accent); }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .header { padding: 16px 24px; }
+            .header.scrolled { padding: 12px 24px; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 360px;
+                height: 100vh;
+                background: var(--brand-navy-deep);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 28px;
+                transition: right 0.5s var(--ease-luxury);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+            }
+            .nav-links.active { right: 0; }
+            .mobile-toggle { display: flex; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .cookie-consent { flex-direction: column; padding: 24px; gap: 20px; text-align: center; }
+            .cookie-consent-actions { width: 100%; justify-content: center; flex-wrap: wrap; }
+        }
+        @media (max-width: 480px) {
+            .policy-section { padding: 60px 20px; }
+            .toc { padding: 28px 20px; }
+            .policy-article h2 { font-size: 1.5rem; }
+        }
 
-    /* ===== HERO SECTION ===== */
-    .hero {
-      height: 60vh;
-      min-height: 400px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(44,95,77,0.9), rgba(26,37,47,0.85));
-      text-align: center;
-      color: #fff;
-    }
-    .hero-content {
-      max-width: 800px;
-      padding: 0 20px;
-    }
-    .hero-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      font-weight: 300;
-      opacity: 0;
-      transform: translateY(30px);
-      margin-bottom: 20px;
-    }
-    .hero-date {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      font-weight: 300;
-    }
-
-    /* ===== CONTENT SECTIONS ===== */
-    .policy-content {
-      padding: 80px 0;
-    }
-
-    /* ===== TABLE OF CONTENTS ===== */
-    .toc {
-      background: #fff;
-      padding: 40px;
-      border-radius: 2px;
-      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
-      margin-bottom: 60px;
-    }
-    [data-theme="dark"] .toc {
-      background: #1a1a1a;
-    }
-    .toc h2 {
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-      color: var(--color-text);
-    }
-    .toc ol {
-      list-style: none;
-      counter-reset: toc-counter;
-    }
-    .toc li {
-      counter-increment: toc-counter;
-      margin: 15px 0;
-      padding-left: 40px;
-      position: relative;
-    }
-    .toc li::before {
-      content: counter(toc-counter);
-      position: absolute;
-      left: 0;
-      background: var(--color-accent);
-      color: #fff;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-    .toc a {
-      color: var(--color-text);
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .toc a:hover {
-      color: var(--color-accent);
-    }
-
-    /* ===== POLICY ARTICLES ===== */
-    .policy-article {
-      margin-bottom: 60px;
-      padding-bottom: 50px;
-      border-bottom: 1px solid var(--color-border);
-    }
-    .policy-article:last-child {
-      border-bottom: none;
-    }
-    .policy-article h2 {
-      font-size: 2rem;
-      margin-bottom: 25px;
-      color: var(--color-text);
-    }
-    .policy-article h3 {
-      font-size: 1.4rem;
-      margin: 30px 0 15px;
-      color: var(--color-text);
-    }
-    .policy-article p {
-      color: var(--color-text-light);
-      margin-bottom: 20px;
-      line-height: 1.9;
-      font-size: 1.05rem;
-    }
-    .policy-article ul {
-      list-style: none;
-      margin: 20px 0;
-    }
-    .policy-article li {
-      color: var(--color-text-light);
-      margin: 12px 0;
-      padding-left: 28px;
-      position: relative;
-      line-height: 1.8;
-    }
-    .policy-article li::before {
-      content: '▸';
-      color: var(--color-accent);
-      position: absolute;
-      left: 0;
-      font-weight: 700;
-    }
-
-    /* ===== TABLE STYLES ===== */
-    .table-container {
-      overflow-x: auto;
-      margin: 30px 0;
-      border-radius: 2px;
-      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
-    }
-    .policy-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      min-width: 600px;
-    }
-    [data-theme="dark"] .policy-table {
-      background: #1a1a1a;
-    }
-    .policy-table th,
-    .policy-table td {
-      padding: 18px 25px;
-      text-align: left;
-      border-bottom: 1px solid var(--color-border);
-      color: var(--color-text);
-    }
-    .policy-table th {
-      background: var(--color-accent);
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .policy-table tr:hover {
-      background: rgba(184, 139, 74, 0.05);
-    }
-    [data-theme="dark"] .policy-table tr:hover {
-      background: rgba(184, 139, 74, 0.1);
-    }
-    .policy-table td:first-child {
-      font-weight: 600;
-      color: var(--color-text);
-    }
-
-    /* ===== INFO BOXES ===== */
-    .info-box,
-    .warning-box {
-      background: rgba(184, 139, 74, 0.1);
-      border-left: 4px solid var(--color-accent);
-      padding: 25px 30px;
-      border-radius: 2px;
-      margin: 30px 0;
-    }
-    .info-box p,
-    .warning-box p {
-      color: var(--color-text);
-      margin: 0;
-      line-height: 1.8;
-    }
-
-    /* ===== CONTACT BOX ===== */
-    .contact-box {
-      background: #fff;
-      padding: 35px;
-      border-radius: 2px;
-      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
-      margin-top: 30px;
-    }
-    [data-theme="dark"] .contact-box {
-      background: #1a1a1a;
-    }
-    .contact-box p {
-      margin: 12px 0;
-      color: var(--color-text);
-    }
-    .contact-box a {
-      color: var(--color-accent);
-      font-weight: 500;
-    }
-    .contact-box a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== LEGAL LINKS ===== */
-    .legal-links {
-      background: #fff;
-      padding: 50px 0;
-      border-top: 1px solid var(--color-border);
-    }
-    [data-theme="dark"] .legal-links {
-      background: #1a1a1a;
-    }
-    .legal-links-container {
-      display: flex;
-      gap: 25px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .legal-links a {
-      color: var(--color-text-light);
-      font-weight: 500;
-      padding: 10px 20px;
-      border-radius: 6px;
-      transition: all 0.3s;
-      font-size: 0.95rem;
-    }
-    .legal-links a:hover {
-      color: var(--color-accent);
-      background: rgba(184, 139, 74, 0.1);
-    }
-
-    /* ===== BACK BUTTON ===== */
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--color-text);
-      font-weight: 500;
-      margin-bottom: 40px;
-      transition: all 0.3s;
-    }
-    .back-btn:hover {
-      color: var(--color-accent);
-      gap: 15px;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .hero { height: 50vh; min-height: 350px; }
-      .hero-title { font-size: 2.5rem; }
-      .container { padding: 0 25px; }
-      .toc { padding: 30px 25px; }
-      .policy-article h2 { font-size: 1.6rem; }
-      .policy-table { font-size: 0.9rem; }
-      .policy-table th,
-      .policy-table td { padding: 14px 18px; }
-      .legal-links-container { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .hero-title { font-size: 2rem; }
-      .toc li { padding-left: 35px; }
-    }
-  </style>
-
-  <!-- 🛡️ PROTECT HEADER CLICKS -->
-  <style>
-    #particle-canvas { pointer-events: none !important; z-index: -1 !important; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
-    #header-placeholder { position: relative; z-index: 10000; }
-    #header-placeholder, #footer-placeholder { min-height: 80px; }
-  </style>
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--brand-navy); }
+        ::-webkit-scrollbar-thumb { background: var(--brand-orange); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--brand-orange-light); }
+    </style>
 </head>
 <body>
 
-  <!-- 🌟 PARTICLE BACKGROUND -->
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <!-- Header -->
+    <header class="header" id="main-header">
+        <a href="index.html" class="logo-link">
+            <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
+            <div>
+                <span class="logo-text">KADONGO</span>
+                <span class="logo-sub">Cool Breez Hotel Resort</span>
+            </div>
+        </a>
+        <nav class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="rooms.html" class="nav-link">Rooms</a></li>
+            <li><a href="dining.html" class="nav-link">Dining</a></li>
+            <li><a href="amenities.html" class="nav-link">Amenities</a></li>
+            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li><a href="location.html" class="nav-link">Location</a></li>
+            <li><a href="booking.html" class="nav-link btn-book-nav">Book Now</a></li>
+        </nav>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
 
-  <!-- Dynamic Header -->
-  <div id="header-placeholder"></div>
-
-  <main>
-    
-    <!-- 🎬 HERO SECTION -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">🍪 Cookie Policy</h1>
-        <p class="hero-subtitle">How Kadongo Resort uses cookies and similar tracking technologies</p>
-        <p class="hero-date">Last Updated: <span id="last-updated">Loading...</span></p>
-      </div>
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-content">
+            <div class="hero-badge">Legal</div>
+            <h1 class="page-hero-title">Cookie Policy</h1>
+            <p class="page-hero-subtitle">How Kadongo Cool Breez Hotel Resort uses cookies and similar tracking technologies to enhance your experience.</p>
+        </div>
     </section>
 
-    <!-- 📋 POLICY CONTENT -->
-    <section class="policy-content">
-      <div class="container">
-        
-        <a href="index.html" class="back-btn">← Back to Website</a>
-        
-        <!-- Table of Contents -->
+    <!-- Content -->
+    <section class="policy-section">
+        <a href="index.html" class="back-link">← Back to Website</a>
+
         <div class="toc">
-          <h2>Table of Contents</h2>
-          <ol>
-            <li><a href="#what-are-cookies">What Are Cookies?</a></li>
-            <li><a href="#why-we-use">Why We Use Cookies</a></li>
-            <li><a href="#cookie-types">Types of Cookies We Use</a></li>
-            <li><a href="#third-party">Third-Party Cookies</a></li>
-            <li><a href="#manage-cookies">Managing Your Cookie Preferences</a></li>
-            <li><a href="#do-not-track">Do Not Track Signals</a></li>
-            <li><a href="#contact-cookies">Contact Us</a></li>
-          </ol>
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-are-cookies">What Are Cookies?</a></li>
+                <li><a href="#why-we-use">Why We Use Cookies</a></li>
+                <li><a href="#cookie-types">Types of Cookies We Use</a></li>
+                <li><a href="#third-party">Third-Party Cookies</a></li>
+                <li><a href="#manage-cookies">Managing Your Cookie Preferences</a></li>
+                <li><a href="#do-not-track">Do Not Track Signals</a></li>
+                <li><a href="#contact-cookies">Contact Us</a></li>
+            </ol>
         </div>
 
-        <!-- Policy Articles -->
         <article id="what-are-cookies" class="policy-article">
-          <h2>1. What Are Cookies?</h2>
-          <p>
-            Cookies are small text files stored on your device when you visit a website. They help sites 
-            remember your actions and preferences (like login, language, font size) over time so you don't 
-            have to re-enter them.
-          </p>
-          <p>Similar technologies we may use include:</p>
-          <ul>
-            <li><strong>Local Storage:</strong> Stores data persistently on your device for app functionality</li>
-            <li><strong>Web Beacons:</strong> Tiny images that track page views or email opens</li>
-            <li><strong>Device Fingerprinting:</strong> Collects device characteristics for security/fraud prevention</li>
-          </ul>
+            <h2>1. What Are Cookies?</h2>
+            <p>Cookies are small text files stored on your device when you visit a website. They help sites remember your actions and preferences (like login, language, font size) over time so you don't have to re-enter them.</p>
+            <p>Similar technologies we may use include:</p>
+            <ul>
+                <li><strong>Local Storage:</strong> Stores data persistently on your device for app functionality</li>
+                <li><strong>Web Beacons:</strong> Tiny images that track page views or email opens</li>
+                <li><strong>Device Fingerprinting:</strong> Collects device characteristics for security and fraud prevention</li>
+            </ul>
         </article>
 
         <article id="why-we-use" class="policy-article">
-          <h2>2. Why We Use Cookies</h2>
-          <p>Cookies enable Kadongo Resort to:</p>
-          <ul>
-            <li>Keep you logged in to your account and booking portal</li>
-            <li>Remember your language, currency, and accessibility preferences</li>
-            <li>Analyze website traffic to improve user experience and content</li>
-            <li>Personalize offers and recommendations based on your interests</li>
-            <li>Measure the effectiveness of our marketing campaigns</li>
-            <li>Ensure website security and prevent fraudulent activity</li>
-          </ul>
+            <h2>2. Why We Use Cookies</h2>
+            <p>Cookies enable Kadongo Cool Breez Hotel Resort to:</p>
+            <ul>
+                <li>Keep you logged in to your account and booking portal</li>
+                <li>Remember your language, currency, and accessibility preferences</li>
+                <li>Analyze website traffic to improve user experience and content</li>
+                <li>Personalize offers and recommendations based on your interests</li>
+                <li>Measure the effectiveness of our marketing campaigns</li>
+                <li>Ensure website security and prevent fraudulent activity</li>
+            </ul>
         </article>
 
         <article id="cookie-types" class="policy-article">
-          <h2>3. Types of Cookies We Use</h2>
-          <div class="table-container">
-            <table class="policy-table">
-              <thead>
-                <tr>
-                  <th>Cookie Category</th>
-                  <th>Purpose</th>
-                  <th>Duration</th>
-                  <th>Managed By</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Essential</strong></td>
-                  <td>Enable core website functions: secure login, booking engine, session management</td>
-                  <td>Session to 1 year</td>
-                  <td>Kadongo Resort</td>
-                </tr>
-                <tr>
-                  <td><strong>Analytics</strong></td>
-                  <td>Understand how visitors use our site (pages viewed, time spent) via Google Analytics</td>
-                  <td>Up to 2 years</td>
-                  <td>Google LLC</td>
-                </tr>
-                <tr>
-                  <td><strong>Marketing</strong></td>
-                  <td>Deliver personalized ads on social media and search engines; measure campaign performance</td>
-                  <td>Up to 13 months</td>
-                  <td>Meta, Google, TikTok</td>
-                </tr>
-                <tr>
-                  <td><strong>Preferences</strong></td>
-                  <td>Remember your choices: language, region, accessibility settings</td>
-                  <td>1 year</td>
-                  <td>Kadongo Resort</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="warning-box">
-            <p>
-              <strong>⚠️ Essential Cookies Cannot Be Disabled:</strong> These cookies are strictly necessary 
-              for the website to function and cannot be switched off. They are usually only set in response 
-              to actions made by you which amount to a request for services.
-            </p>
-          </div>
+            <h2>3. Types of Cookies We Use</h2>
+            <div class="table-container">
+                <table class="policy-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Category</th>
+                            <th>Purpose</th>
+                            <th>Duration</th>
+                            <th>Managed By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Essential</strong></td>
+                            <td>Enable core website functions: secure login, booking engine, session management</td>
+                            <td>Session to 1 year</td>
+                            <td>Kadongo Resort</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analytics</strong></td>
+                            <td>Understand how visitors use our site (pages viewed, time spent) via Google Analytics</td>
+                            <td>Up to 2 years</td>
+                            <td>Google LLC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketing</strong></td>
+                            <td>Deliver personalized ads on social media and search engines; measure campaign performance</td>
+                            <td>Up to 13 months</td>
+                            <td>Meta, Google</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preferences</strong></td>
+                            <td>Remember your choices: language, region, accessibility settings</td>
+                            <td>1 year</td>
+                            <td>Kadongo Resort</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-box">
+                <p><strong>Important:</strong> Essential cookies cannot be disabled. They are strictly necessary for the website to function and are usually only set in response to actions made by you which amount to a request for services.</p>
+            </div>
         </article>
 
         <article id="third-party" class="policy-article">
-          <h2>4. Third-Party Cookies</h2>
-          <p>We partner with trusted service providers who may place cookies on your device:</p>
-          <ul>
-            <li><strong>Google Analytics:</strong> For website usage analytics</li>
-            <li><strong>Meta (Facebook/Instagram):</strong> For ad measurement and retargeting</li>
-            <li><strong>Booking Engine Provider:</strong> For reservation functionality and payment processing</li>
-            <li><strong>Cloudflare:</strong> For security, performance, and DDoS protection</li>
-          </ul>
-          <p>These parties have their own privacy policies. We encourage you to review them.</p>
+            <h2>4. Third-Party Cookies</h2>
+            <p>We partner with trusted service providers who may place cookies on your device:</p>
+            <ul>
+                <li><strong>Google Analytics:</strong> For website usage analytics</li>
+                <li><strong>Meta (Facebook/Instagram):</strong> For ad measurement and retargeting</li>
+                <li><strong>Booking Engine Provider:</strong> For reservation functionality and payment processing</li>
+                <li><strong>Cloudflare:</strong> For security, performance, and DDoS protection</li>
+            </ul>
+            <p>These parties have their own privacy policies. We encourage you to review them.</p>
         </article>
 
         <article id="manage-cookies" class="policy-article">
-          <h2>5. Managing Your Cookie Preferences</h2>
-          <h3>Browser Settings</h3>
-          <p>You can control cookies through your browser settings:</p>
-          <ul>
-            <li><strong>Chrome:</strong> Settings → Privacy & Security → Cookies</li>
-            <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies</li>
-            <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
-            <li><strong>Edge:</strong> Settings → Cookies and site permissions</li>
-          </ul>
-          <div class="info-box">
-            <p>
-              <strong>Note:</strong> Disabling essential cookies may break website functionality like booking or login.
-            </p>
-          </div>
-          <h3>Opt-Out of Marketing Cookies</h3>
-          <p>Manage personalized ads via industry opt-out tools:</p>
-          <ul>
-            <li><strong>Google Ads:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a></li>
-            <li><strong>Meta:</strong> <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">Facebook Ad Preferences</a></li>
-            <li><strong>Global:</strong> <a href="https://optout.aboutads.info" target="_blank" rel="noopener">aboutads.info/choices</a></li>
-          </ul>
+            <h2>5. Managing Your Cookie Preferences</h2>
+            <h3>Browser Settings</h3>
+            <p>You can control cookies through your browser settings:</p>
+            <ul>
+                <li><strong>Chrome:</strong> Settings → Privacy & Security → Cookies</li>
+                <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies</li>
+                <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
+                <li><strong>Edge:</strong> Settings → Cookies and site permissions</li>
+            </ul>
+            <div class="info-box">
+                <p><strong>Note:</strong> Disabling essential cookies may break website functionality like booking or login.</p>
+            </div>
+            <h3>Opt-Out of Marketing Cookies</h3>
+            <p>Manage personalized ads via industry opt-out tools:</p>
+            <ul>
+                <li><strong>Google Ads:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener" style="color: var(--brand-orange);">adssettings.google.com</a></li>
+                <li><strong>Meta:</strong> <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener" style="color: var(--brand-orange);">Facebook Ad Preferences</a></li>
+                <li><strong>Global:</strong> <a href="https://optout.aboutads.info" target="_blank" rel="noopener" style="color: var(--brand-orange);">aboutads.info/choices</a></li>
+            </ul>
         </article>
 
         <article id="do-not-track" class="policy-article">
-          <h2>6. Do Not Track Signals</h2>
-          <p>
-            Some browsers send "Do Not Track" (DNT) signals. While there is no universal standard for 
-            responding to DNT, Kadongo Resort respects your privacy choices. Our analytics and marketing 
-            partners honor industry opt-out mechanisms where available.
-          </p>
+            <h2>6. Do Not Track Signals</h2>
+            <p>Some browsers send "Do Not Track" (DNT) signals. While there is no universal standard for responding to DNT, Kadongo Cool Breez Hotel Resort respects your privacy choices. Our analytics and marketing partners honor industry opt-out mechanisms where available.</p>
         </article>
 
         <article id="contact-cookies" class="policy-article">
-          <h2>7. Contact Us</h2>
-          <div class="contact-box">
-            <p><strong>Questions about cookies or tracking?</strong></p>
-            <p>📧 <a href="mailto:privacy@kadongoresort.com">privacy@kadongoresort.com</a></p>
-            <p>📞 <a href="tel:+254700000000">+254 700 000 000</a></p>
-            <p>🌐 Kadongo Resort, Mfangano Island, Kenya</p>
-            <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border);">
-              We respond to privacy inquiries within 30 days.
-            </p>
-          </div>
+            <h2>7. Contact Us</h2>
+            <div class="contact-box">
+                <p><strong>Questions about cookies or tracking?</strong></p>
+                <p><a href="mailto:info@kadongocoolbreez.com">info@kadongocoolbreez.com</a></p>
+                <p><a href="tel:+254756585016">+254 756 585 016</a></p>
+                <p>Kadongo Cool Breez Hotel Resort, Mfangano Island, Kenya</p>
+            </div>
         </article>
-
-      </div>
     </section>
 
-    <!-- 🔗 LEGAL LINKS -->
+    <!-- Legal Links -->
     <section class="legal-links">
-      <div class="container">
-        <div class="legal-links-container">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms & Conditions</a>
-          <a href="cancellation.html">Cancellation Policy</a>
-          <a href="cookies.html">Cookie Policy</a>
+        <div class="legal-links-inner">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="cancellation.html">Cancellation Policy</a>
+            <a href="cookies.html">Cookie Policy</a>
         </div>
-      </div>
     </section>
 
-  </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="footer-logo-image">
+                <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://wa.me/254756585016" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="dining.html">Dining</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Information</h4>
+                <ul class="footer-links">
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="offers.html">Special Offers</a></li>
+                    <li><a href="cancellation.html">Cancellation Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-  <!-- Dynamic Footer -->
-  <div id="footer-placeholder"></div>
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-consent-text">
+            We use cookies to enhance your experience and analyze site traffic. By continuing to use our site, you consent to our use of cookies.
+            <a href="cookies.html">Learn more in our Cookie Policy</a>.
+        </div>
+        <div class="cookie-consent-actions">
+            <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
 
-  <!-- 🧠 LOGIC SCRIPT -->
-  <script src="script.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-  <!-- 🎬 PAGE ANIMATIONS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. Initialize Smooth Scroll (Lenis)
-      const lenis = new Lenis({
-        duration: 1.4,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-      });
+        // Page Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.transition = 'opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.5s';
+                    loader.classList.add('done');
+                }, 400);
+            }
+        });
 
-      function raf(time) {
-        lenis.raf(time);
+        // Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
 
-      // 2. Initialize GSAP ScrollTrigger
-      gsap.registerPlugin(ScrollTrigger);
+        // Header Scroll
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 80);
+        }, { passive: true });
 
-      // Hero Animations
-      const tl = gsap.timeline();
-      tl.to('.hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.3 })
-        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.7')
-        .to('.hero-date', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.7');
-
-      // Fade In Elements
-      gsap.utils.toArray('.toc, .policy-article, .contact-box').forEach(elem => {
-        gsap.from(elem, {
-          opacity: 0,
-          y: 40,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: elem,
-            start: 'top 85%',
-          }
+        // Mobile Menu
+        const hamburger = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            const isActive = navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
-      });
-
-      // 3. Smooth Scroll for TOC Links
-      document.querySelectorAll('.toc a').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href').substring(1);
-          const target = document.getElementById(targetId);
-          if (target) {
-            const headerOffset = 100;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          }
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
-      });
 
-      // 4. Particle Animation
-      (function initParticles() {
-        const canvas = document.getElementById('particle-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        let particles = [];
-        const particleCount = 40;
-        
-        class Particle {
-          constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2;
-            this.speedX = (Math.random() - 0.5) * 0.2;
-            this.speedY = (Math.random() - 0.5) * 0.2;
-            this.opacity = Math.random() * 0.5;
-          }
-          update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            if (this.y < 0) this.y = canvas.height;
-          }
-          draw() {
-            ctx.fillStyle = `rgba(184, 139, 74, ${this.opacity})`;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-        
-        function init() {
-          for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-        }
-        
-        function animate() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          particles.forEach(p => { p.update(); p.draw(); });
-          requestAnimationFrame(animate);
-        }
-        
-        init();
-        animate();
-        
-        window.addEventListener('resize', () => {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
+        // Hero Animations
+        const tl = gsap.timeline({ delay: 0.3 });
+        tl.to('.hero-badge', { opacity: 1, y: 0, duration: 0.8 })
+          .to('.page-hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.5')
+          .to('.page-hero-subtitle', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
+
+        // Content Animations
+        gsap.utils.toArray('.toc, .policy-article, .contact-box').forEach(elem => {
+            gsap.from(elem, {
+                opacity: 0,
+                y: 40,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: { trigger: elem, start: 'top 85%' }
+            });
         });
-      })();
-    });
-  </script>
+
+        // Footer Year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Cookie Consent
+        function acceptCookies() { localStorage.setItem('kadongo_cookies_accepted', 'true'); closeCookieConsent(); }
+        function rejectCookies() { localStorage.setItem('kadongo_cookies_accepted', 'rejected'); closeCookieConsent(); }
+        function closeCookieConsent() { const b = document.getElementById('cookieConsent'); if (b) { b.classList.remove('show'); setTimeout(() => b.style.display = 'none', 600); } }
+        window.addEventListener('load', () => { if (!localStorage.getItem('kadongo_cookies_accepted')) { setTimeout(() => { const b = document.getElementById('cookieConsent'); if (b) b.classList.add('show'); }, 3500); } });
+    </script>
 </body>
 </html>
