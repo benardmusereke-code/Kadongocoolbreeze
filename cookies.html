@@ -3,267 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Policy | Kadongo Cool Breez Hotel Resort</title>
-    <meta name="description" content="Cookie Policy for Kadongo Cool Breez Hotel Resort on Mfangano Island. Learn how we use cookies and tracking technologies.">
+    <title>Cookie Policy — Kadongo Cool Breez Hotel Resort</title>
+    <meta name="description" content="Cookie Policy for Kadongo Cool Breez Hotel Resort on Mfangano Island. Learn how we use cookies and tracking technologies to enhance your experience.">
+    <meta name="keywords" content="Kadongo Cool Breez cookie policy, Mfangano Island hotel cookies, website tracking, privacy cookies, Lake Victoria resort">
+    <meta property="og:title" content="Cookie Policy — Kadongo Cool Breez Hotel Resort">
+    <meta property="og:description" content="How Kadongo Cool Breez Hotel Resort uses cookies and similar tracking technologies to enhance your browsing experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kadongocoolbreez.com/cookies.html">
+    <meta property="og:image" content="images/kadongologo.png">
+    <link rel="canonical" href="https://kadongocoolbreez.com/cookies.html">
     <link rel="icon" type="image/png" href="images/kadongologo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+
     <style>
-        :root {
-            --brand-orange: #E8650A;
-            --brand-orange-light: #F28C28;
-            --brand-orange-deep: #CC5500;
-            --brand-orange-glow: #FF8C42;
-            --brand-navy: #1B2845;
-            --brand-navy-deep: #141E33;
-            --brand-cream: #FDF8F3;
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
-        }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto; }
-        body {
-            font-family: var(--sans);
-            background: var(--brand-cream);
-            color: var(--brand-navy);
-            overflow-x: hidden;
-            line-height: 1.8;
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 10000;
-            padding: 20px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.5s var(--ease-luxury);
-        }
-        .header.scrolled {
-            background: rgba(27, 40, 69, 0.97);
-            backdrop-filter: blur(24px) saturate(180%);
-            padding: 12px 40px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-        }
-        .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-image { height: 45px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); transition: all 0.4s var(--ease-luxury); }
-        .header.scrolled .logo-image { height: 38px; }
-        .logo-text { font-family: var(--serif); font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 0.5px; }
-        .logo-sub { font-size: 10px; font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; color: var(--brand-orange-light); display: block; margin-top: -2px; }
-        .nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
-        .nav-link {
-            font-size: 13px;
-            font-weight: 500;
-            color: rgba(253, 248, 243, 0.8);
-            text-decoration: none;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--brand-orange);
-            transition: width 0.3s var(--ease-luxury);
-        }
-        .nav-link:hover { color: var(--brand-orange-light); }
-        .nav-link:hover::after { width: 100%; }
-        .nav-link.active { color: var(--brand-orange); }
-        .nav-link.active::after { width: 100%; }
-        .btn-book-nav {
-            background: var(--brand-orange) !important;
-            color: #fff !important;
-            padding: 10px 24px !important;
-            border-radius: 4px;
-            font-weight: 600 !important;
-            letter-spacing: 1.5px;
-            transition: all 0.3s var(--ease-luxury) !important;
-        }
-        .btn-book-nav::after { display: none !important; }
-        .btn-book-nav:hover { background: var(--brand-orange-deep) !important; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232, 101, 10, 0.3); }
-        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 10001; background: none; border: none; }
-        .mobile-toggle span {
-            width: 28px;
-            height: 2px;
-            background: #fff;
-            transition: all 0.3s var(--ease-luxury);
-            transform-origin: center;
-        }
-        .mobile-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .mobile-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .mobile-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* ===== HERO ===== */
-        .page-hero {
-            position: relative;
-            height: 50vh;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .page-hero-bg {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 50%, rgba(204, 85, 0, 0.3) 100%);
-            transform: scale(1.1);
-        }
-        .page-hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: #fff;
-            padding: 0 24px;
-        }
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 24px;
-            background: rgba(232, 101, 10, 0.15);
-            border: 1px solid rgba(232, 101, 10, 0.3);
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--brand-orange-light);
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .page-hero-title {
-            font-family: var(--serif);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        .page-hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            font-weight: 300;
-            color: rgba(253, 248, 243, 0.8);
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        /* ===== CONTENT ===== */
+        /* ---- Cookie Policy page styles ---- */
         .policy-section {
-            padding: 80px 24px;
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto;
+            padding: 0 var(--space-6);
         }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--brand-orange);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            transition: all 0.3s;
-        }
-        .back-link:hover { gap: 12px; color: var(--brand-orange-deep); }
-        .toc {
+        .policy-toc {
             background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(27, 40, 69, 0.06);
-            margin-bottom: 60px;
+            padding: var(--space-10);
+            border-radius: var(--radius-md);
+            border: var(--border-subtle);
+            margin-bottom: var(--space-16);
         }
-        .toc h2 {
+        .policy-toc h2 {
             font-family: var(--serif);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--brand-navy);
+            font-size: clamp(24px, 2.5vw, 32px);
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
         }
-        .toc ol {
+        .policy-toc ol {
             list-style: none;
             counter-reset: toc;
+            padding: 0;
         }
-        .toc li {
+        .policy-toc li {
             counter-increment: toc;
-            margin: 12px 0;
-            padding-left: 40px;
+            margin: var(--space-3) 0;
+            padding-left: 48px;
             position: relative;
         }
-        .toc li::before {
-            content: counter(toc);
+        .policy-toc li::before {
+            content: counter(toc, decimal-leading-zero);
             position: absolute;
             left: 0;
-            background: var(--brand-orange);
-            color: #fff;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--serif);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--brand-orange);
+            letter-spacing: 0.5px;
         }
-        .toc a {
-            color: var(--brand-navy);
+        .policy-toc a {
+            color: var(--text-primary);
             font-weight: 500;
+            font-size: 15px;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s var(--ease-luxury);
         }
-        .toc a:hover { color: var(--brand-orange); }
+        .policy-toc a:hover { color: var(--brand-orange); }
+
         .policy-article {
-            margin-bottom: 60px;
-            padding-bottom: 50px;
+            padding: var(--space-12) 0;
             border-bottom: 1px solid rgba(27, 40, 69, 0.08);
         }
         .policy-article:last-child { border-bottom: none; }
         .policy-article h2 {
             font-family: var(--serif);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--brand-navy);
+            font-size: clamp(26px, 2.5vw, 36px);
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            line-height: 1.2;
         }
         .policy-article h3 {
             font-family: var(--serif);
-            font-size: 1.3rem;
-            margin: 30px 0 12px;
-            color: var(--brand-navy);
+            font-size: clamp(20px, 1.8vw, 26px);
+            font-weight: 500;
+            color: var(--text-primary);
+            margin: var(--space-10) 0 var(--space-4);
         }
         .policy-article p {
-            color: #555;
-            margin-bottom: 16px;
+            font-size: clamp(15px, 1.1vw, 17px);
             line-height: 1.9;
-            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
         }
         .policy-article ul {
             list-style: none;
-            margin: 16px 0;
+            padding: 0;
+            margin: var(--space-4) 0;
         }
         .policy-article li {
-            color: #555;
-            margin: 10px 0;
-            padding-left: 24px;
             position: relative;
+            padding-left: 28px;
+            margin: var(--space-3) 0;
+            font-size: clamp(15px, 1.1vw, 17px);
             line-height: 1.8;
+            color: var(--text-secondary);
         }
         .policy-article li::before {
             content: '';
@@ -275,501 +130,409 @@
             background: var(--brand-orange);
             border-radius: 50%;
         }
+
         .info-box {
-            background: rgba(232, 101, 10, 0.06);
+            background: var(--brand-orange-soft);
             border-left: 4px solid var(--brand-orange);
-            padding: 24px 28px;
-            border-radius: 0 8px 8px 0;
-            margin: 24px 0;
+            padding: var(--space-6) var(--space-8);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: var(--space-6) 0;
         }
-        .info-box p { color: var(--brand-navy); margin: 0; font-weight: 500; }
-        .table-container {
+        .info-box p { color: var(--text-primary); margin: 0; font-weight: 500; }
+
+        .table-wrap {
             overflow-x: auto;
-            margin: 24px 0;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(27, 40, 69, 0.06);
+            margin: var(--space-6) 0;
+            border-radius: var(--radius-md);
+            border: var(--border-subtle);
         }
         .policy-table {
             width: 100%;
             border-collapse: collapse;
             background: #fff;
-            min-width: 550px;
+            min-width: 560px;
         }
         .policy-table th,
         .policy-table td {
-            padding: 16px 20px;
+            padding: 16px 24px;
             text-align: left;
             border-bottom: 1px solid rgba(27, 40, 69, 0.06);
         }
         .policy-table th {
             background: var(--brand-navy);
             color: #fff;
+            font-family: var(--sans);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .policy-table tr:hover { background: rgba(232, 101, 10, 0.03); }
-        .policy-table td:first-child { font-weight: 600; color: var(--brand-navy); }
+        .policy-table tr:last-child td { border-bottom: none; }
+        .policy-table tr:hover td { background: rgba(232, 101, 10, 0.03); }
+        .policy-table td:first-child { font-weight: 600; color: var(--text-primary); }
+
         .contact-box {
             background: #fff;
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(27, 40, 69, 0.06);
-            margin-top: 24px;
+            padding: var(--space-10);
+            border-radius: var(--radius-md);
+            border: var(--border-subtle);
+            margin-top: var(--space-6);
         }
-        .contact-box p { margin: 10px 0; color: var(--brand-navy); }
-        .contact-box a { color: var(--brand-orange); font-weight: 600; text-decoration: none; }
-        .contact-box a:hover { text-decoration: underline; }
+        .contact-box p { margin: var(--space-2) 0; }
+        .contact-box a {
+            color: var(--brand-orange);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-box a:hover { color: var(--brand-orange-deep); text-decoration: underline; }
 
-        /* ===== LEGAL LINKS ===== */
-        .legal-links {
-            background: var(--brand-navy);
-            padding: 40px 24px;
+        .legal-nav {
+            background: var(--bg-secondary);
+            padding: var(--space-10) var(--space-6);
         }
-        .legal-links-inner {
-            max-width: 900px;
+        .legal-nav-inner {
+            max-width: 860px;
             margin: 0 auto;
             display: flex;
-            gap: 24px;
+            gap: var(--space-4);
             justify-content: center;
             flex-wrap: wrap;
         }
-        .legal-links a {
-            color: rgba(253, 248, 243, 0.7);
+        .legal-nav a {
+            color: var(--text-secondary);
             font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 6px;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-            text-decoration: none;
-        }
-        .legal-links a:hover { color: var(--brand-orange-light); background: rgba(232, 101, 10, 0.1); }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--brand-navy-deep);
-            padding: 80px 40px 30px;
-            color: rgba(253, 248, 243, 0.7);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-bottom: 50px;
-            border-bottom: 1px solid rgba(253, 248, 243, 0.08);
-        }
-        .footer-brand p {
-            font-size: 15px;
-            line-height: 1.8;
-            margin-top: 16px;
-            color: rgba(253, 248, 243, 0.6);
-        }
-        .footer-logo-image {
-            width: 200px;
-            height: auto;
-        }
-        .footer h4 {
-            font-family: var(--serif);
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-        }
-        .footer-links { list-style: none; }
-        .footer-links li { margin: 12px 0; }
-        .footer-links a {
-            color: rgba(253, 248, 243, 0.6);
-            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 100px;
+            transition: all 0.3s var(--ease-luxury);
             font-size: 14px;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover { color: var(--brand-orange-light); }
-        .social-links { display: flex; gap: 12px; margin-top: 20px; }
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(253, 248, 243, 0.08);
-            color: rgba(253, 248, 243, 0.7);
-            border: 1px solid rgba(253, 248, 243, 0.1);
-            transition: all 0.4s var(--ease-luxury);
             text-decoration: none;
+            border: 1px solid rgba(27, 40, 69, 0.1);
         }
-        .social-link svg { width: 18px; height: 18px; fill: currentColor; }
-        .social-link:hover { background: var(--brand-orange); color: #fff; border-color: var(--brand-orange); transform: translateY(-3px); }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: rgba(253, 248, 243, 0.4);
+        .legal-nav a:hover {
+            color: var(--brand-orange);
+            border-color: var(--brand-orange);
+            background: var(--brand-orange-soft);
         }
 
-        /* ===== COOKIE CONSENT ===== */
-        .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: rgba(27, 40, 69, 0.97); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-top: 1px solid rgba(232, 101, 10, 0.2); padding: 24px 60px; display: flex; align-items: center; justify-content: space-between; gap: 32px; transform: translateY(100%); transition: transform 0.6s var(--ease-luxury), opacity 0.6s; opacity: 0; }
-        .cookie-consent.show { transform: translateY(0); opacity: 1; }
-        .cookie-consent-text { font-size: 14px; color: rgba(253, 248, 243, 0.85); line-height: 1.7; flex: 1; }
-        .cookie-consent-text a { color: var(--brand-orange-light); text-decoration: underline; text-underline-offset: 3px; }
-        .cookie-consent-text a:hover { color: var(--brand-orange); }
-        .cookie-consent-actions { display: flex; gap: 12px; flex-shrink: 0; }
-        .cookie-btn { padding: 12px 28px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.4s var(--ease-luxury); font-family: var(--sans); }
-        .cookie-btn-accept { background: var(--brand-orange); color: #fff; }
-        .cookie-btn-accept:hover { background: var(--brand-orange-deep); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232, 101, 10, 0.35); }
-        .cookie-btn-reject { background: transparent; color: rgba(253, 248, 243, 0.5); border: 1px solid rgba(253, 248, 243, 0.15); }
-        .cookie-btn-reject:hover { border-color: rgba(253, 248, 243, 0.3); color: rgba(253, 248, 243, 0.8); }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
-            .header { padding: 16px 24px; }
-            .header.scrolled { padding: 12px 24px; }
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 360px;
-                height: 100vh;
-                background: var(--brand-navy-deep);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 28px;
-                transition: right 0.5s var(--ease-luxury);
-                box-shadow: -10px 0 40px rgba(0,0,0,0.3);
-            }
-            .nav-links.active { right: 0; }
-            .mobile-toggle { display: flex; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-            .cookie-consent { flex-direction: column; padding: 24px; gap: 20px; text-align: center; }
-            .cookie-consent-actions { width: 100%; justify-content: center; flex-wrap: wrap; }
+        @media (max-width: 768px) {
+            .policy-section { padding: 0 var(--space-4); }
+            .policy-toc { padding: var(--space-6); }
+            .policy-article { padding: var(--space-8) 0; }
+            .contact-box { padding: var(--space-6); }
         }
-        @media (max-width: 480px) {
-            .policy-section { padding: 60px 20px; }
-            .toc { padding: 28px 20px; }
-            .policy-article h2 { font-size: 1.5rem; }
-        }
-
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--brand-navy); }
-        ::-webkit-scrollbar-thumb { background: var(--brand-orange); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--brand-orange-light); }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header" id="main-header">
-        <a href="index.html" class="logo-link">
-            <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
-            <div>
-                <span class="logo-text">KADONGO</span>
-                <span class="logo-sub">Cool Breez Hotel Resort</span>
-            </div>
-        </a>
-        <nav class="nav-links" id="navLinks">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="rooms.html" class="nav-link">Rooms</a></li>
-            <li><a href="dining.html" class="nav-link">Dining</a></li>
-            <li><a href="amenities.html" class="nav-link">Amenities</a></li>
-            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-            <li><a href="location.html" class="nav-link">Location</a></li>
-            <li><a href="booking.html" class="nav-link btn-book-nav">Book Now</a></li>
-        </nav>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
-            <span></span><span></span><span></span>
-        </button>
-    </header>
-
-    <!-- Hero -->
-    <section class="page-hero">
-        <div class="page-hero-bg"></div>
-        <div class="page-hero-content">
-            <div class="hero-badge">Legal</div>
-            <h1 class="page-hero-title">Cookie Policy</h1>
-            <p class="page-hero-subtitle">How Kadongo Cool Breez Hotel Resort uses cookies and similar tracking technologies to enhance your experience.</p>
-        </div>
-    </section>
-
-    <!-- Content -->
-    <section class="policy-section">
-        <a href="index.html" class="back-link">← Back to Website</a>
-
-        <div class="toc">
-            <h2>Table of Contents</h2>
-            <ol>
-                <li><a href="#what-are-cookies">What Are Cookies?</a></li>
-                <li><a href="#why-we-use">Why We Use Cookies</a></li>
-                <li><a href="#cookie-types">Types of Cookies We Use</a></li>
-                <li><a href="#third-party">Third-Party Cookies</a></li>
-                <li><a href="#manage-cookies">Managing Your Cookie Preferences</a></li>
-                <li><a href="#do-not-track">Do Not Track Signals</a></li>
-                <li><a href="#contact-cookies">Contact Us</a></li>
-            </ol>
-        </div>
-
-        <article id="what-are-cookies" class="policy-article">
-            <h2>1. What Are Cookies?</h2>
-            <p>Cookies are small text files stored on your device when you visit a website. They help sites remember your actions and preferences (like login, language, font size) over time so you don't have to re-enter them.</p>
-            <p>Similar technologies we may use include:</p>
-            <ul>
-                <li><strong>Local Storage:</strong> Stores data persistently on your device for app functionality</li>
-                <li><strong>Web Beacons:</strong> Tiny images that track page views or email opens</li>
-                <li><strong>Device Fingerprinting:</strong> Collects device characteristics for security and fraud prevention</li>
-            </ul>
-        </article>
-
-        <article id="why-we-use" class="policy-article">
-            <h2>2. Why We Use Cookies</h2>
-            <p>Cookies enable Kadongo Cool Breez Hotel Resort to:</p>
-            <ul>
-                <li>Keep you logged in to your account and booking portal</li>
-                <li>Remember your language, currency, and accessibility preferences</li>
-                <li>Analyze website traffic to improve user experience and content</li>
-                <li>Personalize offers and recommendations based on your interests</li>
-                <li>Measure the effectiveness of our marketing campaigns</li>
-                <li>Ensure website security and prevent fraudulent activity</li>
-            </ul>
-        </article>
-
-        <article id="cookie-types" class="policy-article">
-            <h2>3. Types of Cookies We Use</h2>
-            <div class="table-container">
-                <table class="policy-table">
-                    <thead>
-                        <tr>
-                            <th>Cookie Category</th>
-                            <th>Purpose</th>
-                            <th>Duration</th>
-                            <th>Managed By</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Essential</strong></td>
-                            <td>Enable core website functions: secure login, booking engine, session management</td>
-                            <td>Session to 1 year</td>
-                            <td>Kadongo Resort</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Analytics</strong></td>
-                            <td>Understand how visitors use our site (pages viewed, time spent) via Google Analytics</td>
-                            <td>Up to 2 years</td>
-                            <td>Google LLC</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Marketing</strong></td>
-                            <td>Deliver personalized ads on social media and search engines; measure campaign performance</td>
-                            <td>Up to 13 months</td>
-                            <td>Meta, Google</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Preferences</strong></td>
-                            <td>Remember your choices: language, region, accessibility settings</td>
-                            <td>1 year</td>
-                            <td>Kadongo Resort</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="info-box">
-                <p><strong>Important:</strong> Essential cookies cannot be disabled. They are strictly necessary for the website to function and are usually only set in response to actions made by you which amount to a request for services.</p>
-            </div>
-        </article>
-
-        <article id="third-party" class="policy-article">
-            <h2>4. Third-Party Cookies</h2>
-            <p>We partner with trusted service providers who may place cookies on your device:</p>
-            <ul>
-                <li><strong>Google Analytics:</strong> For website usage analytics</li>
-                <li><strong>Meta (Facebook/Instagram):</strong> For ad measurement and retargeting</li>
-                <li><strong>Booking Engine Provider:</strong> For reservation functionality and payment processing</li>
-                <li><strong>Cloudflare:</strong> For security, performance, and DDoS protection</li>
-            </ul>
-            <p>These parties have their own privacy policies. We encourage you to review them.</p>
-        </article>
-
-        <article id="manage-cookies" class="policy-article">
-            <h2>5. Managing Your Cookie Preferences</h2>
-            <h3>Browser Settings</h3>
-            <p>You can control cookies through your browser settings:</p>
-            <ul>
-                <li><strong>Chrome:</strong> Settings → Privacy & Security → Cookies</li>
-                <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies</li>
-                <li><strong>Safari:</strong> Preferences → Privacy → Cookies</li>
-                <li><strong>Edge:</strong> Settings → Cookies and site permissions</li>
-            </ul>
-            <div class="info-box">
-                <p><strong>Note:</strong> Disabling essential cookies may break website functionality like booking or login.</p>
-            </div>
-            <h3>Opt-Out of Marketing Cookies</h3>
-            <p>Manage personalized ads via industry opt-out tools:</p>
-            <ul>
-                <li><strong>Google Ads:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener" style="color: var(--brand-orange);">adssettings.google.com</a></li>
-                <li><strong>Meta:</strong> <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener" style="color: var(--brand-orange);">Facebook Ad Preferences</a></li>
-                <li><strong>Global:</strong> <a href="https://optout.aboutads.info" target="_blank" rel="noopener" style="color: var(--brand-orange);">aboutads.info/choices</a></li>
-            </ul>
-        </article>
-
-        <article id="do-not-track" class="policy-article">
-            <h2>6. Do Not Track Signals</h2>
-            <p>Some browsers send "Do Not Track" (DNT) signals. While there is no universal standard for responding to DNT, Kadongo Cool Breez Hotel Resort respects your privacy choices. Our analytics and marketing partners honor industry opt-out mechanisms where available.</p>
-        </article>
-
-        <article id="contact-cookies" class="policy-article">
-            <h2>7. Contact Us</h2>
-            <div class="contact-box">
-                <p><strong>Questions about cookies or tracking?</strong></p>
-                <p><a href="mailto:info@kadongocoolbreez.com">info@kadongocoolbreez.com</a></p>
-                <p><a href="tel:+254756585016">+254 756 585 016</a></p>
-                <p>Kadongo Cool Breez Hotel Resort, Mfangano Island, Kenya</p>
-            </div>
-        </article>
-    </section>
-
-    <!-- Legal Links -->
-    <section class="legal-links">
-        <div class="legal-links-inner">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms & Conditions</a>
-            <a href="cancellation.html">Cancellation Policy</a>
-            <a href="cookies.html">Cookie Policy</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="footer-logo-image">
-                <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
-                <div class="social-links">
-                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                    <a href="https://wa.me/254756585016" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-                </div>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="rooms.html">Rooms</a></li>
-                    <li><a href="dining.html">Dining</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Information</h4>
-                <ul class="footer-links">
-                    <li><a href="amenities.html">Amenities</a></li>
-                    <li><a href="location.html">Location</a></li>
-                    <li><a href="booking.html">Booking</a></li>
-                    <li><a href="offers.html">Special Offers</a></li>
-                    <li><a href="cancellation.html">Cancellation Policy</a></li>
-                    <li><a href="terms.html">Terms & Conditions</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="cookies.html">Cookie Policy</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Cookie Consent -->
-    <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-consent-text">
-            We use cookies to enhance your experience and analyze site traffic. By continuing to use our site, you consent to our use of cookies.
-            <a href="cookies.html">Learn more in our Cookie Policy</a>.
-        </div>
-        <div class="cookie-consent-actions">
-            <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject</button>
-            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
-        </div>
+    <!-- Loader -->
+    <div class="loader-overlay" id="loader">
+        <img src="images/kadongologo.png" alt="Kadongo Cool Breez" class="loader-logo">
+        <div class="loader-line"></div>
+        <div class="loader-text">Welcome</div>
     </div>
 
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
+    <!-- Page Content -->
+    <div class="page-content">
 
-        // Page Loader
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            if (loader) {
-                setTimeout(() => {
-                    loader.style.transition = 'opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.5s';
-                    loader.classList.add('done');
-                }, 400);
-            }
-        });
+        <!-- Header -->
+        <header class="site-header" id="main-header">
+            <div class="header-inner">
+                <a href="index.html" class="nav-logo" aria-label="Kadongo Cool Breez Home">
+                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="nav-logo-img">
+                </a>
+                <nav class="nav-desktop" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="rooms.html" class="nav-link">Rooms</a>
+                    <a href="dining.html" class="nav-link">Dining</a>
+                    <a href="amenities.html" class="nav-link">Amenities</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="location.html" class="nav-link">Location</a>
+                    <a href="booking.html" class="btn-book-nav"><span>Book Now</span></a>
+                </nav>
+                <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
+            </div>
+        </header>
 
-        // Lenis Smooth Scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true,
-        });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
+        <!-- Mobile Nav -->
+        <nav class="nav-mobile" aria-label="Mobile navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="rooms.html" class="nav-link">Rooms</a>
+            <a href="dining.html" class="nav-link">Dining</a>
+            <a href="amenities.html" class="nav-link">Amenities</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="location.html" class="nav-link">Location</a>
+            <a href="booking.html" class="btn-book-nav"><span>Book Now</span></a>
+        </nav>
 
-        // Header Scroll
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 80);
-        }, { passive: true });
+        <!-- Page Hero -->
+        <section class="page-hero page-hero--inner" id="hero">
+            <div class="page-hero-bg">
+                <img src="images/longsteetview-with-shade.jpg" alt="Kadongo Cool Breez Hotel Resort on Mfangano Island" loading="eager">
+            </div>
+            <div class="page-hero-content">
+                <div class="hero-badge">Legal</div>
+                <h1 class="hero-title">
+                    <span class="line"><span class="line-inner">Cookie</span></span>
+                    <span class="line"><span class="line-inner"><em>Policy</em></span></span>
+                </h1>
+                <p class="hero-subtitle">How Kadongo Cool Breez Hotel Resort uses cookies and similar tracking technologies to enhance your experience.</p>
+            </div>
+            <div class="hero-scroll">
+                <span>Discover</span>
+                <div class="hero-scroll-line"></div>
+            </div>
+        </section>
 
-        // Mobile Menu
-        const hamburger = document.getElementById('mobile-toggle');
-        const navLinks = document.getElementById('navLinks');
-        hamburger.addEventListener('click', () => {
-            const isActive = navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            document.body.style.overflow = isActive ? 'hidden' : '';
-        });
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+        <!-- Policy Content -->
+        <section class="policy-section section-pad-lg">
 
-        // Hero Animations
-        const tl = gsap.timeline({ delay: 0.3 });
-        tl.to('.hero-badge', { opacity: 1, y: 0, duration: 0.8 })
-          .to('.page-hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.5')
-          .to('.page-hero-subtitle', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
+            <nav class="policy-toc reveal">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#what-are-cookies">What Are Cookies?</a></li>
+                    <li><a href="#why-we-use">Why We Use Cookies</a></li>
+                    <li><a href="#cookie-types">Types of Cookies We Use</a></li>
+                    <li><a href="#third-party">Third-Party Cookies</a></li>
+                    <li><a href="#manage-cookies">Managing Your Cookie Preferences</a></li>
+                    <li><a href="#do-not-track">Do Not Track Signals</a></li>
+                    <li><a href="#contact-cookies">Contact Us</a></li>
+                </ol>
+            </nav>
 
-        // Content Animations
-        gsap.utils.toArray('.toc, .policy-article, .contact-box').forEach(elem => {
-            gsap.from(elem, {
-                opacity: 0,
-                y: 40,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: { trigger: elem, start: 'top 85%' }
-            });
-        });
+            <article id="what-are-cookies" class="policy-article reveal">
+                <h2>What Are Cookies?</h2>
+                <p>Cookies are small text files stored on your device when you visit a website. They help sites remember your actions and preferences (like login, language, font size) over time so you don't have to re-enter them.</p>
+                <p>Similar technologies we may use include:</p>
+                <ul>
+                    <li><strong>Local Storage:</strong> Stores data persistently on your device for app functionality</li>
+                    <li><strong>Web Beacons:</strong> Tiny images that track page views or email opens</li>
+                    <li><strong>Device Fingerprinting:</strong> Collects device characteristics for security and fraud prevention</li>
+                </ul>
+            </article>
 
-        // Footer Year
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
+            <article id="why-we-use" class="policy-article reveal">
+                <h2>Why We Use Cookies</h2>
+                <p>Cookies enable Kadongo Cool Breez Hotel Resort to:</p>
+                <ul>
+                    <li>Keep you logged in to your account and booking portal</li>
+                    <li>Remember your language, currency, and accessibility preferences</li>
+                    <li>Analyze website traffic to improve user experience and content</li>
+                    <li>Personalize offers and recommendations based on your interests</li>
+                    <li>Measure the effectiveness of our marketing campaigns</li>
+                    <li>Ensure website security and prevent fraudulent activity</li>
+                </ul>
+            </article>
 
-        // Cookie Consent
-        function acceptCookies() { localStorage.setItem('kadongo_cookies_accepted', 'true'); closeCookieConsent(); }
-        function rejectCookies() { localStorage.setItem('kadongo_cookies_accepted', 'rejected'); closeCookieConsent(); }
-        function closeCookieConsent() { const b = document.getElementById('cookieConsent'); if (b) { b.classList.remove('show'); setTimeout(() => b.style.display = 'none', 600); } }
-        window.addEventListener('load', () => { if (!localStorage.getItem('kadongo_cookies_accepted')) { setTimeout(() => { const b = document.getElementById('cookieConsent'); if (b) b.classList.add('show'); }, 3500); } });
-    </script>
+            <article id="cookie-types" class="policy-article reveal">
+                <h2>Types of Cookies We Use</h2>
+                <div class="table-wrap">
+                    <table class="policy-table">
+                        <thead>
+                            <tr>
+                                <th>Cookie Category</th>
+                                <th>Purpose</th>
+                                <th>Duration</th>
+                                <th>Managed By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Essential</strong></td>
+                                <td>Enable core website functions: secure login, booking engine, session management</td>
+                                <td>Session to 1 year</td>
+                                <td>Kadongo Resort</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Analytics</strong></td>
+                                <td>Understand how visitors use our site (pages viewed, time spent) via Google Analytics</td>
+                                <td>Up to 2 years</td>
+                                <td>Google LLC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Marketing</strong></td>
+                                <td>Deliver personalized ads on social media and search engines; measure campaign performance</td>
+                                <td>Up to 13 months</td>
+                                <td>Meta, Google</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Preferences</strong></td>
+                                <td>Remember your choices: language, region, accessibility settings</td>
+                                <td>1 year</td>
+                                <td>Kadongo Resort</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="info-box">
+                    <p><strong>Important:</strong> Essential cookies cannot be disabled. They are strictly necessary for the website to function and are usually only set in response to actions made by you which amount to a request for services.</p>
+                </div>
+            </article>
+
+            <article id="third-party" class="policy-article reveal">
+                <h2>Third-Party Cookies</h2>
+                <p>We partner with trusted service providers who may place cookies on your device:</p>
+                <ul>
+                    <li><strong>Google Analytics:</strong> For website usage analytics</li>
+                    <li><strong>Meta (Facebook/Instagram):</strong> For ad measurement and retargeting</li>
+                    <li><strong>Booking Engine Provider:</strong> For reservation functionality and payment processing</li>
+                    <li><strong>Cloudflare:</strong> For security, performance, and DDoS protection</li>
+                </ul>
+                <p>These parties have their own privacy policies. We encourage you to review them.</p>
+            </article>
+
+            <article id="manage-cookies" class="policy-article reveal">
+                <h2>Managing Your Cookie Preferences</h2>
+                <h3>Browser Settings</h3>
+                <p>You can control cookies through your browser settings:</p>
+                <ul>
+                    <li><strong>Chrome:</strong> Settings &rarr; Privacy &amp; Security &rarr; Cookies</li>
+                    <li><strong>Firefox:</strong> Options &rarr; Privacy &amp; Security &rarr; Cookies</li>
+                    <li><strong>Safari:</strong> Preferences &rarr; Privacy &rarr; Cookies</li>
+                    <li><strong>Edge:</strong> Settings &rarr; Cookies and site permissions</li>
+                </ul>
+                <div class="info-box">
+                    <p><strong>Note:</strong> Disabling essential cookies may break website functionality like booking or login.</p>
+                </div>
+                <h3>Opt-Out of Marketing Cookies</h3>
+                <p>Manage personalized ads via industry opt-out tools:</p>
+                <ul>
+                    <li><strong>Google Ads:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a></li>
+                    <li><strong>Meta:</strong> <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">Facebook Ad Preferences</a></li>
+                    <li><strong>Global:</strong> <a href="https://optout.aboutads.info" target="_blank" rel="noopener">aboutads.info/choices</a></li>
+                </ul>
+            </article>
+
+            <article id="do-not-track" class="policy-article reveal">
+                <h2>Do Not Track Signals</h2>
+                <p>Some browsers send "Do Not Track" (DNT) signals. While there is no universal standard for responding to DNT, Kadongo Cool Breez Hotel Resort respects your privacy choices. Our analytics and marketing partners honor industry opt-out mechanisms where available.</p>
+            </article>
+
+            <article id="contact-cookies" class="policy-article reveal">
+                <h2>Contact Us</h2>
+                <div class="contact-box">
+                    <p><strong>Questions about cookies or tracking?</strong></p>
+                    <p><a href="mailto:info@kadongocoolbreez.com">info@kadongocoolbreez.com</a></p>
+                    <p><a href="tel:+254756585016">+254 756 585 016</a></p>
+                    <p>Kadongo Cool Breez Hotel Resort, Mfangano Island, Kenya</p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Legal Navigation -->
+        <section class="legal-nav">
+            <div class="legal-nav-inner">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms &amp; Conditions</a>
+                <a href="cancellation.html">Cancellation Policy</a>
+                <a href="cookies.html">Cookie Policy</a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container" style="position: relative; z-index: 1;">
+                <h2 class="cta-title">Begin Your <em>Island Escape</em></h2>
+                <p class="cta-text">Whether you're seeking a peaceful retreat, a cultural adventure, or simply time by the lake — your stay at Kadongo Cool Breez begins with a single conversation.</p>
+                <div class="cta-actions">
+                    <a href="booking.html" class="btn-primary"><span>Book Your Stay</span></a>
+                    <a href="tel:+254756585016" class="btn-secondary"><span>Call Us Now</span></a>
+                </div>
+                <div class="cta-contact">
+                    <div class="cta-contact-item">
+                        <span>📞</span>
+                        <span>+254 756 585 016</span>
+                    </div>
+                    <div class="cta-contact-item">
+                        <span>✉️</span>
+                        <span>paulnyumbwe@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="footer-logo-image">
+                        <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                        <div class="footer-social">
+                            <a href="https://web.facebook.com/profile.php?id=100007425518311" target="_blank" rel="noopener noreferrer" class="social-link social-link--facebook" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="https://wa.me/254756585016" target="_blank" rel="noopener noreferrer" class="social-link social-link--whatsapp" aria-label="WhatsApp">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=m8NyBI3VGc0" target="_blank" rel="noopener noreferrer" class="social-link social-link--youtube" aria-label="YouTube">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+                            <li><a href="dining.html">Dining</a></li>
+                            <li><a href="amenities.html">Amenities</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-heading">Information</h4>
+                        <ul class="footer-links">
+                            <li><a href="location.html">Location</a></li>
+                            <li><a href="booking.html">Booking</a></li>
+                            <li><a href="offers.html">Special Offers</a></li>
+                            <li><a href="cancellation.html">Cancellation Policy</a></li>
+                            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="footer-heading">Contact</h4>
+                        <div class="footer-contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>P.O. Box 22–40319<br>Mfangano Island<br>Homa Bay County, Kenya</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>+254 756 585 016<br>+254 715 249 204</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <span>paulnyumbwe@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div>&copy; <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
+                    <div>Mfangano Island, Kenya</div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Cookie Consent -->
+        <div class="cookie-consent" id="cookieConsent">
+            <div class="cookie-consent-text">
+                We use cookies to enhance your experience and analyse site traffic. By continuing to use our site, you consent to our use of cookies.
+                <a href="cookies.html">Learn more in our Cookie Policy</a>.
+            </div>
+            <div class="cookie-consent-actions">
+                <button class="cookie-btn cookie-btn-reject" onclick="Kadongo.rejectCookies()">Reject</button>
+                <button class="cookie-btn cookie-btn-learn" onclick="window.location.href='cookies.html'">Learn More</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="Kadongo.acceptCookies()">Accept All</button>
+            </div>
+        </div>
+
+    </div><!-- /page-content -->
+
+    <script src="scripts/core.js"></script>
 </body>
 </html>
