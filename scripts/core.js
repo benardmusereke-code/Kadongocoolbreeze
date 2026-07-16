@@ -22,18 +22,6 @@
     /* ---- GSAP Registration ---- */
     gsap.registerPlugin(ScrollTrigger);
 
-    /* ---- Loader ---- */
-    function hideLoader() {
-        const loader = document.querySelector('.loader-overlay');
-        if (loader) loader.classList.add('done');
-        const content = document.querySelector('.page-content');
-        if (content) content.classList.add('loaded');
-        initHeroAnimations();
-    }
-
-    window.addEventListener('load', () => setTimeout(hideLoader, 1800));
-    setTimeout(hideLoader, 3500); // fallback
-
     /* ---- Hero Animations ---- */
     function initHeroAnimations() {
         const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
@@ -42,6 +30,8 @@
             .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7')
             .to('.hero-cta', { opacity: 1, y: 0, duration: 0.8 }, '-=0.6');
     }
+
+    window.addEventListener('load', () => initHeroAnimations());
 
     /* ---- Header Scroll ---- */
     const header = document.querySelector('.site-header');

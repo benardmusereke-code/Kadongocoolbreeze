@@ -120,19 +120,6 @@
 }
 
 /* ============================================
-   PAGE TRANSITION
-   ============================================ */
-
-.page-content {
-    opacity: 0;
-    transition: opacity 0.5s var(--ease-smooth);
-}
-
-.page-content.loaded {
-    opacity: 1;
-}
-
-/* ============================================
    REDUCED MOTION
    ============================================ */
 
@@ -161,9 +148,5 @@
 
     .hero-title .line-inner {
         transform: none;
-    }
-
-    .page-content {
-        opacity: 1;
     }
 }
