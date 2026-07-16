@@ -358,18 +358,25 @@
             @page { size: A4; margin: 2cm 2cm 2.5cm 2cm; }
             * { background: transparent !important; color: #1a1a1a !important; box-shadow: none !important; text-shadow: none !important; }
             body { font-family: var(--sans) !important; font-size: 11pt !important; line-height: 1.6 !important; }
-            .site-header, .print-actions, .site-footer, .cookie-consent, .cta-section { display: none !important; }
-            .page-hero--inner { height: auto !important; min-height: auto !important; padding: 20px 0 !important; background: transparent !important; }
+            .site-header, .print-actions, .site-footer, .cookie-consent, .cta-section, .page-hero--inner, .loader { display: none !important; }
             .legal-document { margin: 0 !important; padding: 0 !important; box-shadow: none !important; max-width: 100% !important; }
             .doc-header { border-bottom: 2px solid #1B2845 !important; }
             .legal-section { page-break-inside: avoid; margin-bottom: 28px !important; }
             .section-header { border-bottom: 1px solid #F28C28 !important; page-break-after: avoid; }
             .notice-box, .info-box, .contact-card, .toc { page-break-inside: avoid; }
-            .legal-section::after { content: "Kadongo Cool Breez — Terms & Conditions"; display: block; text-align: center; font-size: 8pt; color: #6B6458 !important; letter-spacing: 2px; text-transform: uppercase; padding-top: 12px; border-top: 1px solid #F28C28 !important; margin-top: 24px; }
+            .legal-section::after { content: "Kadongo Cool Breez \2014 Terms & Conditions"; display: block; text-align: center; font-size: 8pt; color: #6B6458 !important; letter-spacing: 2px; text-transform: uppercase; padding-top: 12px; border-top: 1px solid #F28C28 !important; margin-top: 24px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-inner">
+            <div class="loader-logo">KADONGO</div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
 
     <!-- Page Content -->
     <div class="page-content">
