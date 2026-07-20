@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation Policy | Kadongo Cool Breez Hotel Resort - Mfangano Island</title>
+    <meta name="description" content="Cancellation and modification policy for Kadongo Cool Breez Hotel Resort. Fair guidelines for changing or cancelling your telephone reservation on Mfangano Island.">
+    <meta name="keywords" content="Kadongo Cool Breez cancellation policy, Mfangano Island hotel cancellation, booking modification, Homa Bay hotel policy, Lake Victoria resort">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cancellation Policy | Kadongo Cool Breez Hotel Resort">
+    <meta property="og:description" content="Fair and transparent guidelines for modifying or cancelling your reservation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kadongocoolbreez.com/cancellation.html">
+    
+    <link rel="canonical" href="https://kadongocoolbreez.com/cancellation.html">
+    <link rel="icon" type="image/png" href="images/kadongologo.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --brand-orange: #E8650A;
+            --brand-orange-light: #F28C28;
+            --brand-orange-deep: #CC5500;
+            --brand-orange-glow: #FF8C42;
+            --brand-navy: #1B2845;
+            --brand-cream: #FDF8F3;
+            --brand-dark: #1A1A1A;
+            
+            --bg-primary: var(--brand-cream);
+            --bg-secondary: #F5EDE3;
+            --bg-dark: var(--brand-navy);
+            --text-primary: var(--brand-navy);
+            --text-secondary: #6B6458;
+            --text-muted: #9C9485;
+            --accent: var(--brand-orange);
+            --accent-light: var(--brand-orange-light);
+            
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --ease-luxury: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER ===== */
+        #main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.5s var(--ease-luxury);
+            padding: 24px 60px;
+        }
+        #main-header.scrolled {
+            background: rgba(253, 248, 243, 0.92);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            padding: 16px 60px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.1);
+        }
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-image {
+            height: 65px;
+            width: auto;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--brand-cream);
+            letter-spacing: 3px;
+            transition: color 0.4s;
+        }
+        #main-header.scrolled .logo-image {
+            height: 48px;
+        }
+        #main-header.scrolled .logo-text {
+            color: var(--brand-navy);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        .nav-link {
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brand-cream);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.4s;
+        }
+        #main-header.scrolled .nav-link { color: var(--brand-navy); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--brand-orange-light);
+            transition: width 0.5s var(--ease-luxury);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .btn-book-nav {
+            padding: 12px 28px;
+            background: var(--brand-orange-light);
+            color: var(--brand-navy) !important;
+            font-weight: 600;
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .btn-book-nav::after { display: none; }
+        .btn-book-nav:hover {
+            background: var(--brand-orange);
+            color: var(--brand-cream) !important;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .bar {
+            width: 28px;
+            height: 2px;
+            background: var(--brand-cream);
+            transition: all 0.4s var(--ease-luxury);
+        }
+        #main-header.scrolled .bar { background: var(--brand-navy); }
+
+        @media (max-width: 1024px) {
+            #main-header { padding: 20px 24px; }
+            .logo-image {
+                height: 50px;
+            }
+            #main-header.scrolled .logo-image {
+                height: 42px;
+            }
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(180deg, var(--brand-navy) 0%, #0F1A2E 100%);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.6s var(--ease-luxury);
+                z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .nav-link { font-size: 18px; color: var(--brand-cream) !important; }
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-orange-deep) 50%, var(--brand-orange) 100%);
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.1) 0%, transparent 40%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+            color: var(--brand-cream);
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-orange-light);
+            margin-bottom: 32px;
+        }
+        .hero-badge::before, .hero-badge::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: var(--brand-orange-light);
+        }
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(42px, 7vw, 76px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+        .hero-title em { font-style: italic; color: var(--brand-orange-light); font-weight: 300; }
+        .hero-subtitle {
+            font-size: clamp(15px, 1.4vw, 18px);
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: rgba(253, 248, 243, 0.9);
+        }
+
+        /* ===== LEGAL DOCUMENT CONTAINER ===== */
+        .legal-document {
+            max-width: 900px;
+            margin: -60px auto 0;
+            background: #ffffff;
+            padding: 80px 100px;
+            box-shadow: 0 30px 80px rgba(27, 40, 69, 0.12);
+            position: relative;
+            z-index: 3;
+        }
+        @media (max-width: 900px) {
+            .legal-document { padding: 50px 32px; margin: -40px 20px 0; }
+        }
+
+        /* ===== DOCUMENT HEADER ===== */
+        .doc-header {
+            text-align: center;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--brand-navy);
+            margin-bottom: 50px;
+        }
+        .doc-logo {
+            font-family: var(--serif);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--brand-orange);
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+        }
+        .doc-logo-sub {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--brand-orange-light);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+        .doc-title {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .doc-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+        .doc-meta strong { color: var(--text-primary); font-weight: 500; }
+
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc {
+            background: var(--bg-primary);
+            padding: 40px;
+            border-left: 4px solid var(--brand-orange-light);
+            margin-bottom: 60px;
+        }
+        .toc-title {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            columns: 2;
+            column-gap: 40px;
+        }
+        .toc-list li {
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+        .toc-list a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            transition: color 0.3s;
+            padding: 4px 0;
+        }
+        .toc-list a:hover { color: var(--brand-orange); }
+        .toc-num {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--brand-orange-light);
+            min-width: 24px;
+        }
+        @media (max-width: 700px) {
+            .toc-list { columns: 1; }
+            .toc { padding: 28px; }
+        }
+
+        /* ===== LEGAL SECTIONS ===== */
+        .legal-section {
+            margin-bottom: 56px;
+            scroll-margin-top: 100px;
+        }
+        .legal-section:last-child { margin-bottom: 0; }
+        
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.1);
+        }
+        .section-number {
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--brand-orange-light);
+            line-height: 1;
+            min-width: 60px;
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            letter-spacing: 0.5px;
+        }
+        
+        .legal-section p {
+            font-size: 15px;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+        }
+        .legal-section p:last-child { margin-bottom: 0; }
+        
+        .legal-section strong {
+            color: var(--brand-navy);
+            font-weight: 600;
+        }
+        
+        .legal-section ul, .legal-section ol {
+            margin: 16px 0 20px 24px;
+            color: var(--text-secondary);
+        }
+        .legal-section li {
+            font-size: 15px;
+            line-height: 1.75;
+            margin-bottom: 10px;
+            padding-left: 8px;
+        }
+        .legal-section li::marker {
+            color: var(--brand-orange-light);
+            font-weight: 600;
+        }
+
+        /* ===== SUB-SECTIONS ===== */
+        .sub-section {
+            margin-top: 28px;
+            padding-left: 24px;
+            border-left: 2px solid var(--brand-orange-light);
+        }
+        .sub-section h4 {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+            margin-top: 0;
+        }
+
+        /* ===== HIGHLIGHT BOXES ===== */
+        .notice-box {
+            background: rgba(139, 21, 24, 0.04);
+            border-left: 4px solid var(--brand-orange);
+            padding: 24px 28px;
+            margin: 28px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .notice-box .notice-title {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--brand-orange);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .notice-box .notice-title .material-icons { font-size: 22px; }
+        .notice-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: rgba(27, 40, 69, 0.04);
+            border-left: 4px solid var(--brand-navy);
+            padding: 24px 28px;
+            margin: 28px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .info-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* ===== TIMELINE TABLE ===== */
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+        .timeline-table th {
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            padding: 14px 20px;
+            text-align: left;
+            font-family: var(--sans);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .timeline-table th:first-child { border-top-left-radius: 6px; }
+        .timeline-table th:last-child { border-top-right-radius: 6px; }
+        .timeline-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(27, 40, 69, 0.08);
+            color: var(--text-secondary);
+        }
+        .timeline-table tr:last-child td { border-bottom: none; }
+        .timeline-table tr:nth-child(even) td { background: rgba(253, 248, 243, 0.5); }
+        .timeline-table .refund-amount {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--brand-navy);
+        }
+        .timeline-table .refund-full { color: #27ae60; }
+        .timeline-table .refund-partial { color: var(--brand-orange-light); }
+        .timeline-table .refund-none { color: var(--brand-orange); }
+
+        /* ===== CONTACT CARD ===== */
+        .contact-card {
+            background: var(--bg-primary);
+            padding: 40px;
+            border: 1px solid rgba(27, 40, 69, 0.08);
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .contact-card h4 {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+        .contact-item .material-icons {
+            font-size: 28px;
+            color: var(--brand-orange-light);
+            margin-bottom: 8px;
+        }
+        .contact-item .label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .contact-item .value {
+            font-family: var(--serif);
+            font-size: 16px;
+            color: var(--brand-navy);
+            font-weight: 500;
+        }
+        .contact-item a {
+            color: var(--brand-navy);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover { color: var(--brand-orange); }
+        @media (max-width: 700px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-card { padding: 28px; }
+        }
+
+        /* ===== PRINT BUTTON ===== */
+        .print-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+        }
+        .print-btn {
+            width: 56px;
+            height: 56px;
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(27, 40, 69, 0.25);
+            transition: all 0.4s var(--ease-luxury);
+        }
+        .print-btn:hover {
+            background: var(--brand-orange-light);
+            color: var(--brand-navy);
+            transform: translateY(-4px);
+        }
+        .print-btn .material-icons { font-size: 24px; }
+        .print-btn .tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--brand-navy);
+            color: var(--brand-cream);
+            padding: 8px 14px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+        .print-btn:hover .tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        @media (max-width: 700px) {
+            .print-actions { bottom: 20px; right: 20px; }
+            .print-btn { width: 48px; height: 48px; }
+            .print-btn .tooltip { display: none; }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--brand-dark);
+            color: var(--brand-cream);
+            padding: 80px 60px 40px;
+            margin-top: 80px;
+        }
+        .footer-container { max-width: 1400px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-brand h3 {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--brand-orange);
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(253, 248, 243, 0.6);
+            margin-bottom: 24px;
+        }
+        .footer-heading {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--brand-orange-light);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: rgba(253, 248, 243, 0.7);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--brand-orange-light); }
+        .contact-item-f {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: rgba(253, 248, 243, 0.7);
+        }
+        .contact-icon { font-size: 18px; flex-shrink: 0; }
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(253, 248, 243, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(253, 248, 243, 0.4);
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            footer { padding: 60px 24px 30px; }
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+        }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 2cm 2cm 2.5cm 2cm;
+            }
+            
+            * {
+                background: transparent !important;
+                color: #1a1a1a !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+            
+            body {
+                font-family: var(--sans) !important;
+                font-size: 11pt !important;
+                line-height: 1.6 !important;
+            }
+            
+            /* Hide non-printable elements */
+            #main-header,
+            .print-actions,
+            footer,
+            .hero-overlay {
+                display: none !important;
+            }
+            
+            /* Hero becomes print header */
+            .page-hero {
+                height: auto !important;
+                min-height: auto !important;
+                padding: 20px 0 !important;
+                background: transparent !important;
+                page-break-after: avoid;
+            }
+            .page-hero::before { display: none; }
+            .hero-content { color: #1a1a1a !important; }
+            .hero-badge, .hero-badge::before, .hero-badge::after {
+                color: #8B1518 !important;
+                background: #8B1518 !important;
+            }
+            .hero-title { color: #1B2845 !important; font-size: 28pt !important; }
+            .hero-title em { color: #C9A961 !important; }
+            .hero-subtitle { color: #6B6458 !important; font-size: 10pt !important; }
+            
+            /* Document container */
+            .legal-document {
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+            }
+            
+            /* Document header */
+            .doc-header {
+                border-bottom: 2px solid #1B2845 !important;
+            }
+            .doc-logo { color: #8B1518 !important; font-size: 22pt !important; }
+            .doc-logo-sub { color: #C9A961 !important; }
+            .doc-title { color: #1B2845 !important; font-size: 18pt !important; }
+            .doc-meta { color: #6B6458 !important; }
+            .doc-meta strong { color: #1B2845 !important; }
+            
+            /* Table of contents */
+            .toc {
+                background: #f5f1ea !important;
+                border-left: 3px solid #C9A961 !important;
+                page-break-inside: avoid;
+            }
+            .toc-title { color: #1B2845 !important; }
+            .toc-list a { color: #6B6458 !important; }
+            .toc-num { color: #C9A961 !important; }
+            
+            /* Sections */
+            .legal-section {
+                page-break-inside: avoid;
+                margin-bottom: 28px !important;
+            }
+            .section-header {
+                border-bottom: 1px solid #C9A961 !important;
+                page-break-after: avoid;
+            }
+            .section-number { color: #C9A961 !important; font-size: 24pt !important; }
+            .section-title { color: #1B2845 !important; font-size: 14pt !important; }
+            
+            .legal-section p, .legal-section li {
+                color: #333 !important;
+                font-size: 10pt !important;
+            }
+            .legal-section strong { color: #1B2845 !important; }
+            .legal-section li::marker { color: #C9A961 !important; }
+            
+            .sub-section {
+                border-left: 2px solid #C9A961 !important;
+            }
+            .sub-section h4 { color: #1B2845 !important; font-size: 12pt !important; }
+            
+            /* Timeline table */
+            .timeline-table {
+                border: 1px solid #C9A961 !important;
+                page-break-inside: avoid;
+            }
+            .timeline-table th {
+                background: #1B2845 !important;
+                color: #F5F1EA !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .timeline-table td {
+                border-bottom: 1px solid #ddd !important;
+                color: #333 !important;
+            }
+            .timeline-table .refund-amount { color: #1B2845 !important; }
+            
+            /* Notice boxes */
+            .notice-box {
+                background: rgba(139, 21, 24, 0.05) !important;
+                border-left: 3px solid #8B1518 !important;
+                page-break-inside: avoid;
+            }
+            .notice-box .notice-title { color: #8B1518 !important; font-size: 11pt !important; }
+            .notice-box .notice-title .material-icons { display: none; }
+            .notice-box p { color: #333 !important; font-size: 10pt !important; }
+            
+            .info-box {
+                background: rgba(27, 40, 69, 0.04) !important;
+                border-left: 3px solid #1B2845 !important;
+                page-break-inside: avoid;
+            }
+            .info-box p { color: #333 !important; font-size: 10pt !important; }
+            
+            /* Contact card */
+            .contact-card {
+                background: #f5f1ea !important;
+                border: 1px solid #C9A961 !important;
+                page-break-inside: avoid;
+            }
+            .contact-card h4 { color: #1B2845 !important; font-size: 12pt !important; }
+            .contact-item .material-icons { color: #C9A961 !important; }
+            .contact-item .label { color: #6B6458 !important; }
+            .contact-item .value { color: #1B2845 !important; }
+            .contact-item a { color: #1B2845 !important; text-decoration: none; }
+            
+            /* Links in print */
+            a[href]::after {
+                content: " (" attr(href) ")";
+                font-size: 8pt;
+                color: #6B6458 !important;
+                font-weight: 400;
+            }
+            .toc-list a::after,
+            .contact-item a::after,
+            .footer-links a::after {
+                content: "" !important;
+            }
+            
+            /* Page breaks */
+            .legal-section { page-break-inside: avoid; }
+            .notice-box, .info-box, .contact-card, .toc, .timeline-table { page-break-inside: avoid; }
+            
+            /* Print header on each page */
+            .legal-document::before {
+                content: "Kadongo Cool Breez Hotel Resort — Cancellation Policy";
+                display: block;
+                text-align: center;
+                font-size: 8pt;
+                color: #6B6458 !important;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #C9A961 !important;
+                margin-bottom: 24px;
+            }
+            
+            /* Print footer on each page */
+            .legal-document::after {
+                content: "Page " counter(page) " of " counter(pages) " • kadongocoolbreez.com";
+                display: block;
+                text-align: center;
+                font-size: 8pt;
+                color: #6B6458 !important;
+                letter-spacing: 1px;
+                padding-top: 12px;
+                border-top: 1px solid #C9A961 !important;
+                margin-top: 24px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-orange-light); outline-offset: 3px; }
+        .hamburger.active .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: var(--brand-cream); }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background: var(--brand-cream); }
+
+        /* ===== COOKIE CONSENT ===== */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(27, 40, 69, 0.97);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-top: 1px solid rgba(232, 101, 10, 0.2);
+            padding: 24px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            transform: translateY(100%);
+            transition: transform 0.6s var(--ease-luxury), opacity 0.6s;
+            opacity: 0;
+        }
+        .cookie-consent.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .cookie-consent-text {
+            font-size: 14px;
+            color: rgba(253, 248, 243, 0.85);
+            line-height: 1.7;
+            flex: 1;
+        }
+        .cookie-consent-text a {
+            color: var(--brand-orange-light);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .cookie-consent-text a:hover {
+            color: var(--brand-orange);
+        }
+        .cookie-consent-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .cookie-btn {
+            padding: 12px 28px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-luxury);
+            font-family: var(--sans);
+        }
+        .cookie-btn-accept {
+            background: var(--brand-orange);
+            color: #fff;
+        }
+        .cookie-btn-accept:hover {
+            background: var(--brand-orange-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 101, 10, 0.35);
+        }
+        .cookie-btn-reject {
+            background: transparent;
+            color: rgba(253, 248, 243, 0.5);
+            border: 1px solid rgba(253, 248, 243, 0.15);
+        }
+        .cookie-btn-reject:hover {
+            border-color: rgba(253, 248, 243, 0.3);
+            color: rgba(253, 248, 243, 0.8);
+        }
+        .cookie-btn-learn {
+            background: transparent;
+            color: var(--brand-orange-light);
+            border: 1px solid rgba(232, 101, 10, 0.3);
+        }
+        .cookie-btn-learn:hover {
+            border-color: var(--brand-orange);
+            background: rgba(232, 101, 10, 0.08);
+        }
+        @media (max-width: 768px) {
+            .cookie-consent {
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                text-align: center;
+            }
+            .cookie-consent-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--brand-navy); }
+        ::-webkit-scrollbar-thumb { background: var(--brand-orange); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--brand-orange-light); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/kadongologo.png" alt="Kadongo Cool Breez Hotel Resort" class="logo-image">
+                    <span class="logo-text">KADONGO</span>
+                </a>
+            </div>
+            <nav class="navbar" id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="rooms.html" class="nav-link">Rooms</a></li>
+                    <li><a href="dining.html" class="nav-link">Dining</a></li>
+                    <li><a href="amenities.html" class="nav-link">Amenities</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="location.html" class="nav-link">Location</a></li>
+                    <li><a href="booking.html" class="nav-link btn-book-nav">Book Now</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <div class="hero-badge">Policy • Mfangano Island</div>
+            <h1 class="hero-title">
+                Cancellation <em>Policy</em>
+            </h1>
+            <p class="hero-subtitle">
+                Fair and transparent guidelines for modifying or cancelling your telephone reservation at Kadongo Cool Breez Hotel Resort.
+            </p>
+        </div>
+    </section>
+
+    <!-- Legal Document -->
+    <article class="legal-document">
+        
+        <!-- Document Header -->
+        <div class="doc-header">
+            <div class="doc-logo">KADONGO</div>
+            <div class="doc-logo-sub">Cool Breez Hotel Resort</div>
+            <h1 class="doc-title">Cancellation & Modification Policy</h1>
+            <p class="doc-meta">
+                <strong>Last Updated:</strong> January 2026 &nbsp;•&nbsp; 
+                <strong>Version:</strong> 1.0 &nbsp;•&nbsp; 
+                <strong>Effective:</strong> Immediately upon booking
+            </p>
+        </div>
+
+        <!-- Table of Contents -->
+        <nav class="toc" aria-label="Table of Contents">
+            <h2 class="toc-title">Contents</h2>
+            <ol class="toc-list">
+                <li><a href="#introduction"><span class="toc-num">01</span> Introduction & Scope</a></li>
+                <li><a href="#how-to-cancel"><span class="toc-num">02</span> How to Cancel Your Reservation</a></li>
+                <li><a href="#timeline"><span class="toc-num">03</span> Cancellation Timeline & Fees</a></li>
+                <li><a href="#modifications"><span class="toc-num">04</span> Modifying Your Stay</a></li>
+                <li><a href="#no-show"><span class="toc-num">05</span> No-Show Policy</a></li>
+                <li><a href="#exceptions"><span class="toc-num">06</span> Exceptions & Force Majeure</a></li>
+                <li><a href="#refunds"><span class="toc-num">07</span> Refund Processing</a></li>
+                <li><a href="#contact-cancel"><span class="toc-num">08</span> Contact Us</a></li>
+            </ol>
+        </nav>
+
+        <!-- Section 1: Introduction -->
+        <section class="legal-section" id="introduction">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Introduction & Scope</h2>
+            </div>
+            <p>
+                At Kadongo Cool Breez Hotel Resort, we understand that travel plans can change. 
+                Because our remote island location on Mfangano requires careful preparation for 
+                every guest's arrival, we have established this policy to balance flexibility for 
+                our guests with the operational realities of our small, family-run property.
+            </p>
+            <p>
+                This policy applies to all reservations made directly with our management team 
+                by telephone. By confirming your booking, you agree to these cancellation terms.
+            </p>
+            <div class="info-box">
+                <p>
+                    <strong>Our Promise:</strong> We strive to be as accommodating as possible. 
+                    If your plans change, please communicate with us as early as you can so we 
+                    can assist you in the best way possible.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: How to Cancel -->
+        <section class="legal-section" id="how-to-cancel">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">How to Cancel Your Reservation</h2>
+            </div>
+            <p>
+                Since all reservations at Kadongo Cool Breez Hotel Resort are handled directly 
+                by our management team via telephone, <strong>all cancellations must also be made by telephone</strong> 
+                to ensure immediate confirmation and proper processing.
+            </p>
+            <ul>
+                <li><strong>Primary Line:</strong> +254 756 585 016</li>
+                <li><strong>Alternative Line:</strong> +254 715 249 204</li>
+            </ul>
+            <p>
+                You may follow up with an email to <strong>paulnyumbwe@gmail.com</strong> for your 
+                personal records, but the cancellation is only considered official once verbally 
+                confirmed by our management team.
+            </p>
+            <div class="notice-box">
+                <div class="notice-title">
+                    <span class="material-icons">warning</span>
+                    Important Notice
+                </div>
+                <p>
+                    Email-only cancellation requests may not be processed in time to avoid late 
+                    cancellation fees. Please always call us directly to cancel your booking.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 3: Timeline -->
+        <section class="legal-section" id="timeline">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Cancellation Timeline & Fees</h2>
+            </div>
+            <p>
+                Refund eligibility is determined by the amount of notice provided before your 
+                scheduled check-in date. The following timeline applies to all standard reservations:
+            </p>
+
+            <table class="timeline-table">
+                <thead>
+                    <tr>
+                        <th>Notice Period</th>
+                        <th>Refund Amount</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>7 days or more</strong> before check-in</td>
+                        <td><span class="refund-amount refund-full">100% Refund</span></td>
+                        <td>Full refund of any deposit or payment made.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3 to 6 days</strong> before check-in</td>
+                        <td><span class="refund-amount refund-partial">50% Refund</span></td>
+                        <td>50% refund of the first night's rate.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Less than 3 days</strong> before check-in</td>
+                        <td><span class="refund-amount refund-none">No Refund</span></td>
+                        <td>100% of the first night's rate is retained.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="sub-section">
+                <h4>Peak Season Notice</h4>
+                <p>
+                    During our peak seasons (December–March and June–October), we kindly request 
+                    <strong>14 days' notice</strong> for a full refund due to high demand and limited 
+                    room availability on the island.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: Modifications -->
+        <section class="legal-section" id="modifications">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Modifying Your Stay</h2>
+            </div>
+            <p>
+                We are happy to help you change your travel dates or room type if your plans shift. 
+                All modifications must be requested by telephone and are subject to the following conditions:
+            </p>
+            <ul>
+                <li><strong>Date Changes:</strong> Subject to room availability on your new dates. Any rate differences will be applied.</li>
+                <li><strong>Room Changes:</strong> Upgrades are subject to availability. Downgrades may be treated as a partial cancellation under our standard timeline.</li>
+                <li><strong>Guest Count:</strong> Adding guests may require a rate adjustment. Reducing guest count follows the standard cancellation policy for the removed portion.</li>
+            </ul>
+            <p>
+                Modifications requested within 3 days of your original arrival date may be treated 
+                as a cancellation and a new booking under our standard policy.
+            </p>
+        </section>
+
+        <!-- Section 5: No-Show -->
+        <section class="legal-section" id="no-show">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">No-Show Policy</h2>
+            </div>
+            <p>
+                If you do not arrive on your scheduled check-in date and have not contacted us to 
+                cancel or modify your reservation, the booking is considered a "No-Show."
+            </p>
+            <ul>
+                <li>The full first night's rate will be charged and is non-refundable.</li>
+                <li>All remaining nights in the reservation will be automatically cancelled.</li>
+                <li>Future bookings may require full prepayment at the time of reservation.</li>
+            </ul>
+            <div class="info-box">
+                <p>
+                    <strong>Travel Delays:</strong> If you are delayed due to ferry schedules, weather, 
+                    or transport issues, please call us as soon as possible. We may be able to hold 
+                    your room or adjust your dates on a case-by-case basis.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 6: Exceptions -->
+        <section class="legal-section" id="exceptions">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Exceptions & Force Majeure</h2>
+            </div>
+            <p>
+                We recognise that travelling to Mfangano Island involves ferry crossings and can be 
+                affected by circumstances beyond anyone's control. We may waive standard cancellation 
+                fees in exceptional situations, including:
+            </p>
+            <ul>
+                <li><strong>Ferry Cancellations:</strong> If the Sena Ferry is cancelled or suspended due to weather or mechanical issues.</li>
+                <li><strong>Severe Weather:</strong> Documented severe weather preventing safe travel to the island.</li>
+                <li><strong>Medical Emergencies:</strong> Documented medical emergencies preventing travel (physician's note required).</li>
+                <li><strong>Government Restrictions:</strong> Official travel restrictions or border closures.</li>
+            </ul>
+            <p>
+                In these cases, we will work directly with you to reschedule your stay to a future 
+                date without penalty, or provide a full refund if rescheduling is not possible.
+            </p>
+        </section>
+
+        <!-- Section 7: Refunds -->
+        <section class="legal-section" id="refunds">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2 class="section-title">Refund Processing</h2>
+            </div>
+            <p>
+                Approved refunds are processed back to your original payment method. Since we accept 
+                M-Pesa, bank transfer, and mobile money, refunds are handled as follows:
+            </p>
+            <ul>
+                <li><strong>M-Pesa / Mobile Money:</strong> Processed within 3 to 5 business days.</li>
+                <li><strong>Bank Transfer:</strong> Processed within 7 to 14 business days, depending on your bank's processing times.</li>
+            </ul>
+            <p>
+                You will receive a confirmation message or email once the refund has been initiated 
+                by our management team.
+            </p>
+        </section>
+
+        <!-- Section 8: Contact -->
+        <section class="legal-section" id="contact-cancel">
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <h2 class="section-title">Contact Us</h2>
+            </div>
+            <p>
+                For any questions regarding this policy, or to cancel or modify your reservation, 
+                please contact our management team directly:
+            </p>
+
+            <div class="contact-card">
+                <h4>Get in Touch</h4>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="material-icons">phone</span>
+                        <div class="label">Primary Line</div>
+                        <div class="value"><a href="tel:+254756585016">+254 756 585 016</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons">phone</span>
+                        <div class="label">Alternative Line</div>
+                        <div class="value"><a href="tel:+254715249204">+254 715 249 204</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons">mail</span>
+                        <div class="label">Email</div>
+                        <div class="value"><a href="mailto:paulnyumbwe@gmail.com">paulnyumbwe@gmail.com</a></div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 24px; font-size: 13px; color: var(--text-muted);">
+                    <strong>Kadongo Cool Breez Hotel Resort</strong><br>
+                    P.O. Box 22–40319, Mfangano Island, Homa Bay County, Kenya
+                </p>
+            </div>
+        </section>
+
+    </article>
+
+    <!-- Print Actions -->
+    <div class="print-actions">
+        <button class="print-btn" onclick="window.print()" aria-label="Print or save as PDF">
+            <span class="material-icons">print</span>
+            <span class="tooltip">Print / Save PDF</span>
+        </button>
+        <button class="print-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+            <span class="material-icons">keyboard_arrow_up</span>
+            <span class="tooltip">Back to Top</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>KADONGO</h3>
+                    <p>Where Comfort Meets the Cool Breeze of Lake Victoria. A peaceful lakeside retreat on Mfangano Island offering authentic Kenyan hospitality, comfortable accommodation, and unforgettable natural beauty.</p>
+                    <div class="footer-social" style="margin-top: 24px;">
+                        <div class="social-links" style="display: flex; gap: 12px;">
+                            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(253,248,243,0.08);color:rgba(253,248,243,0.7);border:1px solid rgba(253,248,243,0.1);transition:all 0.4s;text-decoration:none;" aria-label="Facebook" onmouseover="this.style.background='#1877F2';this.style.color='#fff';this.style.borderColor='#1877F2';this.style.boxShadow='0 0 20px rgba(24,119,242,0.4)';this.style.transform='translateY(-3px) scale(1.05)'" onmouseout="this.style.background='rgba(253,248,243,0.08)';this.style.color='rgba(253,248,243,0.7)';this.style.borderColor='rgba(253,248,243,0.1)';this.style.boxShadow='none';this.style.transform='none'"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                            <a href="https://wa.me/254756585016" target="_blank" rel="noopener noreferrer" style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(253,248,243,0.08);color:rgba(253,248,243,0.7);border:1px solid rgba(253,248,243,0.1);transition:all 0.4s;text-decoration:none;" aria-label="WhatsApp" onmouseover="this.style.background='#25D366';this.style.color='#fff';this.style.borderColor='#25D366';this.style.boxShadow='0 0 20px rgba(37,211,102,0.4)';this.style.transform='translateY(-3px) scale(1.05)'" onmouseout="this.style.background='rgba(253,248,243,0.08)';this.style.color='rgba(253,248,243,0.7)';this.style.borderColor='rgba(253,248,243,0.1)';this.style.boxShadow='none';this.style.transform='none'"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(253,248,243,0.08);color:rgba(253,248,243,0.7);border:1px solid rgba(253,248,243,0.1);transition:all 0.4s;text-decoration:none;" aria-label="YouTube" onmouseover="this.style.background='#FF0000';this.style.color='#fff';this.style.borderColor='#FF0000';this.style.boxShadow='0 0 20px rgba(255,0,0,0.4)';this.style.transform='translateY(-3px) scale(1.05)'" onmouseout="this.style.background='rgba(253,248,243,0.08)';this.style.color='rgba(253,248,243,0.7)';this.style.borderColor='rgba(253,248,243,0.1)';this.style.boxShadow='none';this.style.transform='none'"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="offers.html">Special Offers</a></li>
+                        <li><a href="cancellation.html">Cancellation</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="contact-item-f">
+                        <span class="contact-icon">📍</span>
+                        <span>P.O. Box 22–40319<br>Mfangano Island<br>Homa Bay County, Kenya</span>
+                    </div>
+                    <div class="contact-item-f">
+                        <span class="contact-icon">📞</span>
+                        <span>+254 756 585 016<br>+254 715 249 204</span>
+                    </div>
+                    <div class="contact-item-f">
+                        <span class="contact-icon">✉️</span>
+                        <span>paulnyumbwe@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© <span id="footer-year"></span> Kadongo Cool Breez Hotel Resort. All rights reserved.</div>
+                <div>Crafted with ❤️ on Mfangano Island</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-consent-text">
+            We use cookies to enhance your experience and analyze site traffic. By continuing to use our site, you consent to our use of cookies.
+            <a href="cookies.html">Learn more in our Cookie Policy</a>.
+        </div>
+        <div class="cookie-consent-actions">
+            <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject</button>
+            <button class="cookie-btn cookie-btn-learn" onclick="window.location.href='cookies.html'">Learn More</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
+
+    <script>
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+        }
+
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+            });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) loader.classList.add('done');
+                if (typeof initHeroAnimations === 'function') initHeroAnimations();
+            }, 500);
+        });
+        setTimeout(() => { const l = document.getElementById('loader'); if (l && !l.classList.contains('done')) { l.classList.add('done'); if (typeof initHeroAnimations === 'function') initHeroAnimations(); } }, 3000);
+
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 80);
+        }, { passive: true });
+
+        const hamburger = document.getElementById('mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+        function acceptCookies() { localStorage.setItem('kadongo_cookies_accepted', 'true'); closeCookieConsent(); }
+        function rejectCookies() { localStorage.setItem('kadongo_cookies_accepted', 'rejected'); closeCookieConsent(); }
+        function closeCookieConsent() { const b = document.getElementById('cookieConsent'); if (b) { b.classList.remove('show'); setTimeout(() => b.style.display = 'none', 600); } }
+        window.addEventListener('load', () => { if (!localStorage.getItem('kadongo_cookies_accepted')) { setTimeout(() => { const b = document.getElementById('cookieConsent'); if (b) b.classList.add('show'); }, 3500); } });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'P') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
