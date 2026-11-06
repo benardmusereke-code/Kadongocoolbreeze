@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location & Directions | Kadongo Cool Breez Hotel Resort - Mfangano Island</title>
-    <meta name="description" content="Find Kadongo Cool Breez Hotel Resort just 100m from Sena Ferry on Mfangano Island. Easy access by ferry from Mbita, with detailed travel guidance and nearby attractions.">
-    <meta name="keywords" content="Kadongo Cool Breez location, Mfangano Island directions, Sena Ferry accommodation, how to reach Mfangano Island, Lake Victoria resort Kenya">
+    <title>Special Offers & Packages | Kadongo Cool Breez Hotel Resort - Mfangano Island</title>
+    <meta name="description" content="Exclusive packages and special offers at Kadongo Cool Breez Hotel Resort. Midweek savers, family weekends, business packages, and cultural experiences on Mfangano Island.">
+    <meta name="keywords" content="Kadongo Cool Breez special offers, Mfangano Island hotel packages, Lake Victoria resort deals, Kenya lakeside hotel packages, family weekend package Kenya">
     
-    <meta property="og:title" content="Location & Directions | Kadongo Cool Breez Hotel Resort">
-    <meta property="og:description" content="Just 100 metres from Sena Ferry Docking Point. Detailed travel guidance to reach our peaceful lakeside retreat on Mfangano Island.">
+    <meta property="og:title" content="Special Offers & Packages | Kadongo Cool Breez Hotel Resort">
+    <meta property="og:description" content="Thoughtfully designed offers to make your stay on Mfangano Island more memorable and more rewarding.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kadongocoolbreez.com/location.html">
+    <meta property="og:url" content="https://kadongocoolbreez.com/offers.html">
     
-    <link rel="canonical" href="https://kadongocoolbreez.com/location.html">
+    <link rel="canonical" href="https://kadongocoolbreez.com/offers.html">
     <link rel="icon" type="image/png" href="images/kadongologo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,6 +279,359 @@
             .logo-image { height: 50px; }
             #main-header.scrolled .logo-image { height: 42px; }
             .hamburger { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 400px;
+                height: 100vh;
+                height: 100dvh;
+                background: rgba(27, 40, 69, 0.95);
+                backdrop-filter: blur(24px);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.5s var(--ease-luxury);
+                z-index: 999;
+                gap: 8px;
+                border-radius: 24px 0 0 24px;
+                padding: 40px;
+            }
+            .nav-links.active { right: 0; }
+            .nav-link { font-size: 16px; color: var(--brand-cream) !important; padding: 14px 24px; width: 100%; text-align: center; }
+            .btn-book-nav { margin-top: 16px; width: 100%; text-align: center; }
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative;
+            height: 65vh;
+            min-height: 480px;
+            width: 100%;
+            overflow: hidden;
+            background: var(--brand-navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(27, 40, 69, 0.7) 0%, rgba(27, 40, 69, 0.85) 100%), url('images/sunset.png') center/cover no-repeat;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 24px;
+            color: var(--brand-cream);
+            max-width: 900px;
+        }
+
+        .page-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-orange-light);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .page-hero-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .page-hero-title em {
+            font-style: italic;
+            color: var(--brand-orange-light);
+            font-weight: 300;
+        }
+
+        .page-hero-lead {
+            font-size: clamp(16px, 1.4vw, 20px);
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(253, 248, 243, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== SECTIONS ===== */
+        section { position: relative; }
+        .section-pad { padding: 120px 60px; }
+        @media (max-width: 900px) { .section-pad { padding: 80px 24px; } }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .section-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--brand-orange);
+            border-radius: 1px;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(32px, 4.5vw, 56px);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--brand-navy);
+            margin-bottom: 28px;
+        }
+        .section-title em { font-style: italic; color: var(--brand-orange); font-weight: 300; }
+
+        .section-lead {
+            font-size: clamp(16px, 1.3vw, 18px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* ===== NOTICE BOX ===== */
+        .notice-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 28px;
+            background: rgba(232, 101, 10, 0.08);
+            border-left: 3px solid var(--brand-orange);
+            border-radius: 0 4px 4px 0;
+            max-width: 800px;
+            margin: 32px auto 0;
+        }
+
+        .notice-box-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .notice-box-text {
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* ===== OFFERS GRID ===== */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1400px;
+            margin: 60px auto 0;
+        }
+
+        .offer-card {
+            background: var(--bg-primary);
+            border: 1px solid rgba(232, 101, 10, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.5s var(--ease-luxury);
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-luxury);
+            z-index: 2;
+        }
+
+        .offer-card:hover::before { transform: scaleX(1); }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--brand-orange);
+            box-shadow: 0 30px 60px rgba(232, 101, 10, 0.12);
+        }
+
+        .offer-visual {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .offer-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.4s var(--ease-luxury);
+        }
+
+        .offer-card:hover .offer-visual img {
+            transform: scale(1.08);
+        }
+
+        .offer-validity {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(27, 40, 69, 0.9);
+            backdrop-filter: blur(10px);
+            color: var(--brand-cream);
+            padding: 8px 14px;
+            border-radius: 99px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 1;
+        }
+
+        .offer-validity-icon {
+            font-size: 12px;
+        }
+
+        .offer-content {
+            padding: 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-title {
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 500;
+            color: var(--brand-navy);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .offer-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .offer-features {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .offer-features li {
+            font-size: 13px;
+            color: var(--text-primary);
+            padding-left: 22px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .offer-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--brand-orange);
+            font-weight: 700;
+        }
+
+        .offer-footer {
+            padding-top: 20px;
+            border-top: 1px solid rgba(232, 101, 10, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .offer-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-price .from {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            font-weight: 600;
+        }
+
+        .offer-price .amount {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--brand-navy);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .offer-price .per {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .offer-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--brand-orange);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s var(--ease-luxury);
+        }
+
+        .offer-cta:hover {
+            background: var(--brand-orange-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(232, 101, 10, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .offers-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .offers-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== SEASONAL SPECIAL ===== */
+        .seasonal {
+            background: linear-gradient(180deg, var(--brand-navy) 0%, #0F1A2E 100%);
+       .hamburger { display: flex; }
             .nav-links {
                 position: fixed;
                 top: 0;
